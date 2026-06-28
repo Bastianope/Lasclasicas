@@ -133,9 +133,10 @@ export default async function AnunciosPage({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {anuncios?.map((anuncio: any) => (
-          <div
+          <Link
             key={anuncio.id}
-            className="bg-surface rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition group cursor-pointer"
+            href={`/anuncios/${anuncio.id}`}
+            className="bg-surface rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition group cursor-pointer block"
           >
             <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
               <span className="text-gray-600 text-sm">Sin foto disponible</span>
@@ -161,7 +162,7 @@ export default async function AnunciosPage({
                 <span>{anuncio.ciudad}, {anuncio.provincia}</span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </main>
