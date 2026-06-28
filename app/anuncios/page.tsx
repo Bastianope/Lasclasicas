@@ -6,7 +6,7 @@ export const revalidate = 0;
 export default async function AnunciosPage({
   searchParams,
 }: {
-  searchParams: { marca?: string };
+  searchParams: { marca?: string; orden?: string };
 }) {
   const supabase = createClient();
 
@@ -31,14 +31,29 @@ export default async function AnunciosPage({
       modelos ( nombre )
     `
     )
-    .eq("estado", "activo")
-    .order("created_at", { ascending: false });
+    .eq("estado", "activo");
 
   if (searchParams.marca) {
     query = query.eq("marca_id", searchParams.marca);
   }
 
+  if (searchParams.orden === "precio_asc") {
+    query = query.order("precio", { ascending: true });
+  } else if (searchParams.orden === "precio_desc") {
+    query = query.order("precio", { ascending: false });
+  } else {
+    query = query.order("created_at", { ascending: false });
+  }
+
   const { data: anuncios, error } = await query;
+
+  const buildHref = (params: { marca?: string; orden?: string }) => {
+    const sp = new URLSearchParams();
+    if (params.marca) sp.set("marca", params.marca);
+    if (params.orden) sp.set("orden", params.orden);
+    const qs = sp.toString();
+    return `/anuncios${qs ? `?${qs}` : ""}`;
+  };
 
   return (
     <main className="px-4 py-12 max-w-6xl mx-auto">
@@ -47,9 +62,9 @@ export default async function AnunciosPage({
       </h1>
 
       {/* Filtres par marque */}
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex flex-wrap gap-2 mb-4">
         <Link
-          href="/anuncios"
+          href={buildHref({ orden: searchParams.orden })}
           className={`px-4 py-2 rounded-full text-sm border transition ${
             !searchParams.marca
               ? "bg-accent text-background border-accent"
@@ -61,7 +76,7 @@ export default async function AnunciosPage({
         {marcas?.map((marca) => (
           <Link
             key={marca.id}
-            href={`/anuncios?marca=${marca.id}`}
+            href={buildHref({ marca: marca.id, orden: searchParams.orden })}
             className={`px-4 py-2 rounded-full text-sm border transition ${
               searchParams.marca === marca.id
                 ? "bg-accent text-background border-accent"
@@ -71,6 +86,41 @@ export default async function AnunciosPage({
             {marca.nombre}
           </Link>
         ))}
+      </div>
+
+      {/* Tri par prix */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        <span className="text-gray-500 text-sm self-center mr-2">Ordenar:</span>
+        <Link
+          href={buildHref({ marca: searchParams.marca })}
+          className={`px-3 py-1.5 rounded-full text-xs border transition ${
+            !searchParams.orden
+              ? "bg-accent text-background border-accent"
+              : "border-gray-700 text-gray-300 hover:border-accent"
+          }`}
+        >
+          Más recientes
+        </Link>
+        <Link
+          href={buildHref({ marca: searchParams.marca, orden: "precio_asc" })}
+          className={`px-3 py-1.5 rounded-full text-xs border transition ${
+            searchParams.orden === "precio_asc"
+              ? "bg-accent text-background border-accent"
+              : "border-gray-700 text-gray-300 hover:border-accent"
+          }`}
+        >
+          Precio: menor a mayor
+        </Link>
+        <Link
+          href={buildHref({ marca: searchParams.marca, orden: "precio_desc" })}
+          className={`px-3 py-1.5 rounded-full text-xs border transition ${
+            searchParams.orden === "precio_desc"
+              ? "bg-accent text-background border-accent"
+              : "border-gray-700 text-gray-300 hover:border-accent"
+          }`}
+        >
+          Precio: mayor a menor
+        </Link>
       </div>
 
       {error && (
