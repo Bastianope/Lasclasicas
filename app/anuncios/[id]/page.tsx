@@ -33,6 +33,8 @@ export default async function AnuncioDetailPage({
     notFound();
   }
 
+  const data = anuncio as any;
+
   return (
     <main className="px-4 py-12 max-w-4xl mx-auto">
       <Link
@@ -50,22 +52,22 @@ export default async function AnuncioDetailPage({
         <div className="p-8">
           <div className="flex justify-between items-start mb-4">
             <h1 className="text-3xl font-bold text-white">
-              {anuncio.marcas?.nombre} {anuncio.modelos?.nombre}
+              {data.marcas?.nombre} {data.modelos?.nombre}
             </h1>
-            <span className="text-gray-400 text-lg">{anuncio.anio}</span>
+            <span className="text-gray-400 text-lg">{data.anio}</span>
           </div>
 
           <p className="text-3xl font-bold text-accent mb-6">
-            {anuncio.moneda} {Number(anuncio.precio).toLocaleString("es-AR")}
+            {data.moneda} {Number(data.precio).toLocaleString("es-AR")}
           </p>
 
           <h2 className="text-lg font-semibold text-white mb-2">Descripción</h2>
           <p className="text-gray-300 mb-6 leading-relaxed">
-            {anuncio.descripcion}
+            {data.descripcion}
           </p>
 
           <div className="flex items-center text-gray-400 text-sm border-t border-gray-800 pt-4">
-            <span>📍 {anuncio.ciudad}, {anuncio.provincia}</span>
+            <span>📍 {data.ciudad}, {data.provincia}</span>
           </div>
         </div>
       </div>
