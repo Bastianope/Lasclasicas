@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 export const revalidate = 0;
 
@@ -23,7 +24,8 @@ export default async function AnuncioDetailPage({
       ciudad,
       provincia,
       marcas ( nombre ),
-      modelos ( nombre )
+      modelos ( nombre ),
+      anuncio_imagenes ( url, orden )
     `
     )
     .eq("id", params.id)
@@ -34,6 +36,8 @@ export default async function AnuncioDetailPage({
   }
 
   const data = anuncio as any;
+  const fotos = data.anuncio_imagenes?.sort((a: any, b: any) => a.orden - b.orden) || [];
+  const fotoPrincipal = fotos[0]?.url || null;
 
   return (
     <main className="px-4 py-12 max-w-4xl mx-auto">
@@ -45,8 +49,19 @@ export default async function AnuncioDetailPage({
       </Link>
 
       <div className="bg-surface rounded-xl overflow-hidden border border-gray-800">
-        <div className="h-72 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-          <span className="text-gray-600">Sin foto disponible</span>
+        <div className="relative h-72 bg-gradient-to-br from-gray-800 to-gray-900">
+          {fotoPrincipal ? (
+            <Image
+              src={fotoPrincipal}
+              alt={`${data.marcas?.nombre} ${data.modelos?.nombre}`}
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full">
+              <span className="text-gray-600">Sin foto disponible</span>
+            </div>
+          )}
         </div>
 
         <div className="p-8">
