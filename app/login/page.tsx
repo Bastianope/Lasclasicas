@@ -21,11 +21,17 @@ export default function LoginPage() {
     setMessage(null);
     setLoading(true);
 
-    if (mode === "signup") {
-      const { error } = await supabase.auth.signUp({ email, password });
+if (mode === "signup") {
+      const { data, error } = await supabase.auth.signUp({ email, password });
       if (error) {
         setError(error.message);
       } else {
+        if (data.user) {
+          await supabase.from("profiles").insert({
+            id: data.user.id,
+            nombre: email,
+          });
+        }
         setMessage("¡Cuenta creada! Revisá tu email para confirmar.");
       }
     } else {
