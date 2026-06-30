@@ -31,8 +31,14 @@ export default async function RootLayout({
               <Link href="/anuncios" className="text-gray-300 hover:text-accent">
                 Anuncios
               </Link>
-              {user ? (
+{user ? (
                 <>
+                  <Link
+                    href="/anuncios/nuevo"
+                    className="bg-accent text-background font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition"
+                  >
+                    Publicar Anuncio
+                  </Link>
                   <span className="text-gray-500">{user.email}</span>
                   <LogoutButton />
                 </>
