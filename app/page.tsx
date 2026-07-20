@@ -1,6 +1,7 @@
 import MapaArgentina from '@/components/MapaArgentina'
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import FavoritoButton from "@/components/FavoritoButton";
 
 export const revalidate = 0;
 
@@ -153,26 +154,31 @@ export default async function HomePage() {
             const imgs = anuncio.anuncio_imagenes || []
             const img = imgs.find((i: any) => i.es_principal) || imgs[0]
             return (
-              <Link key={anuncio.id} href={`/anuncios/${anuncio.id}`}
-                className="group bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-[#D4A847] transition-all">
-                <div className="aspect-[4/3] overflow-hidden bg-white/5">
-                  {img ? (
-                    <img src={img.url} alt={anuncio.titulo || ''} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-white/20 text-4xl">🚗</div>
-                  )}
-                </div>
-                <div className="p-4">
-                  <p className="text-white/40 text-xs mb-1">{(anuncio.marcas as any)?.nombre} · {anuncio.anio}</p>
-                  <h3 className="font-semibold text-white text-sm mb-3 line-clamp-2">
-                    {anuncio.titulo || `${(anuncio.marcas as any)?.nombre} ${(anuncio.modelos as any)?.nombre}`}
-                  </h3>
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-[#D4A847]">{anuncio.moneda} {Number(anuncio.precio).toLocaleString('es-AR')}</span>
-                    <span className="text-xs text-white/30 bg-white/5 px-2 py-1 rounded-full">{anuncio.provincia}</span>
+              <div key={anuncio.id} className="relative">
+                <Link href={`/anuncios/${anuncio.id}`}
+                  className="group bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-[#D4A847] transition-all block">
+                  <div className="aspect-[4/3] overflow-hidden bg-white/5">
+                    {img ? (
+                      <img src={img.url} alt={anuncio.titulo || ''} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-white/20 text-4xl">🚗</div>
+                    )}
                   </div>
+                  <div className="p-4">
+                    <p className="text-white/40 text-xs mb-1">{(anuncio.marcas as any)?.nombre} · {anuncio.anio}</p>
+                    <h3 className="font-semibold text-white text-sm mb-3 line-clamp-2">
+                      {anuncio.titulo || `${(anuncio.marcas as any)?.nombre} ${(anuncio.modelos as any)?.nombre}`}
+                    </h3>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-[#D4A847]">{anuncio.moneda} {Number(anuncio.precio).toLocaleString('es-AR')}</span>
+                      <span className="text-xs text-white/30 bg-white/5 px-2 py-1 rounded-full">{anuncio.provincia}</span>
+                    </div>
+                  </div>
+                </Link>
+                <div className="absolute top-3 right-3">
+                  <FavoritoButton anuncioId={anuncio.id} />
                 </div>
-              </Link>
+              </div>
             )
           })}
         </div>

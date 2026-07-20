@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import EnviarMensajeForm from '@/components/EnviarMensajeForm'
+import FavoritoButton from '@/components/FavoritoButton'
 
 interface Props {
   params: { id: string }
@@ -61,7 +62,7 @@ const whatsappUrl = vendedor?.telefono
           <div className="lg:col-span-2 space-y-6">
 
             {/* PHOTO PRINCIPALE */}
-            <div className="aspect-[16/9] bg-white/5 rounded-2xl overflow-hidden border border-white/10">
+            <div className="relative aspect-[16/9] bg-white/5 rounded-2xl overflow-hidden border border-white/10">
               {imgPrincipal ? (
                 <img
                   src={imgPrincipal.url}
@@ -73,6 +74,9 @@ const whatsappUrl = vendedor?.telefono
                   🚗
                 </div>
               )}
+              <div className="absolute top-3 right-3">
+                <FavoritoButton anuncioId={anuncio.id} />
+              </div>
             </div>
 
             {/* GALERIE MINIATURES */}

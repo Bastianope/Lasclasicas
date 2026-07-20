@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
+import FavoritoButton from "@/components/FavoritoButton";
 
 export const revalidate = 0;
 
@@ -135,11 +136,11 @@ let query = supabase
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {anuncios?.map((anuncio: any) => (
-          <Link
-            key={anuncio.id}
-            href={`/anuncios/${anuncio.id}`}
-            className="bg-surface rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition group cursor-pointer block"
-          >
+          <div key={anuncio.id} className="relative">
+            <Link
+              href={`/anuncios/${anuncio.id}`}
+              className="bg-surface rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition group cursor-pointer block"
+            >
 {(anuncio.anuncio_imagenes as any[])?.[0]?.url ? (
   <div className="h-48 overflow-hidden">
     <img
@@ -174,7 +175,11 @@ let query = supabase
                 <span>{anuncio.ciudad}, {anuncio.provincia}</span>
               </div>
             </div>
-          </Link>
+            </Link>
+            <div className="absolute top-3 right-3">
+              <FavoritoButton anuncioId={anuncio.id} />
+            </div>
+          </div>
         ))}
       </div>
     </main>
