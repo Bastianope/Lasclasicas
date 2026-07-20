@@ -33,9 +33,12 @@ export default async function RootLayout({
               </Link>
 {user ? (
                 <>
-                  <Link href="/favoritos" className="text-gray-300 hover:text-accent">
-                    Favoritos
-                  </Link>
+<Link href="/favoritos" className="text-gray-300 hover:text-accent">
+                      Favoritos
+                    </Link>
+                    <Link href="/perfil" className="text-gray-300 hover:text-accent">
+                      Mi perfil
+                    </Link>
                   <Link
                     href="/anuncios/nuevo"
                     className="bg-accent text-background font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition"
