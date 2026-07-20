@@ -15,23 +15,25 @@ export default async function AnunciosPage({
     .select("id, nombre")
     .order("nombre");
 
-  let query = supabase
-    .from("anuncios")
-    .select(
-      `
-      id,
-      anio,
-      precio,
-      moneda,
-      descripcion,
-      ciudad,
-      provincia,
-      marca_id,
-      marcas ( nombre ),
-      modelos ( nombre )
-    `
-    )
-    .eq("estado", "activo");
+let query = supabase
+  .from("anuncios")
+  .select(`
+    id,
+    anio,
+    precio,
+    moneda,
+    descripcion,
+    ciudad,
+    provincia,
+    marca_id,
+    titulo,
+    kilometraje,
+    condicion,
+    marcas ( nombre ),
+    modelos ( nombre ),
+    anuncio_imagenes ( url, es_principal, orden )
+  `)
+  .eq("estado", "activo");
 
   if (searchParams.marca) {
     query = query.eq("marca_id", searchParams.marca);
@@ -138,14 +140,32 @@ export default async function AnunciosPage({
             href={`/anuncios/${anuncio.id}`}
             className="bg-surface rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition group cursor-pointer block"
           >
-            <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-              <span className="text-gray-600 text-sm">Sin foto disponible</span>
-            </div>
+<div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+  <span className="text-gray-600 text-sm">Sin foto disponible</span>
+</div>{(() => {
+  const imgs = (anuncio.anuncio_imagenes as any[]) || []
+  const img = imgs.find(i => i.es_principal) || imgs[0]
+  return (
+    <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+      {img ? (
+        <img
+          src={img.url}
+          alt={anuncio.titulo || ''}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center text-gray-600 text-sm">
+          Sin foto disponible
+        </div>
+      )}
+    </div>
+  )
+})()}
 
             <div className="p-5">
               <div className="flex justify-between items-start mb-2">
                 <h2 className="text-lg font-semibold text-white">
-                  {anuncio.marcas?.nombre} {anuncio.modelos?.nombre}
+                {anuncio.titulo || `${anuncio.marcas?.nombre} ${anuncio.modelos?.nombre}`}
                 </h2>
                 <span className="text-gray-400 text-sm">{anuncio.anio}</span>
               </div>
