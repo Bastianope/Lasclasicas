@@ -15,26 +15,26 @@ export default function NuevoAnuncioPage() {
   const [marcas, setMarcas] = useState<Marca[]>([]);
   const [modelos, setModelos] = useState<Modelo[]>([]);
 
+  const [titulo, setTitulo] = useState("");
   const [marcaId, setMarcaId] = useState("");
   const [modeloId, setModeloId] = useState("");
   const [anio, setAnio] = useState("");
   const [precio, setPrecio] = useState("");
   const [moneda, setMoneda] = useState("ARS");
+  const [kilometraje, setKilometraje] = useState("");
+  const [condicion, setCondicion] = useState("bueno");
   const [descripcion, setDescripcion] = useState("");
   const [ciudad, setCiudad] = useState("");
   const [provincia, setProvincia] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [foto, setFoto] = useState<File | null>(null);
-const [titulo, setTitulo] = useState("");
-const [kilometraje, setKilometraje] = useState("");
-const [condicion, setCondicion] = useState("bueno");
+
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const checkUser = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      const { data: { user } } = await supabase.auth.getUser();
       if (!user) {
         router.push("/login");
         return;
@@ -53,10 +53,7 @@ const [condicion, setCondicion] = useState("bueno");
   }, []);
 
   useEffect(() => {
-    if (!marcaId) {
-      setModelos([]);
-      return;
-    }
+    if (!marcaId) { setModelos([]); return; }
     const loadModelos = async () => {
       const { data } = await supabase
         .from("modelos")
@@ -73,10 +70,7 @@ const [condicion, setCondicion] = useState("bueno");
     setError(null);
     setLoading(true);
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
+    const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       setError("Tenés que iniciar sesión.");
       setLoading(false);
@@ -96,9 +90,9 @@ const [condicion, setCondicion] = useState("bueno");
         ciudad,
         provincia,
         estado: "activo",
-          titulo,                       
-  kilometraje: Number(kilometraje) || null,
-  condicion,   
+        titulo,
+        kilometraje: Number(kilometraje) || null,
+        condicion,
       })
       .select()
       .single();
@@ -109,22 +103,29 @@ const [condicion, setCondicion] = useState("bueno");
       return;
     }
 
+    // Met à jour le téléphone du profil vendeur
+    if (telefono) {
+      await supabase
+        .from("profiles")
+        .update({ telefono })
+        .eq("id", user.id);
+    }
+
     if (foto) {
       const fileExt = foto.name.split(".").pop();
       const filePath = `${user.id}/${anuncio.id}.${fileExt}`;
-
       const { error: uploadError } = await supabase.storage
         .from("anuncios-fotos")
         .upload(filePath, foto);
 
       if (!uploadError) {
-        const {
-          data: { publicUrl },
-        } = supabase.storage.from("anuncios-fotos").getPublicUrl(filePath);
-
+        const { data: { publicUrl } } = supabase.storage
+          .from("anuncios-fotos")
+          .getPublicUrl(filePath);
         await supabase.from("anuncio_imagenes").insert({
           anuncio_id: anuncio.id,
           url: publicUrl,
+          es_principal: true,
           orden: 0,
         });
       }
@@ -143,27 +144,36 @@ const [condicion, setCondicion] = useState("bueno");
       <h1 className="text-3xl font-bold text-accent mb-8">Publicar Anuncio</h1>
 
       <form onSubmit={handleSubmit} className="space-y-5">
+
+        {/* TITULO */}
+        <div>
+          <label className="block text-gray-300 text-sm mb-1">Título del anuncio</label>
+          <input
+            type="text"
+            required
+            placeholder="Ej: Ford Falcon Sprint 1978 impecable"
+            value={titulo}
+            onChange={(e) => setTitulo(e.target.value)}
+            className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+          />
+        </div>
+
+        {/* MARCA / MODELO */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-300 text-sm mb-1">Marca</label>
             <select
               required
               value={marcaId}
-              onChange={(e) => {
-                setMarcaId(e.target.value);
-                setModeloId("");
-              }}
+              onChange={(e) => { setMarcaId(e.target.value); setModeloId(""); }}
               className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
             >
               <option value="">Seleccionar</option>
               {marcas.map((m) => (
-                <option key={m.id} value={m.id}>
-                  {m.nombre}
-                </option>
+                <option key={m.id} value={m.id}>{m.nombre}</option>
               ))}
             </select>
           </div>
-
           <div>
             <label className="block text-gray-300 text-sm mb-1">Modelo</label>
             <select
@@ -175,14 +185,13 @@ const [condicion, setCondicion] = useState("bueno");
             >
               <option value="">Seleccionar</option>
               {modelos.map((m) => (
-                <option key={m.id} value={m.id}>
-                  {m.nombre}
-                </option>
+                <option key={m.id} value={m.id}>{m.nombre}</option>
               ))}
             </select>
           </div>
         </div>
 
+        {/* AÑO / PRECIO */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-300 text-sm mb-1">Año</label>
@@ -196,7 +205,6 @@ const [condicion, setCondicion] = useState("bueno");
               className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
             />
           </div>
-
           <div>
             <label className="block text-gray-300 text-sm mb-1">Precio (ARS)</label>
             <input
@@ -209,29 +217,35 @@ const [condicion, setCondicion] = useState("bueno");
             />
           </div>
         </div>
-<div>
-  <label className="block text-gray-300 text-sm mb-1">Kilómetros</label>
-  <input
-    type="number"
-    min="0"
-    placeholder="Ej: 85000"
-    value={kilometraje}
-    onChange={(e) => setKilometraje(e.target.value)}
-    className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
-  />
-</div>
 
-<div>
-  <label className="block text-gray-300 text-sm mb-1">Estado</label>
-  <select
-    value={condicion}
-    onChange={(e) => setCondicion(e.target.value)}
-    className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none">
-    <option value="excelente">Excelente</option>
-    <option value="bueno">Bueno</option>
-    <option value="regular">Regular</option>
-  </select>
-</div>
+        {/* KILOMETRAJE / ESTADO */}
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-gray-300 text-sm mb-1">Kilómetros</label>
+            <input
+              type="number"
+              min="0"
+              placeholder="Ej: 85000"
+              value={kilometraje}
+              onChange={(e) => setKilometraje(e.target.value)}
+              className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-300 text-sm mb-1">Estado</label>
+            <select
+              value={condicion}
+              onChange={(e) => setCondicion(e.target.value)}
+              className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+            >
+              <option value="excelente">Excelente</option>
+              <option value="bueno">Bueno</option>
+              <option value="regular">Regular</option>
+            </select>
+          </div>
+        </div>
+
+        {/* DESCRIPCION */}
         <div>
           <label className="block text-gray-300 text-sm mb-1">Descripción</label>
           <textarea
@@ -243,6 +257,7 @@ const [condicion, setCondicion] = useState("bueno");
           />
         </div>
 
+        {/* CIUDAD / PROVINCIA */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-300 text-sm mb-1">Ciudad</label>
@@ -254,7 +269,6 @@ const [condicion, setCondicion] = useState("bueno");
               className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
             />
           </div>
-
           <div>
             <label className="block text-gray-300 text-sm mb-1">Provincia</label>
             <input
@@ -267,6 +281,20 @@ const [condicion, setCondicion] = useState("bueno");
           </div>
         </div>
 
+        {/* TELEFONO */}
+        <div>
+          <label className="block text-gray-300 text-sm mb-1">WhatsApp / Teléfono</label>
+          <input
+            type="tel"
+            placeholder="Ej: 5491112345678"
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
+            className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+          />
+          <p className="text-gray-500 text-xs mt-1">Formato internacional sin + (ej: 5491112345678)</p>
+        </div>
+
+        {/* FOTO */}
         <div>
           <label className="block text-gray-300 text-sm mb-1">Foto</label>
           <input
@@ -284,19 +312,9 @@ const [condicion, setCondicion] = useState("bueno");
           disabled={loading}
           className="w-full bg-accent text-background font-semibold py-3 rounded-lg hover:opacity-90 transition disabled:opacity-50"
         >
-          <div>
-  <label className="block text-gray-300 text-sm mb-1">Título del anuncio</label>
-  <input
-    type="text"
-    required
-    placeholder="Ej: Ford Falcon Sprint 1978 impecable"
-    value={titulo}
-    onChange={(e) => setTitulo(e.target.value)}
-    className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
-  />
-</div>
           {loading ? "Publicando..." : "Publicar Anuncio"}
         </button>
+
       </form>
     </main>
   );
