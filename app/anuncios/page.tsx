@@ -31,7 +31,6 @@ let query = supabase
     condicion,
     marcas ( nombre ),
     modelos ( nombre ),
-    anuncio_imagenes ( url, es_principal, orden ),
     anuncio_imagenes ( url, es_principal, orden )
   `)
   .eq("estado", "activo");
