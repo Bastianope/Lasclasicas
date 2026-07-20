@@ -1,3 +1,4 @@
+import MapaArgentina from '@/components/MapaArgentina'
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
@@ -76,7 +77,34 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
-
+{/* CARTE INTERACTIVE */}
+<section className="max-w-7xl mx-auto px-4 py-16">
+  <div className="flex flex-col lg:flex-row gap-8 items-center">
+    <div className="lg:w-2/5">
+      <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-4">
+        Todo el país
+      </p>
+      <h2 className="text-3xl font-bold text-white mb-4">
+        Clásicos en toda Argentina
+      </h2>
+      <p className="text-white/50 mb-8">
+        Desde Buenos Aires hasta la Patagonia — encontrá tu clásico cerca tuyo o en cualquier provincia.
+      </p>
+      <div className="flex flex-col gap-2">
+        {['Buenos Aires','Córdoba','Rosario','Mendoza','Santa Fe','Neuquén'].map(ciudad => (
+          <a key={ciudad} href={`/anuncios?provincia=${encodeURIComponent(ciudad)}`}
+            className="flex items-center justify-between px-4 py-2.5 rounded-xl border border-white/10 hover:border-[#D4A847] hover:text-[#D4A847] text-white/60 text-sm transition-all group">
+            <span>{ciudad}</span>
+            <span className="text-white/20 group-hover:text-[#D4A847] transition-colors">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+    <div className="lg:w-3/5 w-full rounded-2xl overflow-hidden border border-[#D4A847]/20">
+      <MapaArgentina />
+    </div>
+  </div>
+</section>
       <section className="max-w-7xl mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-white">Últimos anuncios</h2>
