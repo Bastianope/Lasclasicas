@@ -140,27 +140,19 @@ let query = supabase
             href={`/anuncios/${anuncio.id}`}
             className="bg-surface rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition group cursor-pointer block"
           >
-<div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-  <span className="text-gray-600 text-sm">Sin foto disponible</span>
-</div>{(() => {
-  const imgs = (anuncio.anuncio_imagenes as any[]) || []
-  const img = imgs.find(i => i.es_principal) || imgs[0]
-  return (
-    <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
-      {img ? (
-        <img
-          src={img.url}
-          alt={anuncio.titulo || ''}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-      ) : (
-        <div className="w-full h-full flex items-center justify-center text-gray-600 text-sm">
-          Sin foto disponible
-        </div>
-      )}
-    </div>
-  )
-})()}
+{(anuncio.anuncio_imagenes as any[])?.[0]?.url ? (
+  <div className="h-48 overflow-hidden">
+    <img
+      src={(anuncio.anuncio_imagenes as any[]).find((i: any) => i.es_principal)?.url || (anuncio.anuncio_imagenes as any[])[0].url}
+      alt={anuncio.titulo || ''}
+      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+    />
+  </div>
+) : (
+  <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+    <span className="text-gray-600 text-sm">Sin foto disponible</span>
+  </div>
+)}
 
             <div className="p-5">
               <div className="flex justify-between items-start mb-2">
