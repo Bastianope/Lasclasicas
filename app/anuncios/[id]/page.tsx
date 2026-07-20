@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
+import EnviarMensajeForm from '@/components/EnviarMensajeForm'
 
 interface Props {
   params: { id: string }
@@ -180,10 +181,8 @@ const whatsappUrl = vendedor?.telefono
     Contactar por WhatsApp
   </a>
 )}
-              <button
-                className="w-full border border-white/20 text-white/70 py-3 rounded-xl text-sm font-medium hover:border-white/40 hover:text-white transition-colors">
-                Enviar mensaje
-              </button>
+
+              <EnviarMensajeForm anuncioId={anuncio.id} destinatarioId={anuncio.vendedor_id} />
             </div>
 
             {/* INFOS RAPIDES */}
