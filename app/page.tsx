@@ -168,3 +168,39 @@ export default async function HomePage() {
     </main>
   );
 }
+{/* CATEGORÍAS */}
+<section className="max-w-7xl mx-auto px-4 pb-4">
+  <h2 className="text-2xl font-bold text-white mb-6">Explorar por categoría</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <a href="/anuncios?categoria=clasico"
+      className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
+      <img src="/280sl.jpg" alt="Clásicos"
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
+      <div className="absolute bottom-0 left-0 p-4">
+        <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Pre-1980</p>
+        <h3 className="text-white font-bold text-lg">Clásicos</h3>
+      </div>
+    </a>
+    <a href="/anuncios?categoria=youngTimer"
+      className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
+      <img src="/E30av.jpg" alt="Youngtimers"
+        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
+      <div className="absolute bottom-0 left-0 p-4">
+        <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">1980–2000</p>
+        <h3 className="text-white font-bold text-lg">Youngtimers</h3>
+      </div>
+    </a>
+    <a href="/anuncios?categoria=sport"
+      className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
+      <img src="/E30cap.jpg" alt="Sport & GT"
+        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
+      <div className="absolute bottom-0 left-0 p-4">
+        <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Exclusivo</p>
+        <h3 className="text-white font-bold text-lg">Sport & GT</h3>
+      </div>
+    </a>
+  </div>
+</section>
