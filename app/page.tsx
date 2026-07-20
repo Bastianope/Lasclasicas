@@ -27,7 +27,6 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
 
-     
       <section className="relative overflow-hidden h-[85vh] min-h-[600px]">
         <div className="absolute inset-0">
           <img src="/hero.jpg" alt="Las Clásicas" className="w-full h-full object-cover object-center" />
@@ -77,34 +76,73 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
-{/* CARTE INTERACTIVE */}
-<section className="max-w-7xl mx-auto px-4 py-16">
-  <div className="flex flex-col lg:flex-row gap-8 items-center">
-    <div className="lg:w-2/5">
-      <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-4">
-        Todo el país
-      </p>
-      <h2 className="text-3xl font-bold text-white mb-4">
-        Clásicos en toda Argentina
-      </h2>
-      <p className="text-white/50 mb-8">
-        Desde Buenos Aires hasta la Patagonia — encontrá tu clásico cerca tuyo o en cualquier provincia.
-      </p>
-      <div className="flex flex-col gap-2">
-        {['Buenos Aires','Córdoba','Rosario','Mendoza','Santa Fe','Neuquén'].map(ciudad => (
-          <a key={ciudad} href={`/anuncios?provincia=${encodeURIComponent(ciudad)}`}
-            className="flex items-center justify-between px-4 py-2.5 rounded-xl border border-white/10 hover:border-[#D4A847] hover:text-[#D4A847] text-white/60 text-sm transition-all group">
-            <span>{ciudad}</span>
-            <span className="text-white/20 group-hover:text-[#D4A847] transition-colors">→</span>
+
+      {/* CARTE INTERACTIVE */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <div className="flex flex-col lg:flex-row gap-8 items-center">
+          <div className="lg:w-2/5">
+            <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-4">
+              Todo el país
+            </p>
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Clásicos en toda Argentina
+            </h2>
+            <p className="text-white/50 mb-8">
+              Desde Buenos Aires hasta la Patagonia — encontrá tu clásico cerca tuyo o en cualquier provincia.
+            </p>
+            <div className="flex flex-col gap-2">
+              {['Buenos Aires','Córdoba','Rosario','Mendoza','Santa Fe','Neuquén'].map(ciudad => (
+                <a key={ciudad} href={`/anuncios?provincia=${encodeURIComponent(ciudad)}`}
+                  className="flex items-center justify-between px-4 py-2.5 rounded-xl border border-white/10 hover:border-[#D4A847] hover:text-[#D4A847] text-white/60 text-sm transition-all group">
+                  <span>{ciudad}</span>
+                  <span className="text-white/20 group-hover:text-[#D4A847] transition-colors">→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="lg:w-3/5 w-full rounded-2xl overflow-hidden border border-[#D4A847]/20">
+            <MapaArgentina />
+          </div>
+        </div>
+      </section>
+
+      {/* CATEGORÍAS */}
+      <section className="max-w-7xl mx-auto px-4 pb-4">
+        <h2 className="text-2xl font-bold text-white mb-6">Explorar por categoría</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <a href="/anuncios?categoria=clasico"
+            className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
+            <img src="/280sl.jpg" alt="Clásicos"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
+            <div className="absolute bottom-0 left-0 p-4">
+              <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Pre-1980</p>
+              <h3 className="text-white font-bold text-lg">Clásicos</h3>
+            </div>
           </a>
-        ))}
-      </div>
-    </div>
-    <div className="lg:w-3/5 w-full rounded-2xl overflow-hidden border border-[#D4A847]/20">
-      <MapaArgentina />
-    </div>
-  </div>
-</section>
+          <a href="/anuncios?categoria=youngTimer"
+            className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
+            <img src="/E30av.jpg" alt="Youngtimers"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
+            <div className="absolute bottom-0 left-0 p-4">
+              <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">1980–2000</p>
+              <h3 className="text-white font-bold text-lg">Youngtimers</h3>
+            </div>
+          </a>
+          <a href="/anuncios?categoria=sport"
+            className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
+            <img src="/E30cap.jpg" alt="Sport & GT"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
+            <div className="absolute bottom-0 left-0 p-4">
+              <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Exclusivo</p>
+              <h3 className="text-white font-bold text-lg">Sport & GT</h3>
+            </div>
+          </a>
+        </div>
+      </section>
+
       <section className="max-w-7xl mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-white">Últimos anuncios</h2>
@@ -168,39 +206,3 @@ export default async function HomePage() {
     </main>
   );
 }
-{/* CATEGORÍAS */}
-<section className="max-w-7xl mx-auto px-4 pb-4">
-  <h2 className="text-2xl font-bold text-white mb-6">Explorar por categoría</h2>
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-    <a href="/anuncios?categoria=clasico"
-      className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
-      <img src="/280sl.jpg" alt="Clásicos"
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
-      <div className="absolute bottom-0 left-0 p-4">
-        <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Pre-1980</p>
-        <h3 className="text-white font-bold text-lg">Clásicos</h3>
-      </div>
-    </a>
-    <a href="/anuncios?categoria=youngTimer"
-      className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
-      <img src="/E30av.jpg" alt="Youngtimers"
-        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
-      <div className="absolute bottom-0 left-0 p-4">
-        <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">1980–2000</p>
-        <h3 className="text-white font-bold text-lg">Youngtimers</h3>
-      </div>
-    </a>
-    <a href="/anuncios?categoria=sport"
-      className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
-      <img src="/E30cap.jpg" alt="Sport & GT"
-        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
-      <div className="absolute bottom-0 left-0 p-4">
-        <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Exclusivo</p>
-        <h3 className="text-white font-bold text-lg">Sport & GT</h3>
-      </div>
-    </a>
-  </div>
-</section>
