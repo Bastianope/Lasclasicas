@@ -26,18 +26,7 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
 
-      <nav className="border-b border-white/10 bg-[#0F1117]/95 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-[#D4A847]">Las Clásicas</Link>
-          <div className="hidden md:flex items-center gap-6 text-sm text-white/70">
-            <Link href="/anuncios" className="hover:text-white transition-colors">Anuncios</Link>
-            <Link href="/anuncios/nuevo" className="bg-[#D4A847] text-black px-4 py-2 rounded-lg font-semibold hover:bg-[#C49B35] transition-colors">
-              Publicar anuncio
-            </Link>
-          </div>
-        </div>
-      </nav>
-
+     
       <section className="relative overflow-hidden h-[85vh] min-h-[600px]">
         <div className="absolute inset-0">
           <img src="/hero.jpg" alt="Las Clásicas" className="w-full h-full object-cover object-center" />
