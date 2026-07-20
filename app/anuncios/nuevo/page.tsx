@@ -24,7 +24,9 @@ export default function NuevoAnuncioPage() {
   const [ciudad, setCiudad] = useState("");
   const [provincia, setProvincia] = useState("");
   const [foto, setFoto] = useState<File | null>(null);
-
+const [titulo, setTitulo] = useState("");
+const [kilometraje, setKilometraje] = useState("");
+const [condicion, setCondicion] = useState("bueno");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -94,6 +96,9 @@ export default function NuevoAnuncioPage() {
         ciudad,
         provincia,
         estado: "activo",
+          titulo,                       
+  kilometraje: Number(kilometraje) || null,
+  condicion,   
       })
       .select()
       .single();
@@ -204,7 +209,29 @@ export default function NuevoAnuncioPage() {
             />
           </div>
         </div>
+<div>
+  <label className="block text-gray-300 text-sm mb-1">Kilómetros</label>
+  <input
+    type="number"
+    min="0"
+    placeholder="Ej: 85000"
+    value={kilometraje}
+    onChange={(e) => setKilometraje(e.target.value)}
+    className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+  />
+</div>
 
+<div>
+  <label className="block text-gray-300 text-sm mb-1">Estado</label>
+  <select
+    value={condicion}
+    onChange={(e) => setCondicion(e.target.value)}
+    className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none">
+    <option value="excelente">Excelente</option>
+    <option value="bueno">Bueno</option>
+    <option value="regular">Regular</option>
+  </select>
+</div>
         <div>
           <label className="block text-gray-300 text-sm mb-1">Descripción</label>
           <textarea
@@ -257,6 +284,17 @@ export default function NuevoAnuncioPage() {
           disabled={loading}
           className="w-full bg-accent text-background font-semibold py-3 rounded-lg hover:opacity-90 transition disabled:opacity-50"
         >
+          <div>
+  <label className="block text-gray-300 text-sm mb-1">Título del anuncio</label>
+  <input
+    type="text"
+    required
+    placeholder="Ej: Ford Falcon Sprint 1978 impecable"
+    value={titulo}
+    onChange={(e) => setTitulo(e.target.value)}
+    className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+  />
+</div>
           {loading ? "Publicando..." : "Publicar Anuncio"}
         </button>
       </form>
