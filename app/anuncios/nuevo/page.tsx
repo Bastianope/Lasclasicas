@@ -20,7 +20,7 @@ export default function NuevoAnuncioPage() {
   const [modeloId, setModeloId] = useState("");
   const [anio, setAnio] = useState("");
   const [precio, setPrecio] = useState("");
-  const [moneda, setMoneda] = useState("ARS");
+  const [moneda, setMoneda] = useState("USD");
   const [kilometraje, setKilometraje] = useState("");
   const [condicion, setCondicion] = useState("bueno");
   const [descripcion, setDescripcion] = useState("");
@@ -191,22 +191,35 @@ export default function NuevoAnuncioPage() {
           </div>
         </div>
 
-        {/* AÑO / PRECIO */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* AÑO */}
+        <div>
+          <label className="block text-gray-300 text-sm mb-1">Año</label>
+          <input
+            type="number"
+            required
+            min="1900"
+            max="2030"
+            value={anio}
+            onChange={(e) => setAnio(e.target.value)}
+            className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+          />
+        </div>
+
+        {/* MONEDA / PRECIO */}
+        <div className="grid grid-cols-3 gap-4">
           <div>
-            <label className="block text-gray-300 text-sm mb-1">Año</label>
-            <input
-              type="number"
-              required
-              min="1900"
-              max="2030"
-              value={anio}
-              onChange={(e) => setAnio(e.target.value)}
+            <label className="block text-gray-300 text-sm mb-1">Moneda</label>
+            <select
+              value={moneda}
+              onChange={(e) => setMoneda(e.target.value)}
               className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
-            />
+            >
+              <option value="USD">USD (Dólares)</option>
+              <option value="ARS">ARS (Pesos)</option>
+            </select>
           </div>
-          <div>
-            <label className="block text-gray-300 text-sm mb-1">Precio (ARS)</label>
+          <div className="col-span-2">
+            <label className="block text-gray-300 text-sm mb-1">Precio</label>
             <input
               type="number"
               required
