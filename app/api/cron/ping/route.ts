@@ -1,9 +1,17 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 
+// Toujours exécuté à la demande, jamais mis en cache.
+export const dynamic = "force-dynamic";
+
+// Ping régulier (vercel.json) pour que Supabase ne mette pas la base en pause.
 export async function GET(request: Request) {
-  const authHeader = request.headers.get("authorization");
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  // Vercel n'envoie l'en-tête "Authorization: Bearer <CRON_SECRET>" que si la variable
+  // existe. Sans elle, l'ancien contrôle renvoyait 401 à chaque passage : la base n'était
+  // jamais touchée et finissait en pause. Le secret reste vérifié quand il est défini ;
+  // sinon on laisse passer, le ping ne faisant qu'une lecture publique.
+  const secret = process.env.CRON_SECRET;
+  if (secret && request.headers.get("authorization") !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
