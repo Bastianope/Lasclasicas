@@ -29,16 +29,10 @@ export default async function EventoDetallePage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
-      <nav className="border-b border-white/10 bg-[#0F1117]/90 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-[#D4A847]">Las Clásicas</Link>
-          <Link href="/eventos" className="text-sm text-white/60 hover:text-white transition-colors">
-            ← Volver a eventos
-          </Link>
-        </div>
-      </nav>
-
       <div className="max-w-4xl mx-auto px-4 py-8">
+        <Link href="/eventos" className="inline-block mb-6 text-sm text-white/50 hover:text-[#D4A847] transition-colors">
+          ← Volver a eventos
+        </Link>
         <div className="aspect-[16/9] bg-white/5 rounded-2xl overflow-hidden border border-white/10 mb-6">
           {evento.foto_url ? (
             <img src={evento.foto_url} alt={evento.titulo || ''} className="w-full h-full object-cover" />

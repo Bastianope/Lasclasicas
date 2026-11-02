@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import SelectProvincia from "@/components/SelectProvincia";
+import { useCategoriasManuales } from "@/lib/useCategoriasManuales";
 
 type Marca = { id: string; nombre: string };
 type Modelo = { id: string; nombre: string; marca_id: string };
@@ -28,6 +30,8 @@ export default function NuevoAnuncioPage() {
   const [provincia, setProvincia] = useState("");
   const [telefono, setTelefono] = useState("");
   const [foto, setFoto] = useState<File | null>(null);
+  const [categoriaId, setCategoriaId] = useState("");
+  const { opciones: categorias } = useCategoriasManuales();
 
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -93,6 +97,7 @@ export default function NuevoAnuncioPage() {
         titulo,
         kilometraje: Number(kilometraje) || null,
         condicion,
+        ...(categoriaId ? { categoria_id: categoriaId } : {}),
       })
       .select()
       .single();
@@ -203,7 +208,27 @@ export default function NuevoAnuncioPage() {
             onChange={(e) => setAnio(e.target.value)}
             className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
           />
+          <p className="text-gray-500 text-xs mt-1">
+            Antes de 1980 aparece en Clásicos, de 1980 a 2000 en Youngtimers.
+          </p>
         </div>
+
+        {/* CATEGORIA */}
+        {categorias.length > 0 && (
+          <div>
+            <label className="block text-gray-300 text-sm mb-1">Categoría (opcional)</label>
+            <select
+              value={categoriaId}
+              onChange={(e) => setCategoriaId(e.target.value)}
+              className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+            >
+              <option value="">Ninguna</option>
+              {categorias.map((c) => (
+                <option key={c.id} value={c.id}>{c.etiqueta}</option>
+              ))}
+            </select>
+          </div>
+        )}
 
         {/* MONEDA / PRECIO */}
         <div className="grid grid-cols-3 gap-4">
@@ -284,11 +309,10 @@ export default function NuevoAnuncioPage() {
           </div>
           <div>
             <label className="block text-gray-300 text-sm mb-1">Provincia</label>
-            <input
-              type="text"
+            <SelectProvincia
               required
               value={provincia}
-              onChange={(e) => setProvincia(e.target.value)}
+              onChange={setProvincia}
               className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
             />
           </div>

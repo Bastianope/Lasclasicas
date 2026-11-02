@@ -21,7 +21,7 @@ export default async function RootLayout({
   return (
     <html lang="es">
       <body className="bg-background text-white min-h-screen">
-        <nav className="border-b border-gray-800 px-4 py-4">
+        <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#0F1117]/90 backdrop-blur px-4">
           <NavLinks userEmail={user?.email ?? null} />
         </nav>
         {children}

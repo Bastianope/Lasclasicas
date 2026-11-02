@@ -37,26 +37,10 @@ export default async function AnuncioDetallePage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
-
-      {/* NAV */}
-      <nav className="border-b border-white/10 bg-[#0F1117]/90 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-[#D4A847]">
-            Las Clásicas
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/anuncios" className="text-sm text-white/60 hover:text-white transition-colors">
-              ← Volver a anuncios
-            </Link>
-            <Link href="/anuncios/nuevo"
-              className="bg-[#D4A847] text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#C49B35] transition-colors">
-              Publicar anuncio
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       <div className="max-w-7xl mx-auto px-4 py-8">
+        <Link href="/anuncios" className="inline-block mb-6 text-sm text-white/50 hover:text-[#D4A847] transition-colors">
+          ← Volver a anuncios
+        </Link>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
           {/* COLONNE GAUCHE — Photos + Infos */}

@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import SelectProvincia from "@/components/SelectProvincia";
+import { provinciaCanonica } from "@/lib/ubicacion";
+import { useCategoriasManuales } from "@/lib/useCategoriasManuales";
 
 type Marca = { id: string; nombre: string };
 type Modelo = { id: string; nombre: string; marca_id: string };
@@ -33,8 +36,13 @@ export default function EditarAnuncioForm({
   const [condicion, setCondicion] = useState(anuncio.condicion || "bueno");
   const [descripcion, setDescripcion] = useState(anuncio.descripcion || "");
   const [ciudad, setCiudad] = useState(anuncio.ciudad || "");
-  const [provincia, setProvincia] = useState(anuncio.provincia || "");
+  // Un valor antiguo como "Capital Federal" se normaliza a "CABA" al guardar.
+  const [provincia, setProvincia] = useState(
+    provinciaCanonica(anuncio.provincia || "") ?? anuncio.provincia ?? ""
+  );
   const [estado, setEstado] = useState(anuncio.estado || "activo");
+  const [categoriaId, setCategoriaId] = useState<string>(anuncio.categoria_id || "");
+  const { opciones: categorias } = useCategoriasManuales(anuncio.categoria_id);
 
   const [imagenes, setImagenes] = useState<Imagen[]>([]);
   const [subiendoFoto, setSubiendoFoto] = useState(false);
@@ -145,6 +153,7 @@ export default function EditarAnuncioForm({
         ciudad,
         provincia,
         estado,
+        ...(categorias.length > 0 ? { categoria_id: categoriaId || null } : {}),
       })
       .eq("id", anuncio.id);
 
@@ -274,10 +283,24 @@ export default function EditarAnuncioForm({
           </div>
           <div>
             <label className="block text-white/50 text-xs mb-1">Provincia</label>
-            <input type="text" value={provincia} onChange={(e) => setProvincia(e.target.value)}
+            <SelectProvincia value={provincia} onChange={setProvincia}
               className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm outline-none focus:border-[#D4A847]" />
           </div>
         </div>
+
+        {categorias.length > 0 && (
+          <div>
+            <label className="block text-white/50 text-xs mb-1">Categoría (opcional)</label>
+            <select value={categoriaId} onChange={(e) => setCategoriaId(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm outline-none focus:border-[#D4A847]">
+              <option value="">Ninguna</option>
+              {categorias.map((c) => (<option key={c.id} value={c.id}>{c.etiqueta}</option>))}
+            </select>
+            <p className="text-white/30 text-xs mt-1">
+              Clásicos (antes de 1980) y youngtimers (1980–2000) se clasifican solos por año.
+            </p>
+          </div>
+        )}
 
         <div>
           <label className="block text-white/50 text-xs mb-1">Estado del anuncio</label>

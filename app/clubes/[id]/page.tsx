@@ -27,16 +27,10 @@ export default async function ClubDetallePage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
-      <nav className="border-b border-white/10 bg-[#0F1117]/90 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-[#D4A847]">Las Clásicas</Link>
-          <Link href="/clubes" className="text-sm text-white/60 hover:text-white transition-colors">
-            ← Volver a clubes
-          </Link>
-        </div>
-      </nav>
-
       <div className="max-w-4xl mx-auto px-4 py-8">
+        <Link href="/clubes" className="inline-block mb-6 text-sm text-white/50 hover:text-[#D4A847] transition-colors">
+          ← Volver a clubes
+        </Link>
         <div className="bg-white/5 rounded-2xl border border-white/10 p-6 mb-8 flex items-center gap-4">
           {club.logo_url ? (
             <img src={club.logo_url} alt={club.nombre} className="w-16 h-16 rounded-full object-cover" />

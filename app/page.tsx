@@ -121,7 +121,7 @@ export default async function HomePage() {
               <h3 className="text-white font-bold text-lg">Clásicos</h3>
             </div>
           </a>
-          <a href="/anuncios?categoria=youngTimer"
+          <a href="/anuncios?categoria=youngtimer"
             className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
             <img src="/E30av.jpg" alt="Youngtimers"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
