@@ -290,14 +290,15 @@ export default function EditarAnuncioForm({
 
         {categorias.length > 0 && (
           <div>
-            <label className="block text-white/50 text-xs mb-1">Categoría (opcional)</label>
+            <label className="block text-white/50 text-xs mb-1">Carrocería (opcional)</label>
             <select value={categoriaId} onChange={(e) => setCategoriaId(e.target.value)}
               className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm outline-none focus:border-[#D4A847]">
-              <option value="">Ninguna</option>
+              <option value="">Sin especificar</option>
               {categorias.map((c) => (<option key={c.id} value={c.id}>{c.etiqueta}</option>))}
             </select>
             <p className="text-white/30 text-xs mt-1">
-              Clásicos (antes de 1980) y youngtimers (1980–2000) se clasifican solos por año.
+              Coupés y cabrios aparecen también en Sport &amp; GT. Clásicos (antes de 1980) y
+              youngtimers (1980–2000) se clasifican solos por año.
             </p>
           </div>
         )}

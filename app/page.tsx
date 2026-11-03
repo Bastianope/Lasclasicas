@@ -137,7 +137,7 @@ export default async function HomePage() {
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
             <div className="absolute bottom-0 left-0 p-4">
-              <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Exclusivo</p>
+              <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Coupés y cabrios</p>
               <h3 className="text-white font-bold text-lg">Sport & GT</h3>
             </div>
           </a>

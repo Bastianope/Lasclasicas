@@ -79,10 +79,13 @@ function limpiarTermino(texto: string): string {
 }
 
 // Filtro para .or(): coincide si provincia o ciudad contienen alguno de los términos.
+// Las palabras se buscan en orden con cualquier texto entre ellas, para tolerar
+// pequeñas faltas ("Capitale Federal" coincide con "Capital Federal").
 export function filtroUbicacion(texto: string): string | null {
   const terminos = terminosUbicacion(texto);
   if (terminos.length === 0) return null;
   return terminos
-    .flatMap((t) => [`provincia.ilike.%${t}%`, `ciudad.ilike.%${t}%`])
+    .map((t) => `%${t.split(/\s+/).join("%")}%`)
+    .flatMap((patron) => [`provincia.ilike.${patron}`, `ciudad.ilike.${patron}`])
     .join(",");
 }
