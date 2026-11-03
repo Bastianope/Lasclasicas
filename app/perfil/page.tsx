@@ -6,6 +6,8 @@ import EliminarAnuncioButton from "@/components/EliminarAnuncioButton";
 
 export const revalidate = 0;
 
+export const metadata = { title: "Mi perfil", robots: { index: false } };
+
 export default async function PerfilPage() {
   const supabase = await createClient();
 

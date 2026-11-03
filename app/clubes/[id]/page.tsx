@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
@@ -6,6 +7,23 @@ export const revalidate = 0;
 
 interface Props {
   params: { id: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("clubes")
+    .select("nombre, descripcion, ciudad, provincia, logo_url")
+    .eq("id", params.id)
+    .maybeSingle();
+  if (!data) return { title: "Club no disponible", robots: { index: false } };
+  const lugar = [data.ciudad, data.provincia].filter(Boolean).join(", ");
+  const descripcion = data.descripcion?.slice(0, 160) || `Club de autos clásicos${lugar ? ` en ${lugar}` : ""}.`;
+  return {
+    title: data.nombre,
+    description: descripcion,
+    openGraph: { title: data.nombre, description: descripcion, images: [data.logo_url || "/og.jpg"] },
+  };
 }
 
 export default async function ClubDetallePage({ params }: Props) {

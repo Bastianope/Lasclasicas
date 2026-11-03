@@ -7,9 +7,13 @@ import { useRouter } from "next/navigation";
 export default function EnviarMensajeForm({
   anuncioId,
   destinatarioId,
+  placeholder = "Escribí tu mensaje al vendedor...",
+  textoBoton = "Enviar mensaje",
 }: {
-  anuncioId: string;
+  anuncioId: string | null;
   destinatarioId: string;
+  placeholder?: string;
+  textoBoton?: string;
 }) {
   const [contenido, setContenido] = useState("");
   const [enviando, setEnviando] = useState(false);
@@ -48,6 +52,7 @@ export default function EnviarMensajeForm({
 
     setContenido("");
     setEnviado(true);
+    router.refresh();
     setTimeout(() => setEnviado(false), 3000);
   };
 
@@ -56,7 +61,7 @@ export default function EnviarMensajeForm({
       <textarea
         value={contenido}
         onChange={(e) => setContenido(e.target.value)}
-        placeholder="Escribí tu mensaje al vendedor..."
+        placeholder={placeholder}
         rows={3}
         className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white text-sm outline-none focus:border-[#D4A847] resize-none"
         required
@@ -68,7 +73,7 @@ export default function EnviarMensajeForm({
         disabled={enviando}
         className="mt-3 w-full bg-[#D4A847] text-black py-3 rounded-xl font-bold hover:bg-[#C49B35] transition-colors disabled:opacity-50"
       >
-        {enviando ? "Enviando..." : "Enviar mensaje"}
+        {enviando ? "Enviando..." : textoBoton}
       </button>
     </form>
   );

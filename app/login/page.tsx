@@ -27,9 +27,10 @@ if (mode === "signup") {
         setError(error.message);
       } else {
         if (data.user) {
+          // Sin nombre por defecto: el email nunca se muestra en público.
           await supabase.from("profiles").insert({
             id: data.user.id,
-            nombre: email,
+            nombre: null,
           });
         }
         setMessage("¡Cuenta creada! Revisá tu email para confirmar.");

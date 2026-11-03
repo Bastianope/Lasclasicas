@@ -7,26 +7,38 @@ import LogoutButton from "@/components/LogoutButton";
 
 interface Props {
   userEmail: string | null;
+  noLeidos?: number;
 }
 
+type LinkMenu = { href: string; label: string; contador?: number };
+
 // Visibles para todos: el contenido es público.
-const LINKS_PUBLICOS = [
+const LINKS_PUBLICOS: LinkMenu[] = [
   { href: "/anuncios", label: "Anuncios" },
   { href: "/eventos", label: "Eventos" },
   { href: "/clubes", label: "Clubes" },
 ];
 
-// Solo con sesión iniciada.
-const LINKS_CUENTA = [
-  { href: "/favoritos", label: "Favoritos" },
-  { href: "/perfil", label: "Mi perfil" },
-];
+function Contador({ valor }: { valor?: number }) {
+  if (!valor) return null;
+  return (
+    <span className="ml-1.5 inline-flex min-w-[18px] h-[18px] px-1 items-center justify-center rounded-full bg-accent text-black text-[10px] font-bold align-middle">
+      {valor > 9 ? "9+" : valor}
+    </span>
+  );
+}
 
-export default function NavLinks({ userEmail }: Props) {
+export default function NavLinks({ userEmail, noLeidos = 0 }: Props) {
   const pathname = usePathname();
   const [abierto, setAbierto] = useState(false);
   const conectado = !!userEmail;
-  const links = conectado ? [...LINKS_PUBLICOS, ...LINKS_CUENTA] : LINKS_PUBLICOS;
+  // Solo con sesión iniciada.
+  const linksCuenta: LinkMenu[] = [
+    { href: "/mensajes", label: "Mensajes", contador: noLeidos },
+    { href: "/favoritos", label: "Favoritos" },
+    { href: "/perfil", label: "Mi perfil" },
+  ];
+  const links = conectado ? [...LINKS_PUBLICOS, ...linksCuenta] : LINKS_PUBLICOS;
   const hrefPublicar = conectado ? "/anuncios/nuevo" : "/login";
 
   // Cierra el menú móvil al cambiar de página.
@@ -44,7 +56,7 @@ export default function NavLinks({ userEmail }: Props) {
         </Link>
 
         {/* Escritorio */}
-        <div className="hidden md:flex items-center gap-6 text-sm">
+        <div className="hidden lg:flex items-center gap-6 text-sm">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -52,6 +64,7 @@ export default function NavLinks({ userEmail }: Props) {
               className={esActivo(l.href) ? "text-accent font-semibold" : "text-white/70 hover:text-accent transition-colors"}
             >
               {l.label}
+              <Contador valor={l.contador} />
             </Link>
           ))}
           <Link
@@ -73,10 +86,13 @@ export default function NavLinks({ userEmail }: Props) {
         <button
           type="button"
           onClick={() => setAbierto((v) => !v)}
-          className="md:hidden p-2 -mr-2 text-white/80 hover:text-accent"
+          className="lg:hidden relative p-2 -mr-2 text-white/80 hover:text-accent"
           aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={abierto}
         >
+          {noLeidos > 0 && !abierto && (
+            <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-accent" aria-hidden="true" />
+          )}
           <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
             {abierto ? (
               <path d="M6 6l12 12M18 6L6 18" />
@@ -88,7 +104,7 @@ export default function NavLinks({ userEmail }: Props) {
       </div>
 
       {abierto && (
-        <div className="md:hidden border-t border-white/10 py-3 flex flex-col">
+        <div className="lg:hidden border-t border-white/10 py-3 flex flex-col">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -96,6 +112,7 @@ export default function NavLinks({ userEmail }: Props) {
               className={`py-3 text-base ${esActivo(l.href) ? "text-accent font-semibold" : "text-white/80"}`}
             >
               {l.label}
+              <Contador valor={l.contador} />
             </Link>
           ))}
           <Link

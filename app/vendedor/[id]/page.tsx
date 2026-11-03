@@ -1,11 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { nombreVisible, tituloAnuncio } from "@/lib/sitio";
 
 export const revalidate = 0;
 
 interface Props {
   params: { id: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const supabase = createClient();
+  const { data } = await supabase.from("profiles").select("nombre").eq("id", params.id).maybeSingle();
+  const nombre = nombreVisible(data?.nombre);
+  return { title: nombre ? `Anuncios de ${nombre}` : "Anuncios del vendedor" };
 }
 
 export default async function VendedorPage({ params }: Props) {
@@ -15,9 +24,10 @@ export default async function VendedorPage({ params }: Props) {
     .from("profiles")
     .select("id, nombre, ciudad, provincia, created_at")
     .eq("id", params.id)
-    .single();
+    .maybeSingle();
 
   if (!vendedor) notFound();
+  const nombre = nombreVisible(vendedor.nombre);
 
   const { data: anuncios } = await supabase
     .from("anuncios")
@@ -44,10 +54,10 @@ export default async function VendedorPage({ params }: Props) {
 
         <div className="bg-white/5 rounded-2xl border border-white/10 p-6 mb-8 flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold text-2xl">
-            {vendedor.nombre?.[0]?.toUpperCase() || '?'}
+            {nombre?.[0]?.toUpperCase() || '?'}
           </div>
           <div>
-            <h1 className="text-xl font-bold text-white">{vendedor.nombre || 'Vendedor'}</h1>
+            <h1 className="text-xl font-bold text-white">{nombre || 'Vendedor particular'}</h1>
             <p className="text-white/40 text-sm">
               {vendedor.ciudad ? `${vendedor.ciudad}, ` : ''}{vendedor.provincia}
             </p>
@@ -58,7 +68,7 @@ export default async function VendedorPage({ params }: Props) {
         </div>
 
         <h2 className="text-xl font-bold text-white mb-6">
-          Anuncios de {vendedor.nombre || 'este vendedor'} ({anuncios?.length || 0})
+          Anuncios de {nombre || 'este vendedor'} ({anuncios?.length || 0})
         </h2>
 
         {(!anuncios || anuncios.length === 0) && (
@@ -76,13 +86,13 @@ export default async function VendedorPage({ params }: Props) {
                   {img ? (
                     <img src={img.url} alt={anuncio.titulo || ''} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-white/20 text-4xl">🚗</div>
+                    <div className="w-full h-full flex items-center justify-center text-white/25 text-sm">Sin fotos todavía</div>
                   )}
                 </div>
 <div className="p-4">
   <p className="text-white/40 text-xs mb-1">{anuncio.marcas?.nombre} · {anuncio.anio}</p>
   <h3 className="font-semibold text-white text-sm mb-3 line-clamp-2">
-    {anuncio.titulo || `${anuncio.marcas?.nombre} ${anuncio.modelos?.nombre}`}
+    {tituloAnuncio(anuncio)}
   </h3>
   <span className="font-bold text-[#D4A847]">{anuncio.moneda} {Number(anuncio.precio).toLocaleString('es-AR')}</span>
 </div>

@@ -5,6 +5,8 @@ import FavoritoButton from "@/components/FavoritoButton";
 
 export const revalidate = 0;
 
+export const metadata = { title: "Mis favoritos", robots: { index: false } };
+
 export default async function FavoritosPage() {
   const supabase = await createClient();
 

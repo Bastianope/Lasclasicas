@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
 export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Clubes de autos clásicos",
+  description: "Clubes de autos clásicos y youngtimers de Argentina: actividades, eventos y contacto.",
+};
 
 export default async function ClubesPage() {
   const supabase = await createClient();

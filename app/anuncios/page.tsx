@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import FavoritoButton from "@/components/FavoritoButton";
 import FiltroProvincia from "@/components/FiltroProvincia";
 import { filtroUbicacion } from "@/lib/ubicacion";
+import { tituloAnuncio } from "@/lib/sitio";
 import {
   ANIO_FIN_CLASICOS,
   ANIO_FIN_YOUNGTIMERS,
@@ -13,6 +15,12 @@ import {
 } from "@/lib/categorias";
 
 export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Autos clásicos en venta",
+  description:
+    "Ford Falcon, IKA Torino, Fiat 600, Peugeot 504 y más: clásicos y youngtimers en venta en toda Argentina, con contacto directo.",
+};
 
 type Filtros = {
   marca?: string;
@@ -232,14 +240,14 @@ export default async function AnunciosPage({
                 </div>
               ) : (
                 <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                  <span className="text-gray-600 text-sm">Sin foto disponible</span>
+                  <span className="text-gray-600 text-sm">Sin fotos todavía</span>
                 </div>
               )}
 
               <div className="p-5">
                 <div className="flex justify-between items-start mb-2">
                   <h2 className="text-lg font-semibold text-white">
-                    {anuncio.titulo || `${anuncio.marcas?.nombre} ${anuncio.modelos?.nombre}`}
+                    {tituloAnuncio({ ...anuncio, anio: null })}
                   </h2>
                   <span className="text-gray-400 text-sm">{anuncio.anio}</span>
                 </div>

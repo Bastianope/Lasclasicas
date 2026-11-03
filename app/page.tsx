@@ -2,6 +2,7 @@ import MapaArgentina from '@/components/MapaArgentina'
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import FavoritoButton from "@/components/FavoritoButton";
+import { tituloAnuncio } from "@/lib/sitio";
 
 export const revalidate = 0;
 
@@ -167,6 +168,9 @@ export default async function HomePage() {
           <h2 className="text-2xl font-bold text-white">Últimos anuncios</h2>
           <Link href="/anuncios" className="text-sm text-[#D4A847] hover:underline font-medium">Ver todos →</Link>
         </div>
+        {(!anuncios || anuncios.length === 0) && (
+          <p className="text-white/40">Todavía no hay anuncios publicados. ¡Sé el primero!</p>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {anuncios?.map((anuncio: any) => {
             const imgs = anuncio.anuncio_imagenes || []
@@ -179,13 +183,13 @@ export default async function HomePage() {
                     {img ? (
                       <img src={img.url} alt={anuncio.titulo || ''} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-white/20 text-4xl">🚗</div>
+                      <div className="w-full h-full flex items-center justify-center text-white/25 text-sm">Sin fotos todavía</div>
                     )}
                   </div>
                   <div className="p-4">
                     <p className="text-white/40 text-xs mb-1">{(anuncio.marcas as any)?.nombre} · {anuncio.anio}</p>
                     <h3 className="font-semibold text-white text-sm mb-3 line-clamp-2">
-                      {anuncio.titulo || `${(anuncio.marcas as any)?.nombre} ${(anuncio.modelos as any)?.nombre}`}
+                      {tituloAnuncio(anuncio)}
                     </h3>
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-[#D4A847]">{anuncio.moneda} {Number(anuncio.precio).toLocaleString('es-AR')}</span>
@@ -213,19 +217,6 @@ export default async function HomePage() {
           </Link>
         </div>
       </section>
-
-      <footer className="border-t border-white/10 bg-black/30">
-        <div className="max-w-7xl mx-auto px-4 py-10 flex justify-between text-white/30 text-sm">
-          <div>
-            <p className="text-white font-bold text-lg mb-1">Las <span className="text-[#D4A847]">Clásicas</span></p>
-            <p>El marketplace de youngtimers en Argentina.</p>
-          </div>
-          <div className="flex gap-6">
-            <Link href="/anuncios" className="hover:text-white transition-colors">Anuncios</Link>
-            <Link href="/anuncios/nuevo" className="hover:text-white transition-colors">Publicar</Link>
-          </div>
-        </div>
-      </footer>
 
     </main>
   );
