@@ -25,6 +25,12 @@ export default async function HomePage() {
     .order("created_at", { ascending: false })
     .limit(6);
 
+  // Total real de anuncios activos (la lista de arriba está limitada a 6).
+  const { count: totalActivos } = await supabase
+    .from("anuncios")
+    .select("id", { count: "exact", head: true })
+    .eq("estado", "activo");
+
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
 
@@ -54,9 +60,21 @@ export default async function HomePage() {
               </button>
             </form>
             <div className="flex flex-wrap gap-2 mt-5">
-              {['Ford Falcon','IKA Torino','Peugeot 504','BMW E30','Fiat 600'].map(tag => (
-                <span key={tag} className="px-3 py-1 rounded-full border border-white/20 text-white/50 text-xs">{tag}</span>
-              ))}
+              {[
+                { label: 'Ford Falcon', marca: 'Ford' },
+                { label: 'IKA Torino', marca: 'IKA' },
+                { label: 'Peugeot 504', marca: 'Peugeot' },
+                { label: 'BMW E30', marca: 'BMW' },
+                { label: 'Fiat 600', marca: 'Fiat' },
+              ].map(({ label, marca }) => {
+                const marcaId = marcas?.find(m => m.nombre.toLowerCase() === marca.toLowerCase())?.id
+                return (
+                  <Link key={label} href={marcaId ? `/anuncios?marca=${marcaId}` : '/anuncios'}
+                    className="px-3 py-1 rounded-full border border-white/20 text-white/50 text-xs hover:border-[#D4A847] hover:text-[#D4A847] transition-colors">
+                    {label}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -65,7 +83,7 @@ export default async function HomePage() {
       <section className="border-y border-white/10 bg-white/5">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-wrap gap-8 justify-center">
           {[
-            { label: 'Anuncios activos', value: `+${anuncios?.length || 0}` },
+            { label: 'Anuncios activos', value: `${totalActivos ?? anuncios?.length ?? 0}` },
             { label: 'Marcas disponibles', value: `${marcas?.length || 0}` },
             { label: 'Provincias', value: '24' },
             { label: 'Contacto directo WhatsApp', value: '100%' },
