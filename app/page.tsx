@@ -3,6 +3,8 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import FavoritoButton from "@/components/FavoritoButton";
 import { tituloAnuncio } from "@/lib/sitio";
+import TarjetaArticulo from "@/components/TarjetaArticulo";
+import { GUIAS, LUGARES } from "@/lib/contenido";
 
 export const revalidate = 0;
 
@@ -160,6 +162,25 @@ export default async function HomePage() {
               <h3 className="text-white font-bold text-lg">Sport & GT</h3>
             </div>
           </a>
+        </div>
+      </section>
+
+      {/* GUÍAS Y LUGARES */}
+      <section className="max-w-7xl mx-auto px-4 pt-16">
+        <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+          <div>
+            <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-2">Historia sobre ruedas</p>
+            <h2 className="text-2xl font-bold text-white">Guías de los clásicos argentinos</h2>
+          </div>
+          <Link href="/guias" className="text-sm text-[#D4A847] hover:underline font-medium">Ver todas las guías →</Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {GUIAS.filter((g) => g.modelo).map((g) => (
+            <TarjetaArticulo key={g.slug} articulo={g} href={`/guias/${g.slug}`} />
+          ))}
+          {LUGARES.map((l) => (
+            <TarjetaArticulo key={l.slug} articulo={l} href={`/lugares/${l.slug}`} destacada />
+          ))}
         </div>
       </section>
 

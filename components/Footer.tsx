@@ -2,8 +2,11 @@ import Link from "next/link";
 
 const LINKS = [
   { href: "/anuncios", label: "Anuncios" },
+  { href: "/guias", label: "Guías" },
+  { href: "/lugares", label: "Lugares míticos" },
   { href: "/eventos", label: "Eventos" },
   { href: "/clubes", label: "Clubes" },
+  { href: "/guias/seguros-para-clasicos", label: "Seguros" },
   { href: "/anuncios/nuevo", label: "Publicar gratis" },
 ];
 

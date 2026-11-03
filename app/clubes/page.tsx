@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { siglasClub } from "@/lib/sitio";
 
 export const revalidate = 0;
 
@@ -20,8 +21,11 @@ export default async function ClubesPage() {
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-bold text-white">Clubes</h1>
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-2xl font-bold text-white">Clubes</h1>
+            <p className="text-white/40 text-sm mt-1">Los clubes de autos clásicos del país. ¿El tuyo no está? Creá su página gratis.</p>
+          </div>
           <Link href="/clubes/nuevo"
             className="bg-[#D4A847] text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#C49B35] transition-colors">
             Crear club
@@ -40,8 +44,8 @@ export default async function ClubesPage() {
                 {club.logo_url ? (
                   <img src={club.logo_url} alt={club.nombre} className="w-12 h-12 rounded-full object-cover" />
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold">
-                    {club.nombre?.[0]?.toUpperCase()}
+                  <div className="w-12 h-12 shrink-0 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold text-sm">
+                    {siglasClub(club.nombre)}
                   </div>
                 )}
                 <div>

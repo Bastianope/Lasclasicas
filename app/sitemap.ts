@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
 import { URL_SITIO } from "@/lib/sitio";
+import { GUIAS, LUGARES } from "@/lib/contenido";
 
 // Se regenera como máximo una vez por hora.
 export const revalidate = 3600;
@@ -23,6 +24,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${URL_SITIO}/anuncios`, changeFrequency: "daily", priority: 0.9 },
     { url: `${URL_SITIO}/eventos`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${URL_SITIO}/clubes`, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${URL_SITIO}/guias`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${URL_SITIO}/lugares`, changeFrequency: "monthly", priority: 0.6 },
+    ...GUIAS.map((g) => ({ url: `${URL_SITIO}/guias/${g.slug}`, changeFrequency: "monthly" as const, priority: 0.7 })),
+    ...LUGARES.map((l) => ({ url: `${URL_SITIO}/lugares/${l.slug}`, changeFrequency: "monthly" as const, priority: 0.6 })),
   ];
 
   const detalle = (ruta: string, filas: { id: string; created_at: string | null }[] | null, prioridad: number) =>

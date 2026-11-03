@@ -2,11 +2,28 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { siglasClub } from "@/lib/sitio";
 
 export const revalidate = 0;
 
 interface Props {
   params: { id: string };
+}
+
+// "https://www.instagram.com/club/" -> "Instagram @club" ; otro sitio -> su dominio
+function etiquetaEnlace(url: string): string {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^www\./, "");
+    if (host === "instagram.com") {
+      const usuario = u.pathname.split("/").filter(Boolean)[0];
+      return usuario ? `Instagram @${usuario}` : "Instagram";
+    }
+    if (host === "facebook.com") return "Facebook";
+    return host;
+  } catch {
+    return url;
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -53,8 +70,8 @@ export default async function ClubDetallePage({ params }: Props) {
           {club.logo_url ? (
             <img src={club.logo_url} alt={club.nombre} className="w-16 h-16 rounded-full object-cover" />
           ) : (
-            <div className="w-16 h-16 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold text-2xl">
-              {club.nombre?.[0]?.toUpperCase()}
+            <div className="w-16 h-16 shrink-0 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold text-lg">
+              {siglasClub(club.nombre)}
             </div>
           )}
           <div>
@@ -73,7 +90,7 @@ export default async function ClubDetallePage({ params }: Props) {
                 {club.contacto && <p className="text-white/50">Contacto: {club.contacto}</p>}
                 {club.sitio_web && (
                   <a href={club.sitio_web} target="_blank" rel="noopener noreferrer" className="text-[#D4A847] hover:underline block">
-                    {club.sitio_web}
+                    {etiquetaEnlace(club.sitio_web)} →
                   </a>
                 )}
               </div>
@@ -90,7 +107,7 @@ export default async function ClubDetallePage({ params }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {eventos?.map((evento: any) => {
             const fecha = evento.fecha_evento
-              ? new Date(evento.fecha_evento).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' })
+              ? new Date(evento.fecha_evento).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Argentina/Buenos_Aires' })
               : null;
             return (
               <Link key={evento.id} href={`/eventos/${evento.id}`}

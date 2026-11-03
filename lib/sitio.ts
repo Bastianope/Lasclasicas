@@ -40,6 +40,17 @@ export function tituloAnuncio(a: AnuncioBasico): string {
   return a.anio && !base.includes(String(a.anio)) ? `${base} ${a.anio}` : base;
 }
 
+// Siglas para el avatar de un club: "(CAC)" -> CAC, "... 5C" -> 5C, "Club Fiat ..." -> F
+export function siglasClub(nombre?: string | null): string {
+  const n = (nombre ?? "").trim();
+  const parentesis = n.match(/\(([^)]{2,5})\)/);
+  if (parentesis) return parentesis[1];
+  const ultima = n.split(/\s+/).pop() ?? "";
+  if (/^[0-9A-Z]{2,4}$/.test(ultima)) return ultima;
+  const sinClub = n.replace(/^club\s+(de\s+)?/i, "");
+  return (sinClub[0] ?? "?").toUpperCase();
+}
+
 // "domingo, 29 de noviembre" -> "Domingo, 29 de noviembre" (CSS capitalize pondría "De")
 export function primeraMayuscula(texto?: string | null): string {
   if (!texto) return "";

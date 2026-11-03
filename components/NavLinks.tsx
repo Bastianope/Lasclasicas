@@ -15,6 +15,8 @@ type LinkMenu = { href: string; label: string; contador?: number };
 // Visibles para todos: el contenido es público.
 const LINKS_PUBLICOS: LinkMenu[] = [
   { href: "/anuncios", label: "Anuncios" },
+  { href: "/guias", label: "Guías" },
+  { href: "/lugares", label: "Lugares" },
   { href: "/eventos", label: "Eventos" },
   { href: "/clubes", label: "Clubes" },
 ];
@@ -56,7 +58,7 @@ export default function NavLinks({ userEmail, noLeidos = 0 }: Props) {
         </Link>
 
         {/* Escritorio */}
-        <div className="hidden lg:flex items-center gap-6 text-sm">
+        <div className="hidden xl:flex items-center gap-6 text-sm">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -86,7 +88,7 @@ export default function NavLinks({ userEmail, noLeidos = 0 }: Props) {
         <button
           type="button"
           onClick={() => setAbierto((v) => !v)}
-          className="lg:hidden relative p-2 -mr-2 text-white/80 hover:text-accent"
+          className="xl:hidden relative p-2 -mr-2 text-white/80 hover:text-accent"
           aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={abierto}
         >
@@ -104,7 +106,7 @@ export default function NavLinks({ userEmail, noLeidos = 0 }: Props) {
       </div>
 
       {abierto && (
-        <div className="lg:hidden border-t border-white/10 py-3 flex flex-col">
+        <div className="xl:hidden border-t border-white/10 py-3 flex flex-col">
           {links.map((l) => (
             <Link
               key={l.href}
