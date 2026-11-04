@@ -25,6 +25,29 @@ export default function Articulo({
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">{articulo.titulo}</h1>
           <p className="text-white/70 text-lg leading-relaxed max-w-3xl">{articulo.resumen}</p>
 
+          {articulo.portada && (
+            <figure className="mt-8">
+              {/* Imagen completa, sin recortar: la licencia CC BY-SA pide indicar cualquier modificación */}
+              <img
+                src={articulo.portada.src}
+                alt={articulo.portada.alt}
+                className="w-full h-auto rounded-2xl border border-white/10"
+                loading="eager"
+              />
+              <figcaption className="mt-2 text-xs text-white/40">
+                {articulo.portada.pie} Foto:{" "}
+                <a href={articulo.portada.fuenteUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#D4A847] underline">
+                  {articulo.portada.autor}
+                </a>
+                ,{" "}
+                <a href={articulo.portada.licenciaUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#D4A847] underline">
+                  {articulo.portada.licencia}
+                </a>
+                , vía Wikimedia Commons.
+              </figcaption>
+            </figure>
+          )}
+
           {articulo.cifras && articulo.cifras.length > 0 && (
             <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
               {articulo.cifras.map((c) => (

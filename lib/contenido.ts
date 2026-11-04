@@ -9,6 +9,17 @@ export type Seccion =
   | { tipo: "linea"; titulo: string; hitos: Hito[] };
 export type Fuente = { titulo: string; url: string };
 
+// Imagen con licencia libre: se muestra siempre con autor, licencia y fuente.
+export type Imagen = {
+  src: string;
+  alt: string;
+  pie: string;
+  autor: string;
+  licencia: string;
+  licenciaUrl: string;
+  fuenteUrl: string;
+};
+
 export type Articulo = {
   slug: string;
   titulo: string;
@@ -19,6 +30,7 @@ export type Articulo = {
   secciones: Seccion[];
   fuentes: Fuente[];
   aviso?: string;
+  portada?: Imagen;
   // Guías de modelo: para mostrar los anuncios en venta de ese modelo
   modelo?: { marca: string; modelos: string[] };
   // Lugares: mapa de OpenStreetMap
@@ -329,6 +341,15 @@ export const LUGARES: Articulo[] = [
       },
     ],
     mapa: { lat: -33.2303, lon: -66.2325, delta: 0.035 },
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Ciudad_de_Potrero_de_los_Funes.jpg",
+      alt: "Vista panorámica del pueblo de Potrero de los Funes entre las sierras de San Luis",
+      pie: "Potrero de los Funes, entre las sierras de San Luis.",
+      autor: "ViviPotreroCommon",
+      licencia: "CC BY-SA 3.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Ciudad_de_Potrero_de_los_Funes.jpg",
+    },
   },
 ];
 
