@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EMAIL_CONTACTO } from "@/lib/sitio";
 
 const LINKS = [
   { href: "/anuncios", label: "Anuncios" },
@@ -19,6 +20,9 @@ export default function Footer() {
             Las <span className="text-accent">Clásicas</span>
           </p>
           <p className="text-white/40">El marketplace de clásicos y youngtimers en Argentina.</p>
+          <a href={`mailto:${EMAIL_CONTACTO}`} className="inline-block mt-3 text-white/60 hover:text-accent transition-colors">
+            {EMAIL_CONTACTO}
+          </a>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
           {LINKS.map((l) => (

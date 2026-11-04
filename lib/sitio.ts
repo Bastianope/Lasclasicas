@@ -1,15 +1,15 @@
 // Datos generales del sitio y utilidades de presentación.
 
 export const NOMBRE_SITIO = "Las Clásicas";
+export const EMAIL_CONTACTO = "contacto@lasclasicas.com";
 
-// Vercel define VERCEL_PROJECT_PRODUCTION_URL con el dominio de producción
-// (lasclasicas.vercel.app hoy, el dominio propio en cuanto se agregue en Vercel).
+// Vercel define VERCEL_PROJECT_PRODUCTION_URL con el dominio de producción (lasclasicas.com).
 export const URL_SITIO =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : process.env.NODE_ENV === "production"
-      ? "https://lasclasicas.vercel.app"
+      ? "https://lasclasicas.com"
       : "http://localhost:3000");
 
 // Nombre que se puede mostrar en público: nunca un email.
