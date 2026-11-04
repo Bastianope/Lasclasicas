@@ -19,7 +19,11 @@ export type Imagen = {
   alto?: number;
 };
 
+// Ficha con enlace externo (alojamientos, servicios...)
+export type Ficha = { nombre: string; zona: string; texto: string; enlace?: { url: string; texto: string } };
+
 export type Seccion =
+  | { tipo: "fichas"; titulo: string; fichas: Ficha[]; nota?: string }
   | { tipo: "texto"; titulo: string; parrafos: string[]; imagen?: Imagen }
   | { tipo: "lista"; titulo: string; items: string[]; imagen?: Imagen }
   | { tipo: "linea"; titulo: string; hitos: Hito[] }
@@ -364,6 +368,33 @@ export const LUGARES: Articulo[] = [
           "El pueblo está a unos 940 m de altura, junto al embalse que el circuito rodeaba.",
         ],
       },
+      {
+        tipo: "fichas",
+        titulo: "Dónde dormir",
+        fichas: [
+          {
+            nombre: "Hotel Potrero de los Funes",
+            zona: "A orillas del lago",
+            texto:
+              "En la Ruta 18 km 16, Circuito del Lago. Tiene 116 habitaciones, entre ellas suites flotantes sobre el agua, y abrió en enero de 1985, en la época del primer circuito.",
+            enlace: { url: "https://hotelpotrero.sanluis.gov.ar", texto: "Sitio oficial" },
+          },
+          {
+            nombre: "Cabañas, hosterías y campings",
+            zona: "Alrededor del lago",
+            texto: "La guía Welcome Argentina reúne unas 80 opciones en Potrero de los Funes, en su mayoría complejos de cabañas.",
+            enlace: { url: "https://www.welcomeargentina.com/potrero-de-los-funes/alojamientos.html", texto: "Ver el listado" },
+          },
+          {
+            nombre: "Hoteles en la ciudad de San Luis",
+            zona: "A unos 20 km",
+            texto:
+              "En el centro, sobre la avenida Presidente Illia, están el Hotel Quintana, el Hotel Aiello, el Gran Hotel San Luis Gold y el Premium Tower Suites, entre otros.",
+            enlace: { url: "https://www.welcomeargentina.com/sanluis/alojamientos.html", texto: "Ver el listado" },
+          },
+        ],
+        nota: "Información orientativa: consultá tarifas y disponibilidad directamente con cada alojamiento. En las fechas de los encuentros conviene reservar con anticipación.",
+      },
     ],
     fuentes: [
       { titulo: "Wikipedia — Potrero de los Funes Circuit", url: "https://en.wikipedia.org/wiki/Potrero_de_los_Funes_Circuit" },
@@ -384,6 +415,15 @@ export const LUGARES: Articulo[] = [
       {
         titulo: "Radio Popular San Luis — Vuelven los autos clásicos a San Luis (2024)",
         url: "https://www.radiopopularsanluis.com.ar/provincia/vuelven-los-autos-clasicos-a-san-luis.htm",
+      },
+      {
+        titulo: "Cadena 3 — El Hotel Potrero de los Funes celebra 40 años (2025)",
+        url: "https://www.cadena3.com/noticia/viva-la-radio/el-hotel-potrero-de-los-funes-celebra-40-anos-de-excelencia-en-servicios_404142",
+      },
+      { titulo: "Welcome Argentina — Hotel Potrero de los Funes", url: "https://www.welcomeargentina.com/potrerodelosfunes/hotel-potrero-de-los-funes.html" },
+      {
+        titulo: "Universidad Nacional de San Luis — Listado de hoteles de la ciudad (2025)",
+        url: "https://jadicc2025.unsl.edu.ar/docs/Listado-Hoteles-San%20Luis_JADICC_2025.pdf",
       },
     ],
     mapa: { lat: -33.2303, lon: -66.2325, delta: 0.035 },

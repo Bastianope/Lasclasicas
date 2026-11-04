@@ -130,6 +130,31 @@ export default function Articulo({
 
             {s.tipo === "imagen" && <Figura imagen={s.imagen} fondoClaro={s.fondoClaro} ampliable />}
 
+            {s.tipo === "fichas" && (
+              <>
+                <div className="grid gap-4 md:grid-cols-3">
+                  {s.fichas.map((f) => (
+                    <div key={f.nombre} className="flex flex-col bg-white/5 border border-white/10 rounded-xl p-5">
+                      <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-2">{f.zona}</p>
+                      <h3 className="text-white font-bold leading-snug mb-2">{f.nombre}</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">{f.texto}</p>
+                      {f.enlace && (
+                        <a
+                          href={f.enlace.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="self-start mt-auto pt-4 text-sm font-medium text-[#D4A847] hover:underline"
+                        >
+                          {f.enlace.texto} ↗
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                {s.nota && <p className="mt-4 text-white/50 text-sm leading-relaxed">{s.nota}</p>}
+              </>
+            )}
+
             {s.tipo === "linea" && (
               <ol className="relative border-l border-[#D4A847]/30 ml-2 space-y-7">
                 {s.hitos.map((h) => (
