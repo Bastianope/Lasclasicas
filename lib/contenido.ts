@@ -3,22 +3,29 @@
 
 export type Cifra = { valor: string; etiqueta: string };
 export type Hito = { anio: string; texto: string };
-export type Seccion =
-  | { tipo: "texto"; titulo: string; parrafos: string[] }
-  | { tipo: "lista"; titulo: string; items: string[] }
-  | { tipo: "linea"; titulo: string; hitos: Hito[] };
-export type Fuente = { titulo: string; url: string };
-
 // Imagen con licencia libre: se muestra siempre con autor, licencia y fuente.
 export type Imagen = {
   src: string;
   alt: string;
   pie: string;
   autor: string;
+  // Etiqueta del crédito: "Foto" por defecto, "Plano" para los dibujos
+  etiqueta?: string;
   licencia: string;
   licenciaUrl: string;
   fuenteUrl: string;
+  // Dimensiones del original: reservan el espacio antes de que cargue la imagen
+  ancho?: number;
+  alto?: number;
 };
+
+export type Seccion =
+  | { tipo: "texto"; titulo: string; parrafos: string[]; imagen?: Imagen }
+  | { tipo: "lista"; titulo: string; items: string[]; imagen?: Imagen }
+  | { tipo: "linea"; titulo: string; hitos: Hito[] }
+  // fondoClaro: para dibujos con fondo transparente (planos), ilegibles sobre el tema oscuro
+  | { tipo: "imagen"; titulo: string; imagen: Imagen; fondoClaro?: boolean };
+export type Fuente = { titulo: string; url: string };
 
 export type Articulo = {
   slug: string;
@@ -272,6 +279,34 @@ export const LUGARES: Articulo[] = [
         parrafos: [
           "El circuito rodeaba por completo el embalse de Potrero de los Funes, a unos 20 km de la ciudad de San Luis. La costanera se convertía en pista: curvas encadenadas, subidas, bajadas y las sierras como tribuna natural. Por su diseño y su paisaje llegó a ser considerado uno de los circuitos más lindos del país.",
         ],
+        imagen: {
+          src: "https://upload.wikimedia.org/wikipedia/commons/9/97/Lago_Embalse_Potrero_de_los_Funes.jpg",
+          alt: "El embalse de Potrero de los Funes, con las sierras de fondo",
+          pie: "El embalse de Potrero de los Funes, que el circuito rodeaba.",
+          autor: "ViviPotreroCommon",
+          licencia: "CC BY-SA 3.0",
+          licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          fuenteUrl: "https://commons.wikimedia.org/wiki/File:Lago_Embalse_Potrero_de_los_Funes.jpg",
+          ancho: 1200,
+          alto: 676,
+        },
+      },
+      {
+        tipo: "imagen",
+        titulo: "El trazado",
+        fondoClaro: true,
+        imagen: {
+          src: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Potrero_de_los_Funes_Circuit_(Argentina)_track_map.svg",
+          alt: "Plano del circuito de Potrero de los Funes alrededor del lago, con sus 23 curvas numeradas",
+          pie: "Datos de 2009: en negro, el recorrido de la reapertura de 2008; en rojo punteado, el original.",
+          autor: "Will Pittenger",
+          etiqueta: "Plano",
+          licencia: "CC BY-SA 3.0",
+          licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          fuenteUrl: "https://commons.wikimedia.org/wiki/File:Potrero_de_los_Funes_Circuit_(Argentina)_track_map.svg",
+          ancho: 1424,
+          alto: 982,
+        },
       },
       {
         tipo: "linea",
@@ -300,6 +335,17 @@ export const LUGARES: Articulo[] = [
         parrafos: [
           "Aunque ya no hay carreras, Potrero de los Funes sigue en el mapa de los autos clásicos. El Rally de la Montaña, una prueba de regularidad para clásicos organizada por el Club de Autos Clásicos 5C y Claramunt Garage, larga desde los boxes del viejo circuito. Su 14ª edición, en septiembre de 2024, reunió a 47 tripulaciones en un recorrido por rutas de San Luis y Córdoba.",
         ],
+        imagen: {
+          src: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Vista_sierras_Potrero_de_los_Funes.jpg",
+          alt: "Pinos y sierras en Potrero de los Funes",
+          pie: "Las sierras de Potrero de los Funes.",
+          autor: "ViviPotreroCommon",
+          licencia: "CC BY-SA 3.0",
+          licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          fuenteUrl: "https://commons.wikimedia.org/wiki/File:Vista_sierras_Potrero_de_los_Funes.jpg",
+          ancho: 1200,
+          alto: 389,
+        },
       },
       {
         tipo: "lista",
@@ -349,6 +395,8 @@ export const LUGARES: Articulo[] = [
       licencia: "CC BY-SA 3.0",
       licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
       fuenteUrl: "https://commons.wikimedia.org/wiki/File:Ciudad_de_Potrero_de_los_Funes.jpg",
+      ancho: 1200,
+      alto: 276,
     },
   },
 ];

@@ -1,5 +1,67 @@
 import Link from "next/link";
-import type { Articulo as TipoArticulo } from "@/lib/contenido";
+import type { Articulo as TipoArticulo, Imagen } from "@/lib/contenido";
+
+// Crédito obligatorio de las imágenes con licencia Creative Commons
+function Credito({ imagen }: { imagen: Imagen }) {
+  const enlace = "hover:text-[#D4A847] underline";
+  return (
+    <figcaption className="mt-2 text-xs text-white/40 leading-relaxed">
+      {imagen.pie} {imagen.etiqueta ?? "Foto"}:{" "}
+      <a href={imagen.fuenteUrl} target="_blank" rel="noopener noreferrer" className={enlace}>
+        {imagen.autor}
+      </a>
+      ,{" "}
+      <a href={imagen.licenciaUrl} target="_blank" rel="noopener noreferrer" className={enlace}>
+        {imagen.licencia}
+      </a>
+      , vía Wikimedia Commons.
+    </figcaption>
+  );
+}
+
+// Imagen completa, sin recortar: la licencia CC BY-SA pide indicar cualquier modificación.
+// fondoClaro: para planos con fondo transparente. ampliable: abre el original (útil en el celular).
+function Figura({
+  imagen,
+  fondoClaro = false,
+  ampliable = false,
+  prioritaria = false,
+  className = "",
+}: {
+  imagen: Imagen;
+  fondoClaro?: boolean;
+  ampliable?: boolean;
+  prioritaria?: boolean;
+  className?: string;
+}) {
+  const marco = `relative block rounded-2xl border border-white/10 overflow-hidden ${fondoClaro ? "bg-white p-2 md:p-6" : ""}`;
+  const img = (
+    <img
+      src={imagen.src}
+      alt={imagen.alt}
+      width={imagen.ancho}
+      height={imagen.alto}
+      className={`w-full h-auto ${fondoClaro ? "max-h-[560px] object-contain mx-auto" : ""}`}
+      loading={prioritaria ? "eager" : "lazy"}
+    />
+  );
+
+  return (
+    <figure className={className}>
+      {ampliable ? (
+        <a href={imagen.src} target="_blank" rel="noopener noreferrer" className={`${marco} group`}>
+          {img}
+          <span className="absolute top-3 right-3 rounded-full bg-[#0F1117]/80 px-3 py-1 text-xs font-medium text-white group-hover:bg-[#D4A847] group-hover:text-[#0F1117] transition-colors">
+            Ampliar ↗
+          </span>
+        </a>
+      ) : (
+        <div className={marco}>{img}</div>
+      )}
+      <Credito imagen={imagen} />
+    </figure>
+  );
+}
 
 // Plantilla de los artículos editoriales (guías y lugares).
 export default function Articulo({
@@ -25,28 +87,7 @@ export default function Articulo({
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">{articulo.titulo}</h1>
           <p className="text-white/70 text-lg leading-relaxed max-w-3xl">{articulo.resumen}</p>
 
-          {articulo.portada && (
-            <figure className="mt-8">
-              {/* Imagen completa, sin recortar: la licencia CC BY-SA pide indicar cualquier modificación */}
-              <img
-                src={articulo.portada.src}
-                alt={articulo.portada.alt}
-                className="w-full h-auto rounded-2xl border border-white/10"
-                loading="eager"
-              />
-              <figcaption className="mt-2 text-xs text-white/40">
-                {articulo.portada.pie} Foto:{" "}
-                <a href={articulo.portada.fuenteUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#D4A847] underline">
-                  {articulo.portada.autor}
-                </a>
-                ,{" "}
-                <a href={articulo.portada.licenciaUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#D4A847] underline">
-                  {articulo.portada.licencia}
-                </a>
-                , vía Wikimedia Commons.
-              </figcaption>
-            </figure>
-          )}
+          {articulo.portada && <Figura imagen={articulo.portada} prioritaria className="mt-8" />}
 
           {articulo.cifras && articulo.cifras.length > 0 && (
             <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
@@ -84,6 +125,10 @@ export default function Articulo({
                 ))}
               </ul>
             )}
+
+            {(s.tipo === "texto" || s.tipo === "lista") && s.imagen && <Figura imagen={s.imagen} className="mt-6" />}
+
+            {s.tipo === "imagen" && <Figura imagen={s.imagen} fondoClaro={s.fondoClaro} ampliable />}
 
             {s.tipo === "linea" && (
               <ol className="relative border-l border-[#D4A847]/30 ml-2 space-y-7">
