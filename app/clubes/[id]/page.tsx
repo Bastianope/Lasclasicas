@@ -1,11 +1,46 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { siglasClub } from "@/lib/sitio";
 
 export const revalidate = 0;
 
 interface Props {
   params: { id: string };
+}
+
+// "https://www.instagram.com/club/" -> "Instagram @club" ; otro sitio -> su dominio
+function etiquetaEnlace(url: string): string {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^www\./, "");
+    if (host === "instagram.com") {
+      const usuario = u.pathname.split("/").filter(Boolean)[0];
+      return usuario ? `Instagram @${usuario}` : "Instagram";
+    }
+    if (host === "facebook.com") return "Facebook";
+    return host;
+  } catch {
+    return url;
+  }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("clubes")
+    .select("nombre, descripcion, ciudad, provincia, logo_url")
+    .eq("id", params.id)
+    .maybeSingle();
+  if (!data) return { title: "Club no disponible", robots: { index: false } };
+  const lugar = [data.ciudad, data.provincia].filter(Boolean).join(", ");
+  const descripcion = data.descripcion?.slice(0, 160) || `Club de autos clásicos${lugar ? ` en ${lugar}` : ""}.`;
+  return {
+    title: data.nombre,
+    description: descripcion,
+    openGraph: { title: data.nombre, description: descripcion, images: [data.logo_url || "/og.jpg"] },
+  };
 }
 
 export default async function ClubDetallePage({ params }: Props) {
@@ -27,22 +62,16 @@ export default async function ClubDetallePage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
-      <nav className="border-b border-white/10 bg-[#0F1117]/90 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-[#D4A847]">Las Clásicas</Link>
-          <Link href="/clubes" className="text-sm text-white/60 hover:text-white transition-colors">
-            ← Volver a clubes
-          </Link>
-        </div>
-      </nav>
-
       <div className="max-w-4xl mx-auto px-4 py-8">
+        <Link href="/clubes" className="inline-block mb-6 text-sm text-white/50 hover:text-[#D4A847] transition-colors">
+          ← Volver a clubes
+        </Link>
         <div className="bg-white/5 rounded-2xl border border-white/10 p-6 mb-8 flex items-center gap-4">
           {club.logo_url ? (
             <img src={club.logo_url} alt={club.nombre} className="w-16 h-16 rounded-full object-cover" />
           ) : (
-            <div className="w-16 h-16 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold text-2xl">
-              {club.nombre?.[0]?.toUpperCase()}
+            <div className="w-16 h-16 shrink-0 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold text-lg">
+              {siglasClub(club.nombre)}
             </div>
           )}
           <div>
@@ -61,7 +90,7 @@ export default async function ClubDetallePage({ params }: Props) {
                 {club.contacto && <p className="text-white/50">Contacto: {club.contacto}</p>}
                 {club.sitio_web && (
                   <a href={club.sitio_web} target="_blank" rel="noopener noreferrer" className="text-[#D4A847] hover:underline block">
-                    {club.sitio_web}
+                    {etiquetaEnlace(club.sitio_web)} →
                   </a>
                 )}
               </div>
@@ -78,7 +107,7 @@ export default async function ClubDetallePage({ params }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {eventos?.map((evento: any) => {
             const fecha = evento.fecha_evento
-              ? new Date(evento.fecha_evento).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' })
+              ? new Date(evento.fecha_evento).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Argentina/Buenos_Aires' })
               : null;
             return (
               <Link key={evento.id} href={`/eventos/${evento.id}`}

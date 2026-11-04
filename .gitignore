@@ -5,3 +5,6 @@ node_modules/
 .env*.local
 node_modules/
 .next/
+
+# TypeScript (caché de compilación)
+*.tsbuildinfo

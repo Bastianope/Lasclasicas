@@ -8,8 +8,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0E0E10",
-        accent: "#B8862E",
+        // Mismos valores que la portada (#0F1117 / #D4A847) para un dorado único en todo el sitio.
+        background: "#0F1117",
+        accent: "#D4A847",
         surface: "#1A1A1D",
       },
     },

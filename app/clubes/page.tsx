@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { siglasClub } from "@/lib/sitio";
 
 export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Clubes de autos clásicos",
+  description: "Clubes de autos clásicos y youngtimers de Argentina: actividades, eventos y contacto.",
+};
 
 export default async function ClubesPage() {
   const supabase = await createClient();
@@ -13,18 +20,12 @@ export default async function ClubesPage() {
 
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
-      <nav className="border-b border-white/10 bg-[#0F1117]/90 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-[#D4A847]">Las Clásicas</Link>
-          <Link href="/anuncios" className="text-sm text-white/60 hover:text-white transition-colors">
-            ← Volver a anuncios
-          </Link>
-        </div>
-      </nav>
-
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-bold text-white">Clubes</h1>
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-2xl font-bold text-white">Clubes</h1>
+            <p className="text-white/40 text-sm mt-1">Los clubes de autos clásicos del país. ¿El tuyo no está? Creá su página gratis.</p>
+          </div>
           <Link href="/clubes/nuevo"
             className="bg-[#D4A847] text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#C49B35] transition-colors">
             Crear club
@@ -43,8 +44,8 @@ export default async function ClubesPage() {
                 {club.logo_url ? (
                   <img src={club.logo_url} alt={club.nombre} className="w-12 h-12 rounded-full object-cover" />
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold">
-                    {club.nombre?.[0]?.toUpperCase()}
+                  <div className="w-12 h-12 shrink-0 rounded-full bg-[#D4A847]/20 flex items-center justify-center text-[#D4A847] font-bold text-sm">
+                    {siglasClub(club.nombre)}
                   </div>
                 )}
                 <div>

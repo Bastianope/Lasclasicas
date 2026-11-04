@@ -2,6 +2,9 @@ import MapaArgentina from '@/components/MapaArgentina'
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import FavoritoButton from "@/components/FavoritoButton";
+import { tituloAnuncio } from "@/lib/sitio";
+import TarjetaArticulo from "@/components/TarjetaArticulo";
+import { GUIAS, LUGARES } from "@/lib/contenido";
 
 export const revalidate = 0;
 
@@ -24,6 +27,12 @@ export default async function HomePage() {
     .eq("estado", "activo")
     .order("created_at", { ascending: false })
     .limit(6);
+
+  // Total real de anuncios activos (la lista de arriba está limitada a 6).
+  const { count: totalActivos } = await supabase
+    .from("anuncios")
+    .select("id", { count: "exact", head: true })
+    .eq("estado", "activo");
 
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
@@ -54,9 +63,21 @@ export default async function HomePage() {
               </button>
             </form>
             <div className="flex flex-wrap gap-2 mt-5">
-              {['Ford Falcon','IKA Torino','Peugeot 504','BMW E30','Fiat 600'].map(tag => (
-                <span key={tag} className="px-3 py-1 rounded-full border border-white/20 text-white/50 text-xs">{tag}</span>
-              ))}
+              {[
+                { label: 'Ford Falcon', marca: 'Ford' },
+                { label: 'IKA Torino', marca: 'IKA' },
+                { label: 'Peugeot 504', marca: 'Peugeot' },
+                { label: 'BMW E30', marca: 'BMW' },
+                { label: 'Fiat 600', marca: 'Fiat' },
+              ].map(({ label, marca }) => {
+                const marcaId = marcas?.find(m => m.nombre.toLowerCase() === marca.toLowerCase())?.id
+                return (
+                  <Link key={label} href={marcaId ? `/anuncios?marca=${marcaId}` : '/anuncios'}
+                    className="px-3 py-1 rounded-full border border-white/20 text-white/50 text-xs hover:border-[#D4A847] hover:text-[#D4A847] transition-colors">
+                    {label}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -65,7 +86,7 @@ export default async function HomePage() {
       <section className="border-y border-white/10 bg-white/5">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-wrap gap-8 justify-center">
           {[
-            { label: 'Anuncios activos', value: `+${anuncios?.length || 0}` },
+            { label: 'Anuncios activos', value: `${totalActivos ?? anuncios?.length ?? 0}` },
             { label: 'Marcas disponibles', value: `${marcas?.length || 0}` },
             { label: 'Provincias', value: '24' },
             { label: 'Contacto directo WhatsApp', value: '100%' },
@@ -121,7 +142,7 @@ export default async function HomePage() {
               <h3 className="text-white font-bold text-lg">Clásicos</h3>
             </div>
           </a>
-          <a href="/anuncios?categoria=youngTimer"
+          <a href="/anuncios?categoria=youngtimer"
             className="group relative overflow-hidden rounded-2xl h-48 border border-white/10 hover:border-[#D4A847] transition-all">
             <img src="/E30av.jpg" alt="Youngtimers"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
@@ -137,10 +158,29 @@ export default async function HomePage() {
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
             <div className="absolute bottom-0 left-0 p-4">
-              <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Exclusivo</p>
+              <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-1">Coupés y cabrios</p>
               <h3 className="text-white font-bold text-lg">Sport & GT</h3>
             </div>
           </a>
+        </div>
+      </section>
+
+      {/* GUÍAS Y LUGARES */}
+      <section className="max-w-7xl mx-auto px-4 pt-16">
+        <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+          <div>
+            <p className="text-[#D4A847] text-xs font-bold tracking-widest uppercase mb-2">Historia sobre ruedas</p>
+            <h2 className="text-2xl font-bold text-white">Guías de los clásicos argentinos</h2>
+          </div>
+          <Link href="/guias" className="text-sm text-[#D4A847] hover:underline font-medium">Ver todas las guías →</Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {GUIAS.filter((g) => g.modelo).map((g) => (
+            <TarjetaArticulo key={g.slug} articulo={g} href={`/guias/${g.slug}`} />
+          ))}
+          {LUGARES.map((l) => (
+            <TarjetaArticulo key={l.slug} articulo={l} href={`/lugares/${l.slug}`} destacada />
+          ))}
         </div>
       </section>
 
@@ -149,6 +189,9 @@ export default async function HomePage() {
           <h2 className="text-2xl font-bold text-white">Últimos anuncios</h2>
           <Link href="/anuncios" className="text-sm text-[#D4A847] hover:underline font-medium">Ver todos →</Link>
         </div>
+        {(!anuncios || anuncios.length === 0) && (
+          <p className="text-white/40">Todavía no hay anuncios publicados. ¡Sé el primero!</p>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {anuncios?.map((anuncio: any) => {
             const imgs = anuncio.anuncio_imagenes || []
@@ -161,13 +204,13 @@ export default async function HomePage() {
                     {img ? (
                       <img src={img.url} alt={anuncio.titulo || ''} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-white/20 text-4xl">🚗</div>
+                      <div className="w-full h-full flex items-center justify-center text-white/25 text-sm">Sin fotos todavía</div>
                     )}
                   </div>
                   <div className="p-4">
                     <p className="text-white/40 text-xs mb-1">{(anuncio.marcas as any)?.nombre} · {anuncio.anio}</p>
                     <h3 className="font-semibold text-white text-sm mb-3 line-clamp-2">
-                      {anuncio.titulo || `${(anuncio.marcas as any)?.nombre} ${(anuncio.modelos as any)?.nombre}`}
+                      {tituloAnuncio(anuncio)}
                     </h3>
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-[#D4A847]">{anuncio.moneda} {Number(anuncio.precio).toLocaleString('es-AR')}</span>
@@ -195,19 +238,6 @@ export default async function HomePage() {
           </Link>
         </div>
       </section>
-
-      <footer className="border-t border-white/10 bg-black/30">
-        <div className="max-w-7xl mx-auto px-4 py-10 flex justify-between text-white/30 text-sm">
-          <div>
-            <p className="text-white font-bold text-lg mb-1">Las <span className="text-[#D4A847]">Clásicas</span></p>
-            <p>El marketplace de youngtimers en Argentina.</p>
-          </div>
-          <div className="flex gap-6">
-            <Link href="/anuncios" className="hover:text-white transition-colors">Anuncios</Link>
-            <Link href="/anuncios/nuevo" className="hover:text-white transition-colors">Publicar</Link>
-          </div>
-        </div>
-      </footer>
 
     </main>
   );

@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import SelectProvincia from "@/components/SelectProvincia";
+import { provinciaCanonica } from "@/lib/ubicacion";
+import { useCategoriasManuales } from "@/lib/useCategoriasManuales";
 
 type Marca = { id: string; nombre: string };
 type Modelo = { id: string; nombre: string; marca_id: string };
@@ -33,8 +36,14 @@ export default function EditarAnuncioForm({
   const [condicion, setCondicion] = useState(anuncio.condicion || "bueno");
   const [descripcion, setDescripcion] = useState(anuncio.descripcion || "");
   const [ciudad, setCiudad] = useState(anuncio.ciudad || "");
-  const [provincia, setProvincia] = useState(anuncio.provincia || "");
+  // Un valor antiguo como "Capital Federal" se normaliza a "CABA" al guardar.
+  const [provincia, setProvincia] = useState(
+    provinciaCanonica(anuncio.provincia || "") ?? anuncio.provincia ?? ""
+  );
   const [estado, setEstado] = useState(anuncio.estado || "activo");
+  const [categoriaId, setCategoriaId] = useState<string>(anuncio.categoria_id || "");
+  const { opciones: categorias } = useCategoriasManuales(anuncio.categoria_id);
+  const [whatsapp, setWhatsapp] = useState<string>(anuncio.whatsapp || "");
 
   const [imagenes, setImagenes] = useState<Imagen[]>([]);
   const [subiendoFoto, setSubiendoFoto] = useState(false);
@@ -71,8 +80,8 @@ export default function EditarAnuncioForm({
   }, []);
 
   const handleSubirFoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const archivos = Array.from(e.target.files ?? []);
+    if (archivos.length === 0) return;
 
     setErrorFoto(null);
     setSubiendoFoto(true);
@@ -84,29 +93,38 @@ export default function EditarAnuncioForm({
       return;
     }
 
-    const fileExt = file.name.split(".").pop();
-    const filePath = `${user.id}/${anuncio.id}-${Date.now()}.${fileExt}`;
+    // Varias fotos a la vez; la primera pasa a principal si el anuncio no tenía ninguna
+    let total = imagenes.length;
+    let fallidas = 0;
+    for (let i = 0; i < archivos.length; i++) {
+      const file = archivos[i];
+      const fileExt = file.name.split(".").pop();
+      const filePath = `${user.id}/${anuncio.id}-${Date.now()}-${i}.${fileExt}`;
 
-    const { error: uploadError } = await supabase.storage
-      .from("anuncios-fotos")
-      .upload(filePath, file);
+      const { error: uploadError } = await supabase.storage
+        .from("anuncios-fotos")
+        .upload(filePath, file);
+      if (uploadError) {
+        fallidas++;
+        continue;
+      }
 
-    if (uploadError) {
-      setErrorFoto("No se pudo subir la foto.");
-      setSubiendoFoto(false);
-      return;
+      const { data: { publicUrl } } = supabase.storage
+        .from("anuncios-fotos")
+        .getPublicUrl(filePath);
+
+      await supabase.from("anuncio_imagenes").insert({
+        anuncio_id: anuncio.id,
+        url: publicUrl,
+        es_principal: total === 0,
+        orden: total,
+      });
+      total++;
     }
 
-    const { data: { publicUrl } } = supabase.storage
-      .from("anuncios-fotos")
-      .getPublicUrl(filePath);
-
-    await supabase.from("anuncio_imagenes").insert({
-      anuncio_id: anuncio.id,
-      url: publicUrl,
-      es_principal: imagenes.length === 0,
-      orden: imagenes.length,
-    });
+    if (fallidas > 0) {
+      setErrorFoto(fallidas === 1 ? "Una foto no se pudo subir." : `${fallidas} fotos no se pudieron subir.`);
+    }
 
     await cargarImagenes();
     setSubiendoFoto(false);
@@ -145,6 +163,8 @@ export default function EditarAnuncioForm({
         ciudad,
         provincia,
         estado,
+        whatsapp: whatsapp.trim() || null,
+        ...(categorias.length > 0 ? { categoria_id: categoriaId || null } : {}),
       })
       .eq("id", anuncio.id);
 
@@ -190,8 +210,8 @@ export default function EditarAnuncioForm({
           ))}
         </div>
         <label className="inline-block cursor-pointer text-xs px-4 py-2 rounded-lg bg-white/10 text-white/70 hover:bg-white/20 transition-colors">
-          {subiendoFoto ? "Subiendo..." : "+ Agregar foto"}
-          <input type="file" accept="image/*" onChange={handleSubirFoto} disabled={subiendoFoto} className="hidden" />
+          {subiendoFoto ? "Subiendo..." : "+ Agregar fotos"}
+          <input type="file" accept="image/*" multiple onChange={handleSubirFoto} disabled={subiendoFoto} className="hidden" />
         </label>
         {errorFoto && <p className="text-red-400 text-xs mt-2">{errorFoto}</p>}
       </div>
@@ -274,10 +294,34 @@ export default function EditarAnuncioForm({
           </div>
           <div>
             <label className="block text-white/50 text-xs mb-1">Provincia</label>
-            <input type="text" value={provincia} onChange={(e) => setProvincia(e.target.value)}
+            <SelectProvincia value={provincia} onChange={setProvincia}
               className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm outline-none focus:border-[#D4A847]" />
           </div>
         </div>
+
+        <div>
+          <label className="block text-white/50 text-xs mb-1">WhatsApp de contacto para este anuncio</label>
+          <input type="tel" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder="5491112345678"
+            className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm outline-none focus:border-[#D4A847]" />
+          <p className="text-white/30 text-xs mt-1">
+            Si lo dejás vacío se usa el número de tu perfil. Útil para publicar el auto de otra persona.
+          </p>
+        </div>
+
+        {categorias.length > 0 && (
+          <div>
+            <label className="block text-white/50 text-xs mb-1">Carrocería (opcional)</label>
+            <select value={categoriaId} onChange={(e) => setCategoriaId(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm outline-none focus:border-[#D4A847]">
+              <option value="">Sin especificar</option>
+              {categorias.map((c) => (<option key={c.id} value={c.id}>{c.etiqueta}</option>))}
+            </select>
+            <p className="text-white/30 text-xs mt-1">
+              Coupés y cabrios aparecen también en Sport &amp; GT. Clásicos (antes de 1980) y
+              youngtimers (1980–2000) se clasifican solos por año.
+            </p>
+          </div>
+        )}
 
         <div>
           <label className="block text-white/50 text-xs mb-1">Estado del anuncio</label>

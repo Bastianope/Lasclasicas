@@ -3,9 +3,13 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import SelectProvincia from "@/components/SelectProvincia";
+import { useCategoriasManuales } from "@/lib/useCategoriasManuales";
 
 type Marca = { id: string; nombre: string };
 type Modelo = { id: string; nombre: string; marca_id: string };
+
+const MAX_FOTOS = 10;
 
 export default function NuevoAnuncioPage() {
   const router = useRouter();
@@ -27,10 +31,14 @@ export default function NuevoAnuncioPage() {
   const [ciudad, setCiudad] = useState("");
   const [provincia, setProvincia] = useState("");
   const [telefono, setTelefono] = useState("");
-  const [foto, setFoto] = useState<File | null>(null);
+  const [telefonoPerfil, setTelefonoPerfil] = useState("");
+  const [fotos, setFotos] = useState<File[]>([]);
+  const [categoriaId, setCategoriaId] = useState("");
+  const { opciones: categorias } = useCategoriasManuales();
 
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [progreso, setProgreso] = useState<string | null>(null);
 
   useEffect(() => {
     const checkUser = async () => {
@@ -39,10 +47,25 @@ export default function NuevoAnuncioPage() {
         router.push("/login");
         return;
       }
+      // El WhatsApp del perfil se propone por defecto; se puede cambiar por anuncio.
+      const { data: perfil } = await supabase
+        .from("profiles")
+        .select("telefono")
+        .eq("id", user.id)
+        .maybeSingle();
+      if (perfil?.telefono) {
+        setTelefono(perfil.telefono);
+        setTelefonoPerfil(perfil.telefono);
+      }
       setChecking(false);
     };
     checkUser();
   }, []);
+
+  const elegirFotos = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const elegidas = Array.from(e.target.files ?? []).slice(0, MAX_FOTOS);
+    setFotos(elegidas);
+  };
 
   useEffect(() => {
     const loadMarcas = async () => {
@@ -93,6 +116,8 @@ export default function NuevoAnuncioPage() {
         titulo,
         kilometraje: Number(kilometraje) || null,
         condicion,
+        whatsapp: telefono.trim() || null,
+        ...(categoriaId ? { categoria_id: categoriaId } : {}),
       })
       .select()
       .single();
@@ -103,32 +128,36 @@ export default function NuevoAnuncioPage() {
       return;
     }
 
-    // Met à jour le téléphone du profil vendeur
-    if (telefono) {
+    // Primer número cargado: se guarda también en el perfil para los próximos anuncios
+    if (telefono.trim() && !telefonoPerfil) {
       await supabase
         .from("profiles")
-        .update({ telefono })
+        .update({ telefono: telefono.trim() })
         .eq("id", user.id);
     }
 
-    if (foto) {
+    // Fotos: la primera queda como principal
+    let subidas = 0;
+    for (let i = 0; i < fotos.length; i++) {
+      setProgreso(`Subiendo fotos (${i + 1}/${fotos.length})...`);
+      const foto = fotos[i];
       const fileExt = foto.name.split(".").pop();
-      const filePath = `${user.id}/${anuncio.id}.${fileExt}`;
+      const filePath = `${user.id}/${anuncio.id}-${i}-${Date.now()}.${fileExt}`;
       const { error: uploadError } = await supabase.storage
         .from("anuncios-fotos")
         .upload(filePath, foto);
+      if (uploadError) continue;
 
-      if (!uploadError) {
-        const { data: { publicUrl } } = supabase.storage
-          .from("anuncios-fotos")
-          .getPublicUrl(filePath);
-        await supabase.from("anuncio_imagenes").insert({
-          anuncio_id: anuncio.id,
-          url: publicUrl,
-          es_principal: true,
-          orden: 0,
-        });
-      }
+      const { data: { publicUrl } } = supabase.storage
+        .from("anuncios-fotos")
+        .getPublicUrl(filePath);
+      await supabase.from("anuncio_imagenes").insert({
+        anuncio_id: anuncio.id,
+        url: publicUrl,
+        es_principal: subidas === 0,
+        orden: subidas,
+      });
+      subidas++;
     }
 
     router.push(`/anuncios/${anuncio.id}`);
@@ -203,7 +232,28 @@ export default function NuevoAnuncioPage() {
             onChange={(e) => setAnio(e.target.value)}
             className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
           />
+          <p className="text-gray-500 text-xs mt-1">
+            Antes de 1980 aparece en Clásicos, de 1980 a 2000 en Youngtimers.
+          </p>
         </div>
+
+        {/* CARROCERIA (tabla categorias) */}
+        {categorias.length > 0 && (
+          <div>
+            <label className="block text-gray-300 text-sm mb-1">Carrocería (opcional)</label>
+            <select
+              value={categoriaId}
+              onChange={(e) => setCategoriaId(e.target.value)}
+              className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
+            >
+              <option value="">Sin especificar</option>
+              {categorias.map((c) => (
+                <option key={c.id} value={c.id}>{c.etiqueta}</option>
+              ))}
+            </select>
+            <p className="text-gray-500 text-xs mt-1">Coupés y cabrios aparecen también en Sport &amp; GT.</p>
+          </div>
+        )}
 
         {/* MONEDA / PRECIO */}
         <div className="grid grid-cols-3 gap-4">
@@ -284,11 +334,10 @@ export default function NuevoAnuncioPage() {
           </div>
           <div>
             <label className="block text-gray-300 text-sm mb-1">Provincia</label>
-            <input
-              type="text"
+            <SelectProvincia
               required
               value={provincia}
-              onChange={(e) => setProvincia(e.target.value)}
+              onChange={setProvincia}
               className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
             />
           </div>
@@ -296,7 +345,7 @@ export default function NuevoAnuncioPage() {
 
         {/* TELEFONO */}
         <div>
-          <label className="block text-gray-300 text-sm mb-1">WhatsApp / Teléfono</label>
+          <label className="block text-gray-300 text-sm mb-1">WhatsApp de contacto para este anuncio</label>
           <input
             type="tel"
             placeholder="Ej: 5491112345678"
@@ -304,18 +353,26 @@ export default function NuevoAnuncioPage() {
             onChange={(e) => setTelefono(e.target.value)}
             className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-accent outline-none"
           />
-          <p className="text-gray-500 text-xs mt-1">Formato internacional sin + (ej: 5491112345678)</p>
+          <p className="text-gray-500 text-xs mt-1">
+            Formato internacional sin + (ej: 5491112345678). Los interesados te escriben directo a este número.
+          </p>
         </div>
 
-        {/* FOTO */}
+        {/* FOTOS */}
         <div>
-          <label className="block text-gray-300 text-sm mb-1">Foto</label>
+          <label className="block text-gray-300 text-sm mb-1">Fotos (hasta {MAX_FOTOS})</label>
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setFoto(e.target.files?.[0] || null)}
+            multiple
+            onChange={elegirFotos}
             className="w-full text-gray-300 text-sm"
           />
+          <p className="text-gray-500 text-xs mt-1">
+            {fotos.length > 0
+              ? `${fotos.length} ${fotos.length === 1 ? "foto elegida" : "fotos elegidas"}. La primera será la principal.`
+              : "Los anuncios con varias fotos reciben muchas más consultas."}
+          </p>
         </div>
 
         {error && <p className="text-red-400 text-sm">{error}</p>}
@@ -325,7 +382,7 @@ export default function NuevoAnuncioPage() {
           disabled={loading}
           className="w-full bg-accent text-background font-semibold py-3 rounded-lg hover:opacity-90 transition disabled:opacity-50"
         >
-          {loading ? "Publicando..." : "Publicar Anuncio"}
+          {loading ? progreso ?? "Publicando..." : "Publicar Anuncio"}
         </button>
 
       </form>
