@@ -2,6 +2,7 @@
 
 export const NOMBRE_SITIO = "Las Clásicas";
 export const EMAIL_CONTACTO = "contacto@lasclasicas.com";
+export const FACEBOOK_URL = "https://www.facebook.com/lasclasicas.ar";
 
 // Vercel define VERCEL_PROJECT_PRODUCTION_URL con el dominio de producción (lasclasicas.com).
 export const URL_SITIO =
