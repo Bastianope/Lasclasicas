@@ -46,6 +46,8 @@ export type Articulo = {
   modelo?: { marca: string; modelos: string[] };
   // Lugares: mapa de OpenStreetMap
   mapa?: { lat: number; lon: number; delta: number };
+  // Lugares: provincia, para enlazar a los autos en venta de la zona
+  provincia?: string;
 };
 
 export const GUIAS: Articulo[] = [
@@ -212,6 +214,61 @@ export const GUIAS: Articulo[] = [
       },
     ],
     modelo: { marca: "Fiat", modelos: ["600"] },
+  },
+  {
+    slug: "peugeot-504",
+    titulo: "Peugeot 504",
+    kicker: "Guía de modelo · 1969–1999",
+    resumen:
+      "Treinta años de producción y casi medio millón de unidades vendidas: el 504 fue el auto de las familias, de los taxis y de las rutas largas. Hoy es uno de los clásicos más buscados del país.",
+    descripcionSeo:
+      "Peugeot 504 argentino (1969–1999): historia, versiones, motores y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1969–1999", etiqueta: "años de producción en el país" },
+      { valor: "Casi 500.000", etiqueta: "unidades vendidas en la Argentina" },
+      { valor: "Berazategui", etiqueta: "y luego El Palomar (Sevel)" },
+      { valor: "30 años", etiqueta: "en el mercado argentino" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en el Salón de París en septiembre de 1968, el 504 se lanzó en la Argentina en agosto de 1969. Lo fabricaba Safrar en la planta de Berazategui; desde 1981, ya con Sevel (la unión de Peugeot y Fiat en el país), la producción pasó a El Palomar.",
+          "Se fabricó hasta diciembre de 1999. Las cifras de ventas varían según la fuente, entre 491.959 y 496.693 unidades, pero todas coinciden en que fue un récord para el mercado argentino del siglo XX. Su mejor año fue 1994, con casi 25.000 patentamientos.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "1969–1971: motor 1.6 de 76 CV y faros redondos.",
+          "1972: motor 1.8 y los clásicos faros trapezoidales. El sedán de 1974 es el famoso «Yeyo».",
+          "1973: serie X (XE, XL, XSE). 1976: serie 2000 (E, L, SE), con motor de 2 litros.",
+          "TN (Turismo Nacional): motor de 1971 cm³ y 110 CV, con sus decoraciones celeste y blanca o naranja con franjas negras.",
+          "1979: versiones S, con la SED diésel. 1981: llega la pick-up, que se hizo hasta 1999.",
+          "1982: GR, con la primera caja de cinco marchas. 1988: SR y SRD. 1990: SRX, tope de gama con la cola rediseñada por Pininfarina.",
+          "Motores: nafteros de 1.6, 1.8 y 2.0 litros, y el diésel Indenor 2.3.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido en zócalos, piso, pasarruedas y parte baja de las puertas: es lo primero que hay que mirar.",
+          "Historial de GNC y de taxi: muchos 504 trabajaron durante años; un auto particular y original vale más.",
+          "Diésel Indenor: escuchar el arranque en frío y controlar humo y pérdidas de aceite.",
+          "Tren trasero, caja y diferencial: ruidos al acelerar o desacelerar indican desgaste.",
+          "Originalidad: las versiones TN, SR y SRX, y los primeros de faros redondos, son las más buscadas por los coleccionistas.",
+          "Repuestos: abundantes y accesibles, gracias a los treinta años de producción.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "La Nación — La historia de un ícono: el Peugeot 504 (2018)", url: "https://www.lanacion.com.ar/autos/al-volante/la-historia-icono-peugeot-504-nid2195265" },
+      { titulo: "Autoweb — Hace 20 años se despedía el Peugeot 504 argentino (2019)", url: "https://www.autoweb.com.ar/?p=12886" },
+    ],
+    modelo: { marca: "Peugeot", modelos: ["504"] },
   },
   {
     slug: "seguros-para-clasicos",
@@ -427,6 +484,7 @@ export const LUGARES: Articulo[] = [
       },
     ],
     mapa: { lat: -33.2303, lon: -66.2325, delta: 0.035 },
+    provincia: "San Luis",
     portada: {
       src: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Ciudad_de_Potrero_de_los_Funes.jpg",
       alt: "Vista panorámica del pueblo de Potrero de los Funes entre las sierras de San Luis",
@@ -438,6 +496,59 @@ export const LUGARES: Articulo[] = [
       ancho: 1200,
       alto: 276,
     },
+  },
+  {
+    slug: "balcarce-fangio",
+    titulo: "Balcarce, la tierra de Fangio",
+    kicker: "Lugares míticos · Buenos Aires",
+    resumen:
+      "La ciudad natal de Juan Manuel Fangio reúne el museo de automovilismo más importante del país y un autódromo entre las sierras que, después de quince años, volvió a recibir carreras nacionales.",
+    descripcionSeo:
+      "Balcarce y Juan Manuel Fangio: el Museo Fangio, el Autódromo Juan Manuel Fangio y su reapertura en 2026, y la casa natal del quíntuple campeón.",
+    cifras: [
+      { valor: "5", etiqueta: "títulos mundiales de Fórmula 1 de Fangio" },
+      { valor: "1986", etiqueta: "inauguración del Museo Fangio" },
+      { valor: "4,59 km", etiqueta: "de trazado del autódromo" },
+      { valor: "1972", etiqueta: "inauguración del autódromo" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "El Museo Fangio",
+        parrafos: [
+          "Juan Manuel Fangio nació en Balcarce en 1911 y fue cinco veces campeón del mundo de Fórmula 1 (1951 y de 1954 a 1957). Su museo se inauguró el 22 de noviembre de 1986, en el edificio de 1906 que había sido la municipalidad, en la esquina de Dardo Rocha y Mitre.",
+          "El recorrido baja por una rampa a lo largo de tres niveles, con unos 55 vehículos en exhibición: autos de Turismo Carretera, de Fórmula 1 y de sport. La estrella está en el último piso: el Mercedes-Benz W196, la «Flecha de Plata».",
+        ],
+      },
+      {
+        tipo: "texto",
+        titulo: "El Autódromo Juan Manuel Fangio",
+        parrafos: [
+          "Inaugurado el 16 de enero de 1972, el autódromo está en la sierra La Barrosa, muy cerca del centro, con vistas panorámicas sobre la ciudad. Su trazado completo mide 4,59 km. Allí corrieron el Turismo Carretera, el TC2000 y el Turismo Nacional.",
+          "Después del accidente fatal de Guido Falaschi en 2011, las grandes categorías dejaron de visitarlo. La Provincia de Buenos Aires financió su puesta a punto, y el 26 y 27 de septiembre de 2026 el TC Pick Up marcó la vuelta de las carreras nacionales.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Para visitar",
+        items: [
+          "Museo Fangio: Dardo Rocha y Mitre, en el centro de Balcarce. Consultá horarios y entradas en su sitio oficial.",
+          "Casa natal de Fangio: calle 13 nº 321. Se puede ver la fachada, señalada con una placa; el interior no se visita.",
+          "Autódromo: Suipacha y calle 63, a pocos minutos del centro.",
+          "Balcarce está a menos de una hora de Mar del Plata: se combina fácil con una escapada a la costa.",
+        ],
+      },
+    ],
+    aviso: "Horarios y actividades cambian: consultá siempre las fuentes oficiales antes de viajar.",
+    fuentes: [
+      { titulo: "Museo Juan Manuel Fangio — sitio oficial", url: "https://www.museofangio.com" },
+      { titulo: "La Nación — Qué hay para ver en el Museo Fangio (2024)", url: "https://www.lanacion.com.ar/autos/que-hay-para-ver-en-el-museo-fangio-en-balcarce-una-visita-para-conocer-de-cerca-la-historia-del-nid20072024/" },
+      { titulo: "Wikipedia — Autódromo Juan Manuel Fangio", url: "https://en.wikipedia.org/wiki/Aut%C3%B3dromo_Juan_Manuel_Fangio" },
+      { titulo: "Welcome Argentina — Autódromo Fangio", url: "https://www.welcomeargentina.com/balcarce/autodromo-fangio.html" },
+      { titulo: "Infozona — Las TC Pick Up llegan a Balcarce (2026)", url: "https://www.infozona.com.ar/tc-pick-up-balcarce-2026/" },
+    ],
+    mapa: { lat: -37.862, lon: -58.262, delta: 0.03 },
+    provincia: "Buenos Aires",
   },
 ];
 

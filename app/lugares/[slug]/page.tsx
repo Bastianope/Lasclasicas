@@ -31,20 +31,22 @@ export default function LugarPage({ params }: Props) {
 
   return (
     <Articulo articulo={lugar} volver={{ href: "/lugares", texto: "Lugares míticos" }}>
+      {lugar.provincia && (
       <section className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <p className="font-semibold text-white">¿Vas a pasar por San Luis con tu clásico?</p>
+          <p className="font-semibold text-white">¿Vas a pasar por {lugar.provincia} con tu clásico?</p>
           <p className="text-white/50 text-sm">Mirá los encuentros de la agenda y los autos en venta en la provincia.</p>
         </div>
         <div className="flex flex-wrap gap-3 shrink-0">
           <Link href="/eventos" className="px-4 py-2 rounded-xl border border-white/20 text-sm text-white/80 hover:border-[#D4A847] hover:text-[#D4A847] transition-colors">
             Eventos
           </Link>
-          <Link href="/anuncios?provincia=San%20Luis" className="px-4 py-2 rounded-xl bg-[#D4A847] text-black text-sm font-bold hover:bg-[#C49B35] transition-colors">
-            Autos en San Luis
+          <Link href={`/anuncios?provincia=${encodeURIComponent(lugar.provincia!)}`} className="px-4 py-2 rounded-xl bg-[#D4A847] text-black text-sm font-bold hover:bg-[#C49B35] transition-colors">
+            Autos en {lugar.provincia}
           </Link>
         </div>
       </section>
+      )}
     </Articulo>
   );
 }
