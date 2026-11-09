@@ -550,6 +550,77 @@ export const LUGARES: Articulo[] = [
     mapa: { lat: -37.862, lon: -58.262, delta: 0.03 },
     provincia: "Buenos Aires",
   },
+  {
+    slug: "museos-del-automovil",
+    titulo: "Museos del automóvil en la Argentina",
+    kicker: "Lugares míticos · Todo el país",
+    resumen:
+      "De la Flecha de Plata de Fangio en Balcarce al primer auto patentado del país en Palermo, pasando por un museo dedicado al Fitito: seis museos para recorrer la historia del automóvil argentino.",
+    descripcionSeo:
+      "Museos del automóvil en la Argentina: Museo Fangio, Museo del ACA, Termas de Río Hondo, Museo del Fitito, Maipú y Luján. Qué ver en cada uno y dónde están.",
+    secciones: [
+      {
+        tipo: "fichas",
+        titulo: "Seis museos para visitar",
+        fichas: [
+          {
+            nombre: "Museo Juan Manuel Fangio",
+            zona: "Balcarce · Buenos Aires",
+            texto:
+              "Inaugurado en 1986 en la antigua municipalidad, reúne unos 55 vehículos en tres niveles. La estrella: el Mercedes-Benz W196, la «Flecha de Plata».",
+            enlace: { url: "https://www.museofangio.com", texto: "Sitio oficial" },
+          },
+          {
+            nombre: "Museo del Automóvil Club Argentino",
+            zona: "Palermo · CABA",
+            texto:
+              "En la sede del ACA, Av. del Libertador 1850. Un Daimler de 1892, la Ferrari 166 de Fangio, el Brabham de Reutemann y la patente nº 1 del país.",
+            enlace: {
+              url: "https://turismo.buenosaires.gob.ar/es/otros-establecimientos/museo-del-autom%C3%B3vil-club-argentino",
+              texto: "Más información",
+            },
+          },
+          {
+            nombre: "Museo del Automóvil de Termas de Río Hondo",
+            zona: "Termas de Río Hondo · Santiago del Estero",
+            texto:
+              "Dentro del autódromo internacional, frente al embalse. Abierto en 2012, con seis salas: Fórmula 1, Turismo Carretera, autos históricos, Espacio Fangio, industria nacional y motos clásicas.",
+            enlace: { url: "https://www.welcomeargentina.com/termasderiohondo/museo-del-automovil-en-rio-hondo.html", texto: "Más información" },
+          },
+          {
+            nombre: "Museo del Fitito",
+            zona: "Tres de Febrero · Buenos Aires",
+            texto:
+              "El primer museo del mundo dedicado al Fiat 600 abrió en noviembre de 2023, con una caravana de más de 600 Fititos. Versiones, publicidades de época y repuestos donados por los fanáticos.",
+            enlace: { url: "https://noticias.autocosmos.com.ar/2023/11/08/con-mas-de-600-fiat-600-se-abrio-al-publico-el-museo-del-fitito", texto: "Más información" },
+          },
+          {
+            nombre: "Museo del Automóvil y del Ayer",
+            zona: "Maipú · Mendoza",
+            texto:
+              "En el Salón Centenario de la ex Bodega Giol, Ozamis 1040. Autos desde un Star de 1909 hasta clásicos argentinos de los 70, con un taller mecánico de época.",
+            enlace: { url: "https://www.mendoza.gov.ar/prensa/museo-del-automovil-continua-la-muestra-de-autos-antiguos/", texto: "Más información" },
+          },
+          {
+            nombre: "Museo del Transporte (Complejo Udaondo)",
+            zona: "Luján · Buenos Aires",
+            texto:
+              "Carruajes del siglo XIX, la locomotora La Porteña de 1857 y el hidroavión Plus Ultra: para entender cómo se movían los argentinos antes del auto.",
+            enlace: { url: "https://www.gba.gob.ar/cultura/noticias/el_complejo_udaondo_presenta_su_agenda_para_el_verano", texto: "Más información" },
+          },
+        ],
+        nota: "Horarios, entradas y aperturas cambian: consultá siempre a cada museo antes de ir.",
+      },
+    ],
+    fuentes: [
+      { titulo: "La Nación — Qué hay para ver en el Museo Fangio (2024)", url: "https://www.lanacion.com.ar/autos/que-hay-para-ver-en-el-museo-fangio-en-balcarce-una-visita-para-conocer-de-cerca-la-historia-del-nid20072024/" },
+      { titulo: "Turismo Buenos Aires — Museo del Automóvil Club Argentino", url: "https://turismo.buenosaires.gob.ar/es/otros-establecimientos/museo-del-autom%C3%B3vil-club-argentino" },
+      { titulo: "Welcome Argentina — Museo del Automóvil en Río Hondo", url: "https://www.welcomeargentina.com/termasderiohondo/museo-del-automovil-en-rio-hondo.html" },
+      { titulo: "Autocosmos — Se abrió al público el Museo del Fitito (2023)", url: "https://noticias.autocosmos.com.ar/2023/11/08/con-mas-de-600-fiat-600-se-abrio-al-publico-el-museo-del-fitito" },
+      { titulo: "Gobierno de Mendoza — Museo del Automóvil (2013)", url: "https://www.mendoza.gov.ar/prensa/museo-del-automovil-continua-la-muestra-de-autos-antiguos/" },
+      { titulo: "Exhibitist — Museo del Transporte, Complejo Udaondo (2018)", url: "https://exhibitist.net/2018/06/15/lujan-complejo-museografico-provincial-enrique-udaondo-museo-del-transporte-enrique-udaondo-provincial-museum-complex-museum-of-transport/" },
+    ],
+  },
 ];
 
 export const guiaPorSlug = (slug: string) => GUIAS.find((g) => g.slug === slug);
