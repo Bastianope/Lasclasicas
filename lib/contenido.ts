@@ -271,6 +271,229 @@ export const GUIAS: Articulo[] = [
     modelo: { marca: "Peugeot", modelos: ["504"] },
   },
   {
+    slug: "bmw-serie-3-e30",
+    titulo: "BMW Serie 3 E30",
+    kicker: "Guía de modelo · 1982–1994",
+    resumen:
+      "Tracción trasera, seis en línea, líneas rectas y tamaño compacto: el E30 reúne todo lo que se le pide a un youngtimer alemán. Las versiones de cuatro cilindros siguen siendo accesibles; la M3 ya es un auto de colección.",
+    descripcionSeo:
+      "BMW Serie 3 E30 (1982–1994): historia, carrocerías, motores, la M3 y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1982–1994", etiqueta: "años de producción" },
+      { valor: "2,34 millones", etiqueta: "unidades fabricadas" },
+      { valor: "4", etiqueta: "carrocerías: coupé, sedán, cabrio y Touring" },
+      { valor: "17.970", etiqueta: "M3 E30 fabricadas" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "El E30 reemplazó al E21 en 1982, primero como coupé de dos puertas. Después llegaron el sedán de cuatro puertas, el cabriolet (1986–1993) y la rural Touring (1987–1994). La 325iX sumó tracción integral, y el restyling de 1988 (paragolpes, ópticas traseras, interior) separa las «fase 1» de las «fase 2».",
+          "Presentada en Fráncfort en 1985 y fabricada de 1986 a 1991, la M3 fue un auto de homologación para competir: cuatro cilindros S14 de 2,3 litros y 16 válvulas, entre 195 y 215 CV, y carrocería ensanchada. BMW pensaba hacer 5.000 y fabricó 17.970, de las que 786 fueron cabriolets. La Sport Evolution, de 2,5 litros y 238 CV, se limitó a 600 unidades.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "M10, cuatro cilindros (316, primeros 318i): distribución por cadena, muy robusto.",
+          "M40, cuatro cilindros (316i y 318i desde 1987–1988): correa de distribución; vigilar el árbol de levas.",
+          "M42, cuatro cilindros 16 válvulas (318iS): el cuatro cilindros más deportivo, con un chasis muy equilibrado.",
+          "M20, seis en línea (320i, 323i, 325i): el que le da su carácter al E30. La 325i, de unos 170 CV, es la más buscada.",
+          "M21, diésel (324d y 324td): lentos pero durables.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Seis cilindros M20: correa y tensor cada 60.000 km o 5 años como máximo, con la bomba de agua. Sin factura reciente, hay que cambiarla antes de usar el auto: si se corta, daña el motor.",
+          "Agua en el aceite en un M20: muchas veces es una tapa de cilindros fisurada debajo del árbol de levas, no solo la junta.",
+          "Refrigeración: radiador, termostato y mangueras tienen que estar renovados; un depósito de expansión sucio es mala señal.",
+          "Óxido: pasarruedas traseros (levantá la alfombra del baúl), zócalos y puntos de levante, batea de la batería, anclajes del tren trasero y marco del techo corredizo.",
+          "Tren trasero: bujes del puente y de los brazos, resortes rotos, cazoletas delanteras que golpean en las curvas.",
+          "Ex autos de drift: diferencial soldado, freno de mano hidráulico y piso trasero marcado.",
+          "Cabriolet: abrir y cerrar la capota por completo; mecanismo y lona son caros.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "BMWBlog — BMW E30 3 Series: history and review (2025)", url: "https://www.bmwblog.com/2025/02/14/bmw-e30-3-series-history-review/" },
+      { titulo: "Mecatechnic — Histoire de la BMW E30", url: "https://www.mecatechnic.com/fr-FR/blog/articles/histoire-bmw-e30" },
+      { titulo: "Classics World — BMW E30 3 Series buyer's guide", url: "https://classicsworld.co.uk/guides/bmw-e30-3-series-buyers-guide/" },
+      { titulo: "Youngtimer Garage — BMW Série 3 E30 (2026)", url: "https://youngtimer-garage.fr/dossiers/bmw-serie-3-e30-histoire-moteurs-achat" },
+    ],
+    modelo: { marca: "BMW", modelos: ["Serie 3 E30"] },
+  },
+  {
+    slug: "bmw-serie-3-e46",
+    titulo: "BMW Serie 3 E46",
+    kicker: "Guía de modelo · 1998–2006",
+    resumen:
+      "La tracción trasera de referencia de principios de los 2000, hasta la M3 CSL. El E46 hace de puente entre usado y youngtimer, y sigue siendo accesible si se sabe qué revisar.",
+    descripcionSeo:
+      "BMW Serie 3 E46 (1998–2006): carrocerías, motores, M3 y M3 CSL, y los defectos conocidos que hay que revisar antes de comprar.",
+    cifras: [
+      { valor: "1998–2006", etiqueta: "años de producción" },
+      { valor: "3,27 millones", etiqueta: "unidades, todas las carrocerías" },
+      { valor: "343 CV", etiqueta: "de la M3 (seis en línea S54)" },
+      { valor: "1.383", etiqueta: "M3 CSL fabricadas" },
+    ],
+    secciones: [
+      {
+        tipo: "lista",
+        titulo: "Carrocerías",
+        items: [
+          "Sedán (diciembre de 1997 a mayo de 2005): 1.918.984 unidades.",
+          "Touring (1999–2005): 428.061 unidades.",
+          "Coupé (diciembre de 1998 a mayo de 2006): 443.264 unidades.",
+          "Cabriolet (diciembre de 1999 a noviembre de 2006): 277.146 unidades.",
+          "Compact (2000–2004): 199.430 unidades.",
+          "Restyling en 2001 para el sedán, el Touring y el Compact, y en 2003 para el coupé y el cabrio. La M3 no tuvo restyling.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "320i: seis en línea de 2,0 litros (150 CV) y después de 2,2 litros (170 CV).",
+          "325i y 330i: seis en línea M54 de 192 y 231 CV.",
+          "320d y 330d: diésel de cuatro y seis cilindros, de 136 a 204 CV.",
+          "M3: seis en línea S54 de 3,2 litros y 343 CV (2000–2006).",
+          "M3 CSL (2003–2004): 360 CV, caja SMG, techo de carbono y llantas de 19 pulgadas. Solo 1.383 unidades: es la pieza de colección de la familia.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Fisuras en el piso donde se ancla el tren trasero: pasa en todas las carrocerías, sobre todo en M3, 330i y 328i. La reparación puede costar más que el auto: hacelo revisar en elevador antes de comprar.",
+          "Refrigeración: depósito de expansión, bomba de agua con turbina plástica, radiador y termostato. Conviene cambiarlos en forma preventiva cada 100.000 a 120.000 km.",
+          "VANOS de los seis cilindros: los retenes suelen pedir cambio hacia los 150.000 km.",
+          "Seis cilindros M54: consumo de aceite, respiradero del cárter, bobinas y caudalímetro.",
+          "320d: turbo, EGR, inyectores, volante bimasa y las mariposas de admisión, que en los de 150 CV pueden soltarse.",
+          "Levantavidrios delanteros y módulo de confort (GM5).",
+          "M3: cojinetes de biela del S54, tornillos del VANOS, bomba y embrague de la caja SMG.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Wikipedia — BMW 3 Series (E46)", url: "https://en.wikipedia.org/wiki/BMW_3_Series_(E46)" },
+      { titulo: "BMWTuning — BMW E46 subframe cracks", url: "https://bmwtuning.co/bmw-e46-subframe-cracks/" },
+      { titulo: "Turner Motorsport — E46 Buyer's Guide", url: "https://www.turnermotorsport.com/t-BMW_E46_Buyers_Guide" },
+      { titulo: "PistonHeads — BMW M3 E46 used buying guide", url: "https://www.pistonheads.com/features/ph-buying-guides/bmw-m3-e46--ph-used-buying-guide/25931" },
+      { titulo: "Youngtimer Garage — Guide d'achat BMW E38 et E46 (2026)", url: "https://youngtimer-garage.fr/dossiers/guide-achat-bmw-e38-e46" },
+    ],
+    modelo: { marca: "BMW", modelos: ["Serie 3 E46"] },
+  },
+  {
+    slug: "mercedes-benz-w123",
+    titulo: "Mercedes-Benz W123",
+    kicker: "Guía de modelo · 1976–1986",
+    resumen:
+      "El Mercedes más exitoso de su época: casi 2,7 millones de unidades, taxis que pasaban el millón de kilómetros y un coupé 280 CE que hoy es uno de los clásicos alemanes más buscados.",
+    descripcionSeo:
+      "Mercedes-Benz W123 (1976–1986): sedán, coupé y rural, motores nafteros y diésel, y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1976–1986", etiqueta: "años de producción" },
+      { valor: "2.696.915", etiqueta: "unidades fabricadas" },
+      { valor: "99.884", etiqueta: "coupés C123" },
+      { valor: "455.000", etiqueta: "240 D, la versión más vendida" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado a fines de 1975, el W123 superó al W114 como el Mercedes más exitoso hasta entonces. La demanda era tal que en Alemania había esperas de nueve a doce meses y hasta un mercado negro de autos usados casi nuevos.",
+          "Además del sedán (2.375.410 unidades), hubo coupé C123 (99.884), rural S123 (199.517) y limusina larga. En 1977, dos 280 E ganaron el primer y el segundo puesto del maratón Londres–Sídney. La serie de 1982 trajo ópticas rectangulares y dirección asistida de serie.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "Nafteros: 200, 230, 230 E, 250, 280 y 280 E, con el coupé 280 CE como tope de gama.",
+          "Diésel: 200 D, 220 D, 240 D y 300 D. Son los motores de su leyenda: muchos taxis superaron los 500.000 km.",
+          "300 TD Turbodiesel (1979): presentado como el primer turbodiésel de un auto de pasajeros.",
+          "Las más fabricadas: 240 D (455.000), 230 E (442.000) y 200 D (378.000).",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos y pasarruedas, sobre todo la cara interna de los traseros y la unión entre zócalo y pasarrueda; también parantes A y B, largueros y la canaleta del techo. El estado del piso define el valor del auto.",
+          "Pintura: con un medidor de espesor se ve si el auto fue repintado.",
+          "Tren delantero: rótulas gastadas que golpean al doblar o en los pozos.",
+          "Nafteros 200 y 230: carburador con bomba de pique, membranas y chiclers gastados (tirones y arranque en frío difícil).",
+          "Diésel 240 D y 300 D: inyectores a limpiar o cambiar cerca de los 100.000 km, y una prueba de compresión antes de comprar.",
+          "Distribución por cadena: revisar estiramiento, tensor y patines.",
+          "Aire acondicionado y cierre centralizado por vacío: después de 40 años, suelen necesitar atención.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Wikipedia — Mercedes-Benz W123", url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Mercedes-Benz_W123" },
+      { titulo: "Kfz-Meisterbetrieb Dietrich — Mercedes W123: häufige Probleme", url: "https://kfz-dietrich.com/blog/oldtimer-mercedes-w123-haeufige-probleme/" },
+    ],
+    modelo: { marca: "Mercedes-Benz", modelos: ["230 W123", "W123"] },
+  },
+  {
+    slug: "mercedes-benz-w124",
+    titulo: "Mercedes-Benz W124",
+    kicker: "Guía de modelo · 1984–1997",
+    resumen:
+      "El último Mercedes «hecho como un tanque» para muchos, y el primero en llamarse Clase E. Sedán, rural, coupé y cabrio, con un 500 E desarrollado junto a Porsche.",
+    descripcionSeo:
+      "Mercedes-Benz W124 (1984–1997): carrocerías, el 500 E de Porsche, el cambio a Clase E y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1984–1997", etiqueta: "años de producción" },
+      { valor: "2,2 millones", etiqueta: "unidades, todas las carrocerías" },
+      { valor: "322 CV", etiqueta: "del 500 E, V8 de 5 litros" },
+      { valor: "1993", etiqueta: "pasa a llamarse Clase E" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en noviembre de 1984 tras siete años de desarrollo, el W124 tuvo sedán, rural S124, coupé C124 y cabriolet A124, además de limusina y chasis para carrozar. En 1993 recibió un restyling de líneas más redondeadas y pasó a llamarse Clase E, con la letra delante del número.",
+          "Para el 500 E, Mercedes primero le pidió el desarrollo a AMG, que no tenía capacidad para fabricar miles de unidades. Lo hizo Porsche: adaptó carrocería y chasis para alojar el V8 M119 de 5 litros, 32 válvulas y 322 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "Nafteros de cuatro y seis cilindros en línea, de los 200 E a los 300 E y 320 E.",
+          "V8 en los 400 E y 500 E (E 420 y E 500 desde 1993).",
+          "Diésel de cuatro, cinco y seis cilindros, con y sin turbo: los 250 D y 300 D tienen la misma reputación de durabilidad que sus antecesores.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Puntos de levante: levantá las tapas plásticas de los zócalos; si la chapa se desarma, hay que soldar.",
+          "Anclajes delanteros del tren trasero: se pican con los años y para repararlos hay que bajar el eje.",
+          "Guardabarros delanteros: casi siempre tienen óxido. En la rural, revisar los marcos de las ventanillas traseras.",
+          "Los autos hasta 1992 suelen resistir mejor el óxido; la pintura al agua de los últimos años es más delicada.",
+          "Seis cilindros: pérdida de agua o agua en el aceite indican junta de tapa de cilindros (mirá la tapa de llenado de aceite).",
+          "Motores de cuatro válvulas: el arnés de cables del motor se desarma con el tiempo y provoca fallas de encendido.",
+          "Caja automática: cambios bruscos o a los tirones son mala señal.",
+          "Probar aire acondicionado, techo corredizo y levantavidrios: varias reparaciones juntas suman mucho.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — El Mercedes-Benz W124 cumple 40 años (2024)", url: "https://noticias.autocosmos.com.ar/2024/12/25/leyendas-de-la-industria-el-mercedes-benz-w124-cumple-40-anos" },
+      { titulo: "mobile.de — Mercedes E-Klasse W124: Kaufberatung", url: "https://www.mobile.de/magazin/artikel/mercedes-e-klasse-w124-1984-bis-1997-kaufberatung-40958" },
+    ],
+    modelo: { marca: "Mercedes-Benz", modelos: ["W124"] },
+  },
+  {
     slug: "seguros-para-clasicos",
     titulo: "Cómo asegurar un auto clásico",
     kicker: "Guía práctica",
