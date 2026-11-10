@@ -268,7 +268,7 @@ export const GUIAS: Articulo[] = [
       { titulo: "La Nación — La historia de un ícono: el Peugeot 504 (2018)", url: "https://www.lanacion.com.ar/autos/al-volante/la-historia-icono-peugeot-504-nid2195265" },
       { titulo: "Autoweb — Hace 20 años se despedía el Peugeot 504 argentino (2019)", url: "https://www.autoweb.com.ar/?p=12886" },
     ],
-    modelo: { marca: "Peugeot", modelos: ["504"] },
+    modelo: { marca: "Peugeot", modelos: ["504", "504 Pick Up", "504 Cabrio"] },
   },
   {
     slug: "bmw-serie-3-e30",
@@ -492,6 +492,266 @@ export const GUIAS: Articulo[] = [
       { titulo: "mobile.de — Mercedes E-Klasse W124: Kaufberatung", url: "https://www.mobile.de/magazin/artikel/mercedes-e-klasse-w124-1984-bis-1997-kaufberatung-40958" },
     ],
     modelo: { marca: "Mercedes-Benz", modelos: ["W124"] },
+  },
+  {
+    slug: "peugeot-404",
+    titulo: "Peugeot 404",
+    kicker: "Guía de modelo · 1962–1980",
+    resumen:
+      "El sedán de diseño Pininfarina que consolidó a Peugeot en la Argentina. Robusto, sobrio y con un 404 S que fue la primera versión deportiva de un auto hecho en el país.",
+    descripcionSeo:
+      "Peugeot 404 argentino (1962–1980): historia, versiones (Grand Prix, 404 S, 404 D, pick-up) y motores.",
+    cifras: [
+      { valor: "1962–1980", etiqueta: "años de producción en el país" },
+      { valor: "162.500", etiqueta: "unidades estimadas" },
+      { valor: "Berazategui", etiqueta: "planta de IAFA y luego Safrar" },
+      { valor: "185 km/h", etiqueta: "del 404 S, el deportivo" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en Francia en 1960 con diseño de Pininfarina, el 404 se empezó a fabricar en la Argentina en 1962, en la planta de IAFA en Berazategui. Cuando la comercializadora DAPASA cerró en 1964, Safrar retomó la producción en 1965.",
+          "El 404 argentino era casi idéntico al francés. Se fabricó hasta 1980, cuando Safrar pasó a formar parte de Sevel. Se estiman unas 162.500 unidades entre todas las variantes. El coupé y el cabriolet nunca se hicieron en el país.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "Sedán con motor 1.6 naftero: primero de 65 CV (tres bancadas) y después de 73 CV (cinco bancadas).",
+          "404 S: 1.6 con doble Weber y 115 CV, con 185 km/h de velocidad máxima.",
+          "Rural: desde 1963, con una vida corta en el país.",
+          "404 D (1972): diésel 1.9 de 68 CV, con versiones pick-up y furgón.",
+          "Grand Prix (años 70): palanca al piso, consola central, faros auxiliares en la parrilla y llantas nuevas.",
+          "Caja de cambios con palanca al volante, salvo en algunas versiones.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos, piso, pasarruedas y parte baja de las puertas. Es lo primero a revisar en un auto de esta edad.",
+          "Originalidad: confirmá la versión (404 S, Grand Prix, D) con los números de chasis y de motor, porque las más buscadas valen bastante más.",
+          "Motor: diferenciá el de tres bancadas del de cinco, y escuchalo en frío.",
+          "Diésel 404 D: humo, arranque en frío y pérdidas de aceite.",
+          "Pick-up y furgón: muchos trabajaron toda su vida; revisá el chasis y la caja de carga.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — Autos clásicos de Argentina: Peugeot 404 (2025)", url: "https://noticias.autocosmos.com.ar/2025/02/20/autos-clasicos-de-argentina-peugeot-404" },
+      { titulo: "Autoweb — Todos los Peugeot que se hicieron en la Argentina", url: "https://www.autoweb.com.ar/?p=12776" },
+    ],
+    modelo: { marca: "Peugeot", modelos: ["404"] },
+  },
+  {
+    slug: "peugeot-505",
+    titulo: "Peugeot 505",
+    kicker: "Guía de modelo · 1981–1995",
+    resumen:
+      "El sucesor de lujo del 504: tracción trasera, rural de siete plazas y, al final de su vida, un SRi con suspensión trasera independiente y frenos a disco en las cuatro ruedas.",
+    descripcionSeo:
+      "Peugeot 505 argentino (1981–1995): historia, restylings, motores nafteros y turbodiésel, y qué revisar antes de comprar.",
+    cifras: [
+      { valor: "1981–1995", etiqueta: "años de producción en el país" },
+      { valor: "91.500", etiqueta: "unidades argentinas" },
+      { valor: "El Palomar", etiqueta: "planta de Sevel" },
+      { valor: "130 CV", etiqueta: "del 2.2 de inyección multipunto" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Lanzado en Europa en 1979, el 505 se fabricó en la Argentina desde 1981, en la planta de Sevel en El Palomar, y hasta 1995: catorce años y 91.500 unidades. En el mundo superó el 1,3 millón de unidades.",
+          "El restyling de 1986 cambió paragolpes, ópticas e interior, y trajo la rural Break de hasta siete plazas. Hubo un segundo restyling a comienzos de los 90, y el SRi de 1992 sumó suspensión trasera independiente y frenos a disco en las cuatro ruedas.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "Nafteros 2.0 de 96 y 100 CV.",
+          "SR Injection: 2.0 de inyección y 113 CV.",
+          "2.2 de inyección multipunto y 130 CV, el más potente.",
+          "Turbodiésel 2.3 de 80 CV y 2.5 de 95 CV.",
+          "Cajas manuales de cuatro o cinco marchas, o automática. Algunas rurales tuvieron tracción 4x4 hecha por Dangel.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos, piso, pasarruedas y la parte baja del portón de la rural.",
+          "Tren trasero, caja y diferencial: ruidos al acelerar o al soltar el acelerador indican desgaste.",
+          "Turbodiésel: humo, temperatura y estado del turbo.",
+          "Interior y equipamiento: las versiones tope de gama tenían mucha electricidad; probá levantavidrios, cierre centralizado y aire acondicionado.",
+          "Historial de GNC y de remís: un auto particular y original vale más.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — Autos clásicos de Argentina: Peugeot 505 (2024)", url: "https://noticias.autocosmos.com.ar/2024/10/17/autos-clasicos-de-argentina-peugeot-505" },
+      { titulo: "Autoweb — A 40 años de la aparición del Peugeot 505 argentino", url: "https://www.autoweb.com.ar/?p=23775" },
+    ],
+    modelo: { marca: "Peugeot", modelos: ["505"] },
+  },
+  {
+    slug: "renault-12",
+    titulo: "Renault 12",
+    kicker: "Guía de modelo · 1971–1994",
+    resumen:
+      "Más de 440.000 unidades y 23 años de producción en Córdoba: el Renault 12 fue el auto de miles de familias argentinas, y la Break, la rural de las vacaciones.",
+    descripcionSeo:
+      "Renault 12 argentino (1971–1994): historia, versiones (TL, TS, GTS, Break, Alpine), motores y qué revisar antes de comprar.",
+    cifras: [
+      { valor: "1971–1994", etiqueta: "años de producción en el país" },
+      { valor: "+440.000", etiqueta: "unidades fabricadas" },
+      { valor: "Santa Isabel", etiqueta: "planta de IKA-Renault en Córdoba" },
+      { valor: "493", etiqueta: "R12 Alpine fabricados" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en Francia en 1969, el Renault 12 se lanzó en la Argentina en 1971, fabricado por IKA-Renault en Santa Isabel, Córdoba. La rural Break llegó en 1974.",
+          "Se fabricó hasta 1994, con más de 440.000 unidades. En 1978 apareció el R12 Alpine, el primer Alpine hecho fuera de Francia: solo 493 unidades, hoy las más buscadas.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "Primeros: motor 1.3 de 54 CV.",
+          "TL (1976): 1.4 de 60 CV. TS (1976): 1.4 de 74 CV, con aire acondicionado opcional.",
+          "GTS (1984): 1.4 de 77 CV.",
+          "GTL (1990): primera caja de cinco marchas.",
+          "Últimos años: motor 1.6 de 63 o 77 CV.",
+          "Tracción delantera y caja manual de cuatro marchas hasta la llegada del GTL.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos, piso, torretas de suspensión, pasarruedas y el borde del baúl o del portón de la Break.",
+          "Historial de GNC y de taxi: muy comunes en el R12. Uno particular y original vale más.",
+          "Caja y homocinéticas: ruidos al doblar con el volante a fondo indican desgaste.",
+          "Alpine: verificá los números y la originalidad con el club de la marca, porque hay muchas réplicas.",
+          "Repuestos: abundantes y baratos, gracias a los 23 años de producción.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — Autos clásicos de Argentina: Renault 12 (2025)", url: "https://noticias.autocosmos.com.ar/2025/02/27/autos-clasicos-de-argentina-renault-12" },
+      { titulo: "Autoweb — El Renault 12 argentino cumple 50 años (2021)", url: "https://www.autoweb.com.ar/?p=21835" },
+    ],
+    modelo: { marca: "Renault", modelos: ["12"] },
+  },
+  {
+    slug: "renault-fuego",
+    titulo: "Renault Fuego",
+    kicker: "Guía de modelo · 1982–1992",
+    resumen:
+      "La coupé de los 80: rival del Taunus GT y del Sierra XR4, campeona de TC2000 con Traverso y Oreste Berta, y con una GTA Max final de 123 CV que hoy es una de las youngtimers argentinas más buscadas.",
+    descripcionSeo:
+      "Renault Fuego argentina (1982–1992): historia, versiones GTX, GTA y GTA Max, TC2000 y qué revisar antes de comprar una.",
+    cifras: [
+      { valor: "1982–1992", etiqueta: "años de producción en el país" },
+      { valor: "19.952", etiqueta: "unidades fabricadas" },
+      { valor: "Santa Isabel", etiqueta: "planta de Renault en Córdoba" },
+      { valor: "123 CV", etiqueta: "de la GTA Max, la última versión" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentada en Europa en 1980, la Fuego llegó a la Argentina importada en 1981 y empezó a fabricarse al año siguiente en Santa Isabel. La última salió de la planta en septiembre de 1992, con 19.952 unidades.",
+          "Debutó en el TC2000 en 1985 y ganó su primera carrera con Ernesto Bessone. Con Juan María Traverso y la preparación de Oreste Berta se convirtió en la coupé a vencer, y también fue campeona con Silvio Oltra y Miguel Ángel Guerra.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "GTX: motor 2.0 del Renault 18, llevado a 103 CV, con caja de cinco marchas; después se sumó una automática de tres.",
+          "1987: motor 2.2 de 116 CV, para pelear con el Sierra XR4.",
+          "GTA (fines de 1988): restyling estilo Alpine GTA, con paragolpes y molduras del color de la carrocería, llantas nuevas y apéndices aerodinámicos.",
+          "GTA Max: la última evolución, con el 2.2 llevado a 123 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos, piso, pasarruedas y el marco de la gran luneta trasera, donde se junta agua.",
+          "Interior: los plásticos y tapizados de época son difíciles de conseguir; un interior completo y sano suma mucho valor.",
+          "Originalidad de la GTA Max: verificá números y detalles, porque es la versión que más se «copia».",
+          "Motor 2.2: temperatura, pérdidas de aceite y estado de la distribución.",
+          "Ex autos de competencia o muy modificados: revisá jaulas, soldaduras y el estado del tren delantero.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autoweb — La Renault Fuego festeja 40 años en la Argentina", url: "https://www.autoweb.com.ar/?p=30235" },
+      { titulo: "Autotest — La increíble historia de la Renault Fuego GTA Max", url: "https://autotest.com.ar/noticias/increible-historia-renault-fuego-gta-max/" },
+    ],
+    modelo: { marca: "Renault", modelos: ["Fuego"] },
+  },
+  {
+    slug: "citroen-3cv",
+    titulo: "Citroën 2CV y 3CV",
+    kicker: "Guía de modelo · 1960–1990",
+    resumen:
+      "El «Citroneta» y su versión argentina, el 3CV: un bicilíndrico refrigerado por aire, simple y querible, que se fabricó en el país durante tres décadas, primero por Citroën y después por IES.",
+    descripcionSeo:
+      "Citroën 2CV y 3CV argentinos (1960–1990): historia, versiones, motores de 425 y 602 cc, IES 3CV y qué revisar antes de comprar.",
+    cifras: [
+      { valor: "1960–1990", etiqueta: "años de producción en el país" },
+      { valor: "170.590", etiqueta: "2CV y 3CV hechos por Citroën" },
+      { valor: "602 cc", etiqueta: "motor del 3CV, de 28 a 32 CV" },
+      { valor: "300", etiqueta: "pick-ups 2CV, exclusivas del país" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Citroën empezó a fabricar el 2CV en la Argentina en 1960. En 1967 abrió su planta de Barracas, donde también se hicieron el Ami 8 y el Mehari. En 1969 llegó el 3CV, un nombre exclusivo del mercado argentino, con el motor más grande de 602 cc.",
+          "Citroën fabricó 170.590 unidades de 2CV y 3CV hasta 1980, cuando cerró la fábrica. En 1983, IES retomó la producción con el IES 3CV y sus versiones América y Súper América, hasta 1990. No hay cifras oficiales de las unidades hechas por IES.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "2CV: bicilíndrico opuesto de 425 cc refrigerado por aire, de 12 CV y después 14 y 18 CV. Desde 1966, con embrague centrífugo.",
+          "3CV (1969): 602 cc, de 28 a 32 CV. En 1974 llegó el 3CV Prestige.",
+          "Pick-up 2CV: exclusiva de la Argentina, con solo 300 unidades.",
+          "IES 3CV, América y Súper América (1983–1990): mismo motor de 602 cc y 32 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Chasis: es la pieza clave. Revisá óxido en los largueros y el piso, y que no haya soldaduras improvisadas.",
+          "Carrocería: zócalos, parte baja de las puertas y anclajes del techo de lona.",
+          "Motor: muy simple, pero escuchá ruidos de bancada y revisá pérdidas de aceite.",
+          "Frenos y suspensión: la suspensión interconectada tiene que trabajar pareja; los bujes gastados se notan en el andar.",
+          "Pick-up y versiones IES: confirmá la originalidad, porque hay muchas transformaciones.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — Autos clásicos de Argentina: Citroën 2CV/3CV (2025)", url: "https://noticias.autocosmos.com.ar/2025/02/06/autos-clasicos-de-argentina-citroen-2cv3cv" },
+      { titulo: "Wikipedia — Citroën Argentina", url: "https://en.wikipedia.org/wiki/Citro%C3%ABn_Argentina" },
+    ],
+    modelo: { marca: "Citroën", modelos: ["2CV", "3CV"] },
   },
   {
     slug: "seguros-para-clasicos",
