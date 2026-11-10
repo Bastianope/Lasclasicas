@@ -65,6 +65,17 @@ export const GUIAS: Articulo[] = [
       { valor: "General Pacheco", etiqueta: "planta de Ford Argentina" },
       { valor: "6 cilindros", etiqueta: "en línea, de 2,8 a 3,6 litros" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/6/62/Falcon_1970.jpg",
+      alt: "Ford Falcon argentino de 1970",
+      pie: "Ford Falcon argentino, restyling de 1970.",
+      autor: "Pan32",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Falcon_1970.jpg",
+      ancho: 640,
+      alto: 480,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -124,6 +135,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Santa Isabel", etiqueta: "planta en Córdoba" },
       { valor: "334", etiqueta: "vueltas en las 84 Horas de Nürburgring (1969)" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/IKA_Torino_380_coupé.jpg/1280px-IKA_Torino_380_coupé.jpg",
+      alt: "IKA Torino 380 coupé",
+      pie: "IKA Torino 380 coupé (1966–1970).",
+      autor: "Sergio Miller (recorte: Mr.choppers)",
+      licencia: "CC BY-SA 3.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:IKA_Torino_380_coup%C3%A9.jpg",
+      ancho: 1280,
+      alto: 766,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -181,6 +203,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Caseros", etiqueta: "planta de Fiat" },
       { valor: "Motor trasero", etiqueta: "de 4 cilindros" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Fiat_600_at_Schaffen-Diest.jpg/1280px-Fiat_600_at_Schaffen-Diest.jpg",
+      alt: "Fiat 600 en un encuentro de clásicos",
+      pie: "Fiat 600.",
+      autor: "Charles01",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Fiat_600_at_Schaffen-Diest.jpg",
+      ancho: 1280,
+      alto: 915,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -229,6 +262,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Berazategui", etiqueta: "y luego El Palomar (Sevel)" },
       { valor: "30 años", etiqueta: "en el mercado argentino" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/1978_Peugeot_504_Ti_Automatic_2.0_Front.jpg/1280px-1978_Peugeot_504_Ti_Automatic_2.0_Front.jpg",
+      alt: "Peugeot 504 de 1978, vista frontal",
+      pie: "Peugeot 504 Ti de 1978.",
+      autor: "Vauxford",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1978_Peugeot_504_Ti_Automatic_2.0_Front.jpg",
+      ancho: 1280,
+      alto: 687,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -284,6 +328,17 @@ export const GUIAS: Articulo[] = [
       { valor: "4", etiqueta: "carrocerías: coupé, sedán, cabrio y Touring" },
       { valor: "17.970", etiqueta: "M3 E30 fabricadas" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/BMW_E30_in_silver_(facelift),_front_left_2024-08-18.jpg/1280px-BMW_E30_in_silver_(facelift),_front_left_2024-08-18.jpg",
+      alt: "BMW Serie 3 E30 plateado",
+      pie: "BMW Serie 3 E30, segunda fase.",
+      autor: "Johannes Maximilian (obra derivada: Mr.choppers)",
+      licencia: "GFDL 1.2",
+      licenciaUrl: "https://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:BMW_E30_in_silver_%28facelift%29%2C_front_left_2024-08-18.jpg",
+      ancho: 1280,
+      alto: 818,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -340,6 +395,17 @@ export const GUIAS: Articulo[] = [
       { valor: "343 CV", etiqueta: "de la M3 (seis en línea S54)" },
       { valor: "1.383", etiqueta: "M3 CSL fabricadas" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/BMW_E46_front_20080328.jpg/1280px-BMW_E46_front_20080328.jpg",
+      alt: "BMW Serie 3 E46 sedán",
+      pie: "BMW Serie 3 E46.",
+      autor: "Rudolf Stricker",
+      licencia: "CC BY-SA 3.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:BMW_E46_front_20080328.jpg",
+      ancho: 1280,
+      alto: 797,
+    },
     secciones: [
       {
         tipo: "lista",
@@ -401,6 +467,17 @@ export const GUIAS: Articulo[] = [
       { valor: "99.884", etiqueta: "coupés C123" },
       { valor: "455.000", etiqueta: "240 D, la versión más vendida" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/1984_Mercedes-Benz_280E_Sedan_(cropped).jpg/1280px-1984_Mercedes-Benz_280E_Sedan_(cropped).jpg",
+      alt: "Mercedes-Benz 280 E W123 de 1984",
+      pie: "Mercedes-Benz 280 E (W123) de 1984.",
+      autor: "Verdict09",
+      licencia: "CC0 (dominio público)",
+      licenciaUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1984_Mercedes-Benz_280E_Sedan_%28cropped%29.jpg",
+      ancho: 1280,
+      alto: 788,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -454,6 +531,17 @@ export const GUIAS: Articulo[] = [
       { valor: "322 CV", etiqueta: "del 500 E, V8 de 5 litros" },
       { valor: "1993", etiqueta: "pasa a llamarse Clase E" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/1988_Mercedes-Benz_300d_Diesel_Automatic_3.0_Front.jpg/1280px-1988_Mercedes-Benz_300d_Diesel_Automatic_3.0_Front.jpg",
+      alt: "Mercedes-Benz 300 D W124 de 1988",
+      pie: "Mercedes-Benz 300 D (W124) de 1988.",
+      autor: "Vauxford",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1988_Mercedes-Benz_300d_Diesel_Automatic_3.0_Front.jpg",
+      ancho: 1280,
+      alto: 556,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -507,6 +595,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Berazategui", etiqueta: "planta de IAFA y luego Safrar" },
       { valor: "185 km/h", etiqueta: "del 404 S, el deportivo" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/1969_Peugeot_404_sedan_(28295240103).jpg/1280px-1969_Peugeot_404_sedan_(28295240103).jpg",
+      alt: "Peugeot 404 sedán de 1969",
+      pie: "Peugeot 404 sedán de 1969.",
+      autor: "Jeremy from Sydney, Australia",
+      licencia: "CC BY 2.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by/2.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1969_Peugeot_404_sedan_%2828295240103%29.jpg",
+      ancho: 1280,
+      alto: 853,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -560,6 +659,17 @@ export const GUIAS: Articulo[] = [
       { valor: "El Palomar", etiqueta: "planta de Sevel" },
       { valor: "130 CV", etiqueta: "del 2.2 de inyección multipunto" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Peugeot_505_SR_Automatique_(1979),_Dutch_licence_registration_71-ZL-PS_pic2.JPG/1280px-Peugeot_505_SR_Automatique_(1979),_Dutch_licence_registration_71-ZL-PS_pic2.JPG",
+      alt: "Peugeot 505 SR de 1979",
+      pie: "Peugeot 505 SR de 1979.",
+      autor: "AlfvanBeem",
+      licencia: "CC0 (dominio público)",
+      licenciaUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Peugeot_505_SR_Automatique_%281979%29%2C_Dutch_licence_registration_71-ZL-PS_pic2.JPG",
+      ancho: 1280,
+      alto: 959,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -612,6 +722,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Santa Isabel", etiqueta: "planta de IKA-Renault en Córdoba" },
       { valor: "493", etiqueta: "R12 Alpine fabricados" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/R12TL.JPG/1280px-R12TL.JPG",
+      alt: "Renault 12 TL",
+      pie: "Renault 12 TL.",
+      autor: "Snoopy1974",
+      licencia: "Dominio público",
+      licenciaUrl: "https://commons.wikimedia.org/wiki/File:R12TL.JPG",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:R12TL.JPG",
+      ancho: 1280,
+      alto: 853,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -665,6 +786,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Santa Isabel", etiqueta: "planta de Renault en Córdoba" },
       { valor: "123 CV", etiqueta: "de la GTA Max, la última versión" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Renault_Fuego_front_20080123.jpg/1280px-Renault_Fuego_front_20080123.jpg",
+      alt: "Renault Fuego, vista frontal",
+      pie: "Renault Fuego.",
+      autor: "Rudolf Stricker",
+      licencia: "CC BY-SA 3.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Renault_Fuego_front_20080123.jpg",
+      ancho: 1280,
+      alto: 675,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -716,6 +848,17 @@ export const GUIAS: Articulo[] = [
       { valor: "602 cc", etiqueta: "motor del 3CV, de 28 a 32 CV" },
       { valor: "300", etiqueta: "pick-ups 2CV, exclusivas del país" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Citroen_2CV_1X7A7979.jpg/1280px-Citroen_2CV_1X7A7979.jpg",
+      alt: "Citroën 2CV",
+      pie: "Citroën 2CV.",
+      autor: "Alexander Migl",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Citroen_2CV_1X7A7979.jpg",
+      ancho: 1280,
+      alto: 905,
+    },
     secciones: [
       {
         tipo: "texto",
