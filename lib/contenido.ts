@@ -897,6 +897,524 @@ export const GUIAS: Articulo[] = [
     modelo: { marca: "Citroën", modelos: ["2CV", "3CV"] },
   },
   {
+    slug: "mercedes-benz-sl-r107",
+    titulo: "Mercedes-Benz SL R107",
+    kicker: "Guía de modelo · 1971–1989",
+    resumen:
+      "Dieciocho años de producción y casi 240.000 unidades: el SL R107 es el roadster Mercedes por excelencia, con capota de lona, hardtop y motores de seis cilindros y V8.",
+    descripcionSeo:
+      "Mercedes-Benz SL R107 (1971–1989): versiones 280 a 560 SL, el coupé SLC, motores y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1971–1989", etiqueta: "años de producción" },
+      { valor: "237.287", etiqueta: "SL R107 fabricados" },
+      { valor: "62.888", etiqueta: "coupés SLC C107" },
+      { valor: "66.298", etiqueta: "450 SL, el más vendido" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/1988_Mercedes_SL_280.jpg/1280px-1988_Mercedes_SL_280.jpg",
+      alt: "Mercedes-Benz 280 SL R107 de 1988",
+      pie: "Mercedes-Benz 280 SL (R107) de 1988.",
+      autor: "Calreyn88",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1988_Mercedes_SL_280.jpg",
+      ancho: 1280,
+      alto: 756,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Lanzado en abril de 1971 como 350 SL, con diseño de Friedrich Geiger, el R107 se fabricó hasta 1989. A su lado se hizo el SLC C107, un coupé de techo fijo y distancia entre ejes más larga, que se dejó de producir en 1981.",
+          "Con los años sumó ABS opcional (1980), hardtop de serie (1980), airbag de conductor opcional (1982) y, en 1985, un restyling con catalizador. El 560 SL de 1985 a 1989 fue pensado para los Estados Unidos.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones",
+        items: [
+          "280 SL (1974–1985): seis en línea de 185 CV, 25.436 unidades.",
+          "300 SL (1985–1989): seis en línea, 13.742 unidades.",
+          "350 SL (1971–1980): V8 de 200 CV, 15.304 unidades.",
+          "450 SL: V8 de 4,5 litros, el más fabricado, con 66.298 unidades.",
+          "380 SL (1980–1985): 53.200 unidades. 420 SL (1985–1989): 2.148 unidades.",
+          "500 SL (1980–1989): V8 de 240 CV, 11.812 unidades. 560 SL (1985–1989): 49.347 unidades.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: sobre los faros, travesaño del radiador, torpedo y caja de calefacción, zócalos, puntos de levante, detrás de los paragolpes, alrededor de las ópticas traseras y el hueco de la capota.",
+          "Luces entre paneles y pintura: delatan choques o soldaduras mal hechas.",
+          "V8: botadores ruidosos y juego en la cadena de distribución. Los anteriores a 1976, con inyección D-Jetronic, son más propensos a fallas.",
+          "Radiador sin protección delantera: buscá golpes de piedras y señales de recalentamiento.",
+          "Caja de dirección, amortiguador de dirección y bujes de suspensión gastados.",
+          "Cierre centralizado por vacío con pérdidas, y toda la electricidad.",
+          "Capota: luneta opaca, costuras y humedad en el habitáculo.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Hagerty UK — Buying guide: Mercedes-Benz SL R107", url: "https://hagerty.co.uk/articles/buying-guide-mercedes-benz-sl-r107-1971-1989" },
+      { titulo: "mb107.com — Series 107 production", url: "https://mb107.com/specs/production.htm" },
+      { titulo: "Classic Trader — Mercedes-Benz R107 buying guide", url: "https://www.classic-trader.com/en/magazine/mercedes-benz-r-107-buying-guide" },
+    ],
+    modelo: { marca: "Mercedes-Benz", modelos: ["SL R107"] },
+  },
+  {
+    slug: "mercedes-benz-sl-r129",
+    titulo: "Mercedes-Benz SL R129",
+    kicker: "Guía de modelo · 1989–2001",
+    resumen:
+      "El SL de los 90: arco antivuelco que se despliega en 0,3 segundos, hardtop de serie y motores de seis cilindros, V8 y hasta un V12. Un clásico moderno que ya es youngtimer.",
+    descripcionSeo:
+      "Mercedes-Benz SL R129 (1989–2001): versiones 300 SL a 600 SL, seguridad, motores y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1989–2001", etiqueta: "años de producción" },
+      { valor: "204.940", etiqueta: "unidades fabricadas" },
+      { valor: "0,3 s", etiqueta: "para desplegar el arco antivuelco" },
+      { valor: "394 CV", etiqueta: "del 600 SL V12" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Mercedes-Benz_SL_R129_.jpg/1280px-Mercedes-Benz_SL_R129_.jpg",
+      alt: "Mercedes-Benz SL R129",
+      pie: "Mercedes-Benz SL (R129).",
+      autor: "IFCAR",
+      licencia: "Dominio público",
+      licenciaUrl: "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_SL_R129_.jpg",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_SL_R129_.jpg",
+      ancho: 1280,
+      alto: 679,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en el Salón de Ginebra de 1989 sobre una plataforma acortada del W124, el R129 llevó la seguridad del roadster a otro nivel: un arco antivuelco que se despliega en 0,3 segundos cuando un sensor detecta un vuelco inminente.",
+          "Tuvo hardtop de serie, ESP desde 1995 y airbags laterales desde 1996. En 1993 cambió la nomenclatura: los 300 SL y 500 SL pasaron a llamarse SL 320 y SL 500.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "300 SL: seis en línea M103 de 190 CV. 300 SL-24: M104 de 231 CV.",
+          "SL 280 (193 CV) y SL 320 (231 CV) desde 1993, seis en línea M104. Desde 1998, V6 de 204 y 224 CV.",
+          "500 SL / SL 500: V8 M119 de 320 a 326 CV, 79.827 unidades. Desde 1998, V8 M113 de 306 CV.",
+          "600 SL: V12 M120 de 394 CV, 11.089 unidades.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: borde inferior de los guardabarros delanteros, pasarruedas, bordes de las puertas y de los guardabarros traseros. La corrosión puede romper los resortes delanteros.",
+          "Capota: el módulo de control bajo el asiento trasero, los hidráulicos y la luneta.",
+          "Arnés de cables biodegradable en los de 1993 a 1995: si no se cambió, hay que presupuestarlo.",
+          "Seis cilindros M104: junta de tapa de cilindros y fallas de encendido. V12: pérdida de aceite por la tapa delantera.",
+          "Caja automática de cinco marchas: agua que entra al módulo de control por el conector. Reparar es caro.",
+          "Suspensión adaptativa ADS: esferas y válvulas gastadas, también caras.",
+          "Rótulas, cazoletas, displays del tablero y falsos AMG.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "PistonHeads — Mercedes-Benz SL (R129) used buying guide", url: "https://www.pistonheads.com/news/ph-buying-guides/mercedes-benz-sl--r129----ph-used-buying-guide/41379" },
+      { titulo: "Classic Trim Parts — Mercedes-Benz R129 facts and figures", url: "https://classictrimparts.com/blogs/mercedes-articles/mercedes-benz-r129-facts-and-figures" },
+      { titulo: "MBCA — A future classic: the R129 SL model range", url: "https://mbca.org/buyers-guide/future-classic-r129-sl-model-range-1989-2002" },
+    ],
+    modelo: { marca: "Mercedes-Benz", modelos: ["SL R129"] },
+  },
+  {
+    slug: "mercedes-benz-slk-r170",
+    titulo: "Mercedes-Benz SLK R170",
+    kicker: "Guía de modelo · 1996–2004",
+    resumen:
+      "El roadster que popularizó el techo rígido plegable: en unos 25 segundos pasa de coupé a descapotable. Más de 300.000 unidades, del SLK 200 al SLK 32 AMG.",
+    descripcionSeo:
+      "Mercedes-Benz SLK R170 (1996–2004): el techo Vario-roof, motores Kompressor, V6 y AMG, y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1996–2004", etiqueta: "años de producción" },
+      { valor: "+300.000", etiqueta: "unidades fabricadas" },
+      { valor: "~25 s", etiqueta: "para abrir o cerrar el techo" },
+      { valor: "354 CV", etiqueta: "del SLK 32 AMG" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/SLK200K.jpg/1280px-SLK200K.jpg",
+      alt: "Mercedes-Benz SLK 200 Kompressor R170",
+      pie: "Mercedes-Benz SLK 200 Kompressor (R170).",
+      autor: "Cars4u",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:SLK200K.jpg",
+      ancho: 1280,
+      alto: 960,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado como concepto en París en 1994 y como auto de serie en Turín en 1996, el SLK usó una plataforma acortada del Clase C W202. Su gran novedad fue el Vario-roof, un techo rígido de metal que se pliega dentro del baúl.",
+          "El restyling de 2000 trajo el SLK 320 V6, y en 2001 llegó el SLK 32 AMG, con V6 sobrealimentado. Lo reemplazó el R171 en 2004.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "SLK 200: 136 CV.",
+          "SLK 200 Kompressor: 192 CV al principio, en los mercados con impuestos altos, y 163 CV desde 2000.",
+          "SLK 230 Kompressor: 193 CV.",
+          "SLK 320 (desde 2000): V6 de 218 CV, con 33.416 unidades.",
+          "SLK 32 AMG (desde 2001): V6 sobrealimentado de 354 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Techo: tiene que abrir y cerrar en unos 25 segundos; más de 30 indica una falla hidráulica. Revisá microinterruptores, cilindros, el color del líquido, el módulo de control y los burletes.",
+          "Óxido: guardabarros delanteros, pasarruedas, zócalos, parantes del parabrisas, piso, subchasis trasero y anclajes de los resortes delanteros.",
+          "Cuatro cilindros Kompressor: desgaste de la cadena de distribución y embrague del compresor. Pérdidas de aceite y bomba de agua.",
+          "Caja automática: una falla de la placa de sensores la deja en modo de emergencia.",
+          "Agua en el baúl: arruina la bomba de vacío del cierre centralizado y los relés.",
+          "Amortiguador de dirección, bujes del subchasis y rótulas.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Classics World — Mercedes SLK R170 buyer's guide", url: "https://classicsworld.co.uk/guides/mercedes-slk-r170-buyers-guide/" },
+      { titulo: "MercedesBlog — Buying advice Mercedes SLK R170", url: "https://mercedesblog.com/buying-advice-mercedes-slk-r170/" },
+    ],
+    modelo: { marca: "Mercedes-Benz", modelos: ["SLK R170"] },
+  },
+  {
+    slug: "mercedes-benz-clk-w208",
+    titulo: "Mercedes-Benz CLK W208",
+    kicker: "Guía de modelo · 1997–2003",
+    resumen:
+      "El coupé y el cabrio de la familia Clase C, con la trompa de cuatro faros del Clase E. Del CLK 200 al CLK 55 AMG, hoy es uno de los youngtimers Mercedes más accesibles.",
+    descripcionSeo:
+      "Mercedes-Benz CLK W208 (1997–2003): coupé y cabriolet, motores Kompressor, V6, V8 y AMG, y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1997–2003", etiqueta: "años de producción" },
+      { valor: "2", etiqueta: "carrocerías: coupé y cabriolet" },
+      { valor: "Karmann", etiqueta: "armó los cabriolets en Osnabrück" },
+      { valor: "347 CV", etiqueta: "del CLK 55 AMG" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Red_MB_C208_CLK_430_(US_spec_AMG_package)_fl,_Washington,_D.C._(20120715-DSC03683.dng).jpg/1280px-Red_MB_C208_CLK_430_(US_spec_AMG_package)_fl,_Washington,_D.C._(20120715-DSC03683.dng).jpg",
+      alt: "Mercedes-Benz CLK 430 coupé rojo",
+      pie: "Mercedes-Benz CLK 430 coupé (C208).",
+      autor: "Matti Blume (MB-one)",
+      licencia: "CC BY-SA 3.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Red_MB_C208_CLK_430_%28US_spec_AMG_package%29_fl%2C_Washington%2C_D.C._%2820120715-DSC03683.dng%29.jpg",
+      ancho: 1280,
+      alto: 705,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "El coupé C208 se fabricó de marzo de 1997 a 2002, sobre la base del Clase C W202. El cabriolet A208 llegó en junio de 1998 y se hizo hasta marzo de 2003, armado por Karmann en Osnabrück.",
+          "No tuvo versiones diésel: todos sus motores son nafteros, de cuatro, seis y ocho cilindros.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "CLK 200: 136 CV. CLK 200 Kompressor: 163 CV desde 2000, y 192 CV en algunos mercados.",
+          "CLK 230 Kompressor: 193 CV, y 197 CV desde 2000.",
+          "CLK 320: V6 de 218 CV.",
+          "CLK 430: V8 de 279 CV.",
+          "CLK 55 AMG: V8 de 347 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: pasarruedas delanteros detrás de los guardabarros plásticos, parte baja de las puertas, zócalos en los puntos de levante y, en el cabrio, el hueco de la capota y el piso del baúl.",
+          "Anclajes de los resortes delanteros: pueden picarse y romperse.",
+          "Kompressor de cuatro cilindros: múltiple de escape fisurado, desgaste del compresor, junta de tapa y tensor de cadena (ruido al arrancar en frío).",
+          "V6 y V8: mariposas de admisión que se rompen, pérdidas de aceite y caño de agua entre bancadas.",
+          "Cabriolet: bomba y cilindros hidráulicos de la capota, burletes y lona fisurada en los pliegues.",
+          "Electricidad: conectores del airbag, display del tablero, levantavidrios del conductor y xenón.",
+          "Caja automática: confirmá que se cambió el aceite.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "StillRunningStrong — Mercedes-Benz CLK-Class (W208)", url: "https://stillrunningstrong.com/?p=1495" },
+      { titulo: "AutoScout24 — Gebrauchtwagen-Kaufberater Mercedes-Benz CLK", url: "https://www.autoscout24.de/informieren/testberichte/mercedes-benz/model/gebrauchtwagen-kaufberater-mercedes-benz-clk/" },
+    ],
+    modelo: { marca: "Mercedes-Benz", modelos: ["CLK"] },
+  },
+  {
+    slug: "bmw-serie-5-e34",
+    titulo: "BMW Serie 5 E34",
+    kicker: "Guía de modelo · 1988–1996",
+    resumen:
+      "Cerca de 1,3 millones de unidades, el primer V8 de un Serie 5 y una M5 de seis en línea hecha a mano: el E34 es la berlina de tracción trasera que muchos consideran la mejor de BMW.",
+    descripcionSeo:
+      "BMW Serie 5 E34 (1988–1996): sedán y Touring, motores de 518i a 540i, la M5 y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1988–1996", etiqueta: "años de producción" },
+      { valor: "~1,3 millones", etiqueta: "unidades fabricadas" },
+      { valor: "12.254", etiqueta: "M5 E34 fabricadas" },
+      { valor: "340 CV", etiqueta: "de la M5 3.8" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/1989_BMW_525i_(E34)_sedan_(2015-11-13)_01.jpg/1280px-1989_BMW_525i_(E34)_sedan_(2015-11-13)_01.jpg",
+      alt: "BMW 525i E34 de 1989",
+      pie: "BMW 525i (E34) de 1989.",
+      autor: "OSX",
+      licencia: "Dominio público",
+      licenciaUrl: "https://commons.wikimedia.org/wiki/File:1989_BMW_525i_%28E34%29_sedan_%282015-11-13%29_01.jpg",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1989_BMW_525i_%28E34%29_sedan_%282015-11-13%29_01.jpg",
+      ancho: 1280,
+      alto: 856,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado a fines de 1987, el E34 se vendió primero como sedán; la rural Touring llegó en 1991. Lo reemplazó el E39 en 1996.",
+          "La M5 E34 se fabricó de 1988 a 1995, con 12.254 unidades. Usó un seis en línea S38 de 3,5 litros y 315 CV, y desde fines de 1991, de 3,8 litros y 340 CV. Desde 1994 tuvo caja de seis marchas de serie.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "518i: cuatro cilindros M40.",
+          "520i y 525i: seis en línea M20, luego M50.",
+          "530i y 535i: seis en línea, el 535i de 211 CV.",
+          "540i: V8 de 286 CV, el primer V8 de un Serie 5.",
+          "525tds: turbodiésel de seis cilindros. 525iX: tracción integral, muy escaso.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos (desagües del techo corredizo tapados), guardabarros delanteros, pasarruedas traseros, parte baja de las puertas, puntos de levante y la zona de la boca de carga.",
+          "Refrigeración: radiador, bomba de agua y embrague del ventilador. Un recalentamiento daña la junta o fisura la tapa de cilindros.",
+          "Distribución: correa cada 4 años en los M20 y M40. Un ruido al arrancar en frío indica tensor de cadena gastado. En el V8, el trabajo de cadena es caro.",
+          "Suspensión: bujes de los brazos delanteros (vibración cerca de 80 km/h), bujes del eje trasero y nivelación automática con pérdidas.",
+          "Caja de dirección: revisá que no tenga juego.",
+          "M5: calibración de válvulas cada 25.000 km y bobinas en la 3.8. Muchos repuestos exclusivos son escasos.",
+          "Interior: radiador de calefacción con pérdidas (alfombras mojadas), tablero y guías de los asientos.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Classics World — BMW 5 Series E34 buyer's guide", url: "https://classicsworld.co.uk/guides/bmw-5-series-e34-buyers-guide/" },
+      { titulo: "PistonHeads — BMW M5 (E34) used buying guide", url: "https://www.pistonheads.com/news/ph-buying-guides/bmw-m5-e34--ph-used-buying-guide/38136" },
+      { titulo: "Hagerty — BMW M5 E34", url: "https://www.hagerty.com/media/?p=5798" },
+    ],
+    modelo: { marca: "BMW", modelos: ["Serie 5 E34"] },
+  },
+  {
+    slug: "bmw-serie-5-e39",
+    titulo: "BMW Serie 5 E39",
+    kicker: "Guía de modelo · 1995–2003",
+    resumen:
+      "Cerca de 1,5 millones de unidades y una M5 V8 de 400 CV: el E39 combina confort, buen manejo y motores diésel muy logrados. Es el Serie 5 que muchos todavía usan a diario.",
+    descripcionSeo:
+      "BMW Serie 5 E39 (1995–2003): sedán y Touring, motores nafteros y diésel, la M5 V8 y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1995–2003", etiqueta: "años de producción" },
+      { valor: "~1,5 millones", etiqueta: "unidades fabricadas" },
+      { valor: "20.482", etiqueta: "M5 E39 fabricadas" },
+      { valor: "400 CV", etiqueta: "de la M5, V8 S62 de 5 litros" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/2000-2003_BMW_525i_(E39)_Executive_sedan_(2010-10-02)_01.jpg/1280px-2000-2003_BMW_525i_(E39)_Executive_sedan_(2010-10-02)_01.jpg",
+      alt: "BMW 525i E39",
+      pie: "BMW 525i (E39), después del restyling de 2000.",
+      autor: "OSX",
+      licencia: "Dominio público",
+      licenciaUrl: "https://commons.wikimedia.org/wiki/File:2000-2003_BMW_525i_%28E39%29_Executive_sedan_%282010-10-02%29_01.jpg",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:2000-2003_BMW_525i_%28E39%29_Executive_sedan_%282010-10-02%29_01.jpg",
+      ancho: 1280,
+      alto: 585,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en el Salón de Fráncfort de 1995, el E39 se fabricó hasta 2003, como sedán y, desde 1996, como Touring. El restyling de junio de 2000 renovó ópticas e interior.",
+          "La M5 E39 se fabricó en Dingolfing de octubre de 1998 a junio de 2003, con 20.482 unidades. Su V8 S62 de 5 litros y 400 CV la convirtió en una de las berlinas más rápidas de su época.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "Seis en línea M52 y M54: los 523i y 528i pasaron a llamarse 525i y 530i en 2000. El 530i M54 tiene 231 CV.",
+          "540i: V8 de 4,4 litros y 286 CV.",
+          "Diésel: 520d (M47), 525d (M51) y 530d (M57, desde 1998).",
+          "M5: V8 S62 de 5 litros y 400 CV, con caja manual de seis marchas.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: bordes de los pasarruedas, zócalos traseros detrás de las tapas plásticas, boca de carga y puntos de levante.",
+          "Refrigeración y junta de tapa de cilindros en los M52 y M54. Ruido de VANOS.",
+          "Bujes del subchasis trasero, hacia los 160.000 km: saltos de la rueda trasera y un andar trasero flojo.",
+          "Diésel: mariposas de admisión (desde 2001, conviene quitarlas), inyectores y turbo.",
+          "Caja automática: pérdidas y funcionamiento del Steptronic. Una reparación completa es cara.",
+          "Electricidad: píxeles del tablero, sensor del asiento del acompañante, cableado del baúl y regulación del xenón.",
+          "Válvula de ralentí que se traba (ralentí irregular): casi siempre alcanza con limpiarla.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Classics World — BMW 5 Series E39 buyer's guide", url: "https://classicsworld.co.uk/guides/bmw-5-series-e39-buyers-guide/" },
+      { titulo: "BMW Group Classic — BMW M5 (E39)", url: "https://www.bmwgroup-classic.com/en/models/bmw-classics/product-description-page.ad-1569-1.bmw-m5-e39.html" },
+    ],
+    modelo: { marca: "BMW", modelos: ["Serie 5 E39"] },
+  },
+  {
+    slug: "bmw-serie-8-e31",
+    titulo: "BMW Serie 8 E31",
+    kicker: "Guía de modelo · 1990–1999",
+    resumen:
+      "El gran coupé de BMW: el primer V12 de producción de la marca, el primero ofrecido con caja manual de seis marchas y un coeficiente aerodinámico de 0,29. Solo 30.621 unidades.",
+    descripcionSeo:
+      "BMW Serie 8 E31 (1990–1999): 850i, 850Ci, 850CSi y 840Ci, V12 y V8, y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1990–1999", etiqueta: "años de producción" },
+      { valor: "30.621", etiqueta: "unidades fabricadas" },
+      { valor: "1.510", etiqueta: "850CSi, el más escaso" },
+      { valor: "0,29", etiqueta: "coeficiente aerodinámico" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/BMW_840_Ci_(7724204324)_(cropped).jpg/1280px-BMW_840_Ci_(7724204324)_(cropped).jpg",
+      alt: "BMW 840Ci E31",
+      pie: "BMW 840Ci (E31).",
+      autor: "nakhon100",
+      licencia: "CC BY 2.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by/2.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:BMW_840_Ci_%287724204324%29_%28cropped%29.jpg",
+      ancho: 1280,
+      alto: 790,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en el Salón de Fráncfort de 1989, el E31 se fabricó de 1990 a 1999. Fue el primer BMW de producción con motor V12 y el primer V12 de serie ofrecido con caja manual de seis marchas, con acelerador electrónico y una línea muy aerodinámica.",
+          "El 850CSi (1993–1996), con V12 de 5,6 litros, caja manual y dirección en las ruedas traseras, es hoy el más buscado. El 830i y la M8 de 629 CV quedaron en prototipos.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones",
+        items: [
+          "850i: V12 de 5 litros y 300 CV, con 20.072 unidades.",
+          "850Ci: V12 de 5,4 litros y 326 CV, con 1.218 unidades.",
+          "850CSi: V12 de 5,6 litros y 380 CV, solo con caja manual, con 1.510 unidades.",
+          "840Ci: V8 de 4 litros desde 1993 y de 4,4 litros desde 1996, ambos de 286 CV, con 7.803 unidades.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Refrigeración: bomba de agua, depósito de expansión plástico, radiador y ventilador. Un recalentamiento sale carísimo.",
+          "Primeros V8 M60: cilindros con Nikasil, humo al arrancar y tensor de la cadena.",
+          "Electricidad: display de matriz de puntos con píxeles muertos, faros escamoteables, levantavidrios y asientos.",
+          "Bujes del eje trasero y de los brazos delanteros, todos caros.",
+          "Óxido y filtraciones: borde del capó, techo corredizo, parte baja de las puertas, zócalos, puntos de levante y agua en el hueco de la rueda de auxilio.",
+          "El paragolpes delantero plástico y las piezas del interior son escasos y caros.",
+          "Cajas: sincronizados de la manual de seis marchas y cambios bruscos en las automáticas. El historial de service es indispensable.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Hagerty UK — BMW 8 Series buyer's guide", url: "https://www.hagerty.co.uk/articles/buyers-guide-bmw-8-series/" },
+      { titulo: "Classic Trader — BMW E31 8 Series buying guide", url: "https://www.classic-trader.com/en/magazine/bmw-e31-8-series-buying-guide" },
+    ],
+    modelo: { marca: "BMW", modelos: ["Serie 8 E31"] },
+  },
+  {
+    slug: "bmw-z3",
+    titulo: "BMW Z3",
+    kicker: "Guía de modelo · 1995–2002",
+    resumen:
+      "El roadster de James Bond en GoldenEye y el primer BMW fabricado fuera de Alemania. Casi 300.000 unidades, del 1.8 a las M Roadster y M Coupé.",
+    descripcionSeo:
+      "BMW Z3 (1995–2002): roadster y coupé, motores de cuatro y seis cilindros, M Roadster y M Coupé, y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1995–2002", etiqueta: "años de producción" },
+      { valor: "297.087", etiqueta: "unidades fabricadas" },
+      { valor: "Spartanburg", etiqueta: "Carolina del Sur, Estados Unidos" },
+      { valor: "~18.000", etiqueta: "coupés, todos de seis cilindros" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/1999_BMW_Z3_2.3_roadster,_front_right,_08-24-2024.jpg/1280px-1999_BMW_Z3_2.3_roadster,_front_right,_08-24-2024.jpg",
+      alt: "BMW Z3 roadster de 1999",
+      pie: "BMW Z3 roadster de 1999.",
+      autor: "MercurySable99",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1999_BMW_Z3_2.3_roadster%2C_front_right%2C_08-24-2024.jpg",
+      ancho: 1280,
+      alto: 946,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "El Z3 se fabricó de septiembre de 1995 al 28 de junio de 2002 en Spartanburg, Carolina del Sur: el primer BMW hecho por completo fuera de Alemania. Ese mismo año apareció en GoldenEye, el primer auto no británico en una película oficial de 007.",
+          "Al roadster se sumó en 1998 un coupé de techo fijo y portón trasero, del que se hicieron poco menos de 18.000 unidades, todas de seis cilindros.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "Cuatro cilindros: 1.8 (115 CV) y 1.9 (140 CV, luego 118 CV).",
+          "Seis en línea: 2.0 (150 CV), 2.2 (170 CV), 2.8 (193 CV) y 3.0 (231 CV).",
+          "M Roadster y M Coupé: 321 CV en Europa y 240 CV en los Estados Unidos. En 2001–2002, el S54 de 325 CV; solo 168 M Coupé lo tuvieron.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Fisuras en el piso del baúl alrededor de los anclajes del diferencial: levantá la alfombra y escuchá si hay un crujido que empeora.",
+          "Óxido: guardabarros abulonados, zócalos, parte delantera del piso, brazos traseros y parrillas.",
+          "Refrigeración: junta de tapa de cilindros en los M44, M52 y M54, y codos plásticos frágiles en el M43.",
+          "Los 2.8 anteriores a marzo de 1998 tienen block con Nikasil. Retenes del VANOS en los M52TU.",
+          "Capota: burletes, cierres y la luneta plástica.",
+          "Asientos que se mueven por guías gastadas (arreglo barato) y golpes en las cazoletas traseras.",
+          "Pérdidas de aceite por la tapa de válvulas y el soporte del filtro. El 2.2 tiende a consumir aceite.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "BMWBlog — BMW Z3 30th anniversary retrospective (2025)", url: "https://www.bmwblog.com/2025/07/26/bmw-z3-30th-anniversary-retrospective/" },
+      { titulo: "Classics World — BMW Z3 buyer's guide", url: "https://classicsworld.co.uk/guides/bmw-z3-buyers-guide" },
+    ],
+    modelo: { marca: "BMW", modelos: ["Z3"] },
+  },
+  {
     slug: "seguros-para-clasicos",
     titulo: "Cómo asegurar un auto clásico",
     kicker: "Guía práctica",
