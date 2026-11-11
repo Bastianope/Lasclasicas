@@ -65,6 +65,17 @@ export const GUIAS: Articulo[] = [
       { valor: "General Pacheco", etiqueta: "planta de Ford Argentina" },
       { valor: "6 cilindros", etiqueta: "en línea, de 2,8 a 3,6 litros" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/6/62/Falcon_1970.jpg",
+      alt: "Ford Falcon argentino de 1970",
+      pie: "Ford Falcon argentino, restyling de 1970.",
+      autor: "Pan32",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Falcon_1970.jpg",
+      ancho: 640,
+      alto: 480,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -124,6 +135,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Santa Isabel", etiqueta: "planta en Córdoba" },
       { valor: "334", etiqueta: "vueltas en las 84 Horas de Nürburgring (1969)" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/IKA_Torino_380_coupé.jpg/1280px-IKA_Torino_380_coupé.jpg",
+      alt: "IKA Torino 380 coupé",
+      pie: "IKA Torino 380 coupé (1966–1970).",
+      autor: "Sergio Miller (recorte: Mr.choppers)",
+      licencia: "CC BY-SA 3.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:IKA_Torino_380_coup%C3%A9.jpg",
+      ancho: 1280,
+      alto: 766,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -181,6 +203,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Caseros", etiqueta: "planta de Fiat" },
       { valor: "Motor trasero", etiqueta: "de 4 cilindros" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Fiat_600_at_Schaffen-Diest.jpg/1280px-Fiat_600_at_Schaffen-Diest.jpg",
+      alt: "Fiat 600 en un encuentro de clásicos",
+      pie: "Fiat 600.",
+      autor: "Charles01",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Fiat_600_at_Schaffen-Diest.jpg",
+      ancho: 1280,
+      alto: 915,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -229,6 +262,17 @@ export const GUIAS: Articulo[] = [
       { valor: "Berazategui", etiqueta: "y luego El Palomar (Sevel)" },
       { valor: "30 años", etiqueta: "en el mercado argentino" },
     ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/1978_Peugeot_504_Ti_Automatic_2.0_Front.jpg/1280px-1978_Peugeot_504_Ti_Automatic_2.0_Front.jpg",
+      alt: "Peugeot 504 de 1978, vista frontal",
+      pie: "Peugeot 504 Ti de 1978.",
+      autor: "Vauxford",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1978_Peugeot_504_Ti_Automatic_2.0_Front.jpg",
+      ancho: 1280,
+      alto: 687,
+    },
     secciones: [
       {
         tipo: "texto",
@@ -268,7 +312,589 @@ export const GUIAS: Articulo[] = [
       { titulo: "La Nación — La historia de un ícono: el Peugeot 504 (2018)", url: "https://www.lanacion.com.ar/autos/al-volante/la-historia-icono-peugeot-504-nid2195265" },
       { titulo: "Autoweb — Hace 20 años se despedía el Peugeot 504 argentino (2019)", url: "https://www.autoweb.com.ar/?p=12886" },
     ],
-    modelo: { marca: "Peugeot", modelos: ["504"] },
+    modelo: { marca: "Peugeot", modelos: ["504", "504 Pick Up", "504 Cabrio"] },
+  },
+  {
+    slug: "bmw-serie-3-e30",
+    titulo: "BMW Serie 3 E30",
+    kicker: "Guía de modelo · 1982–1994",
+    resumen:
+      "Tracción trasera, seis en línea, líneas rectas y tamaño compacto: el E30 reúne todo lo que se le pide a un youngtimer alemán. Las versiones de cuatro cilindros siguen siendo accesibles; la M3 ya es un auto de colección.",
+    descripcionSeo:
+      "BMW Serie 3 E30 (1982–1994): historia, carrocerías, motores, la M3 y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1982–1994", etiqueta: "años de producción" },
+      { valor: "2,34 millones", etiqueta: "unidades fabricadas" },
+      { valor: "4", etiqueta: "carrocerías: coupé, sedán, cabrio y Touring" },
+      { valor: "17.970", etiqueta: "M3 E30 fabricadas" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/BMW_E30_in_silver_(facelift),_front_left_2024-08-18.jpg/1280px-BMW_E30_in_silver_(facelift),_front_left_2024-08-18.jpg",
+      alt: "BMW Serie 3 E30 plateado",
+      pie: "BMW Serie 3 E30, segunda fase.",
+      autor: "Johannes Maximilian (obra derivada: Mr.choppers)",
+      licencia: "GFDL 1.2",
+      licenciaUrl: "https://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:BMW_E30_in_silver_%28facelift%29%2C_front_left_2024-08-18.jpg",
+      ancho: 1280,
+      alto: 818,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "El E30 reemplazó al E21 en 1982, primero como coupé de dos puertas. Después llegaron el sedán de cuatro puertas, el cabriolet (1986–1993) y la rural Touring (1987–1994). La 325iX sumó tracción integral, y el restyling de 1988 (paragolpes, ópticas traseras, interior) separa las «fase 1» de las «fase 2».",
+          "Presentada en Fráncfort en 1985 y fabricada de 1986 a 1991, la M3 fue un auto de homologación para competir: cuatro cilindros S14 de 2,3 litros y 16 válvulas, entre 195 y 215 CV, y carrocería ensanchada. BMW pensaba hacer 5.000 y fabricó 17.970, de las que 786 fueron cabriolets. La Sport Evolution, de 2,5 litros y 238 CV, se limitó a 600 unidades.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "M10, cuatro cilindros (316, primeros 318i): distribución por cadena, muy robusto.",
+          "M40, cuatro cilindros (316i y 318i desde 1987–1988): correa de distribución; vigilar el árbol de levas.",
+          "M42, cuatro cilindros 16 válvulas (318iS): el cuatro cilindros más deportivo, con un chasis muy equilibrado.",
+          "M20, seis en línea (320i, 323i, 325i): el que le da su carácter al E30. La 325i, de unos 170 CV, es la más buscada.",
+          "M21, diésel (324d y 324td): lentos pero durables.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Seis cilindros M20: correa y tensor cada 60.000 km o 5 años como máximo, con la bomba de agua. Sin factura reciente, hay que cambiarla antes de usar el auto: si se corta, daña el motor.",
+          "Agua en el aceite en un M20: muchas veces es una tapa de cilindros fisurada debajo del árbol de levas, no solo la junta.",
+          "Refrigeración: radiador, termostato y mangueras tienen que estar renovados; un depósito de expansión sucio es mala señal.",
+          "Óxido: pasarruedas traseros (levantá la alfombra del baúl), zócalos y puntos de levante, batea de la batería, anclajes del tren trasero y marco del techo corredizo.",
+          "Tren trasero: bujes del puente y de los brazos, resortes rotos, cazoletas delanteras que golpean en las curvas.",
+          "Ex autos de drift: diferencial soldado, freno de mano hidráulico y piso trasero marcado.",
+          "Cabriolet: abrir y cerrar la capota por completo; mecanismo y lona son caros.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "BMWBlog — BMW E30 3 Series: history and review (2025)", url: "https://www.bmwblog.com/2025/02/14/bmw-e30-3-series-history-review/" },
+      { titulo: "Mecatechnic — Histoire de la BMW E30", url: "https://www.mecatechnic.com/fr-FR/blog/articles/histoire-bmw-e30" },
+      { titulo: "Classics World — BMW E30 3 Series buyer's guide", url: "https://classicsworld.co.uk/guides/bmw-e30-3-series-buyers-guide/" },
+      { titulo: "Youngtimer Garage — BMW Série 3 E30 (2026)", url: "https://youngtimer-garage.fr/dossiers/bmw-serie-3-e30-histoire-moteurs-achat" },
+    ],
+    modelo: { marca: "BMW", modelos: ["Serie 3 E30"] },
+  },
+  {
+    slug: "bmw-serie-3-e46",
+    titulo: "BMW Serie 3 E46",
+    kicker: "Guía de modelo · 1998–2006",
+    resumen:
+      "La tracción trasera de referencia de principios de los 2000, hasta la M3 CSL. El E46 hace de puente entre usado y youngtimer, y sigue siendo accesible si se sabe qué revisar.",
+    descripcionSeo:
+      "BMW Serie 3 E46 (1998–2006): carrocerías, motores, M3 y M3 CSL, y los defectos conocidos que hay que revisar antes de comprar.",
+    cifras: [
+      { valor: "1998–2006", etiqueta: "años de producción" },
+      { valor: "3,27 millones", etiqueta: "unidades, todas las carrocerías" },
+      { valor: "343 CV", etiqueta: "de la M3 (seis en línea S54)" },
+      { valor: "1.383", etiqueta: "M3 CSL fabricadas" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/BMW_E46_front_20080328.jpg/1280px-BMW_E46_front_20080328.jpg",
+      alt: "BMW Serie 3 E46 sedán",
+      pie: "BMW Serie 3 E46.",
+      autor: "Rudolf Stricker",
+      licencia: "CC BY-SA 3.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:BMW_E46_front_20080328.jpg",
+      ancho: 1280,
+      alto: 797,
+    },
+    secciones: [
+      {
+        tipo: "lista",
+        titulo: "Carrocerías",
+        items: [
+          "Sedán (diciembre de 1997 a mayo de 2005): 1.918.984 unidades.",
+          "Touring (1999–2005): 428.061 unidades.",
+          "Coupé (diciembre de 1998 a mayo de 2006): 443.264 unidades.",
+          "Cabriolet (diciembre de 1999 a noviembre de 2006): 277.146 unidades.",
+          "Compact (2000–2004): 199.430 unidades.",
+          "Restyling en 2001 para el sedán, el Touring y el Compact, y en 2003 para el coupé y el cabrio. La M3 no tuvo restyling.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "320i: seis en línea de 2,0 litros (150 CV) y después de 2,2 litros (170 CV).",
+          "325i y 330i: seis en línea M54 de 192 y 231 CV.",
+          "320d y 330d: diésel de cuatro y seis cilindros, de 136 a 204 CV.",
+          "M3: seis en línea S54 de 3,2 litros y 343 CV (2000–2006).",
+          "M3 CSL (2003–2004): 360 CV, caja SMG, techo de carbono y llantas de 19 pulgadas. Solo 1.383 unidades: es la pieza de colección de la familia.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Fisuras en el piso donde se ancla el tren trasero: pasa en todas las carrocerías, sobre todo en M3, 330i y 328i. La reparación puede costar más que el auto: hacelo revisar en elevador antes de comprar.",
+          "Refrigeración: depósito de expansión, bomba de agua con turbina plástica, radiador y termostato. Conviene cambiarlos en forma preventiva cada 100.000 a 120.000 km.",
+          "VANOS de los seis cilindros: los retenes suelen pedir cambio hacia los 150.000 km.",
+          "Seis cilindros M54: consumo de aceite, respiradero del cárter, bobinas y caudalímetro.",
+          "320d: turbo, EGR, inyectores, volante bimasa y las mariposas de admisión, que en los de 150 CV pueden soltarse.",
+          "Levantavidrios delanteros y módulo de confort (GM5).",
+          "M3: cojinetes de biela del S54, tornillos del VANOS, bomba y embrague de la caja SMG.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Wikipedia — BMW 3 Series (E46)", url: "https://en.wikipedia.org/wiki/BMW_3_Series_(E46)" },
+      { titulo: "BMWTuning — BMW E46 subframe cracks", url: "https://bmwtuning.co/bmw-e46-subframe-cracks/" },
+      { titulo: "Turner Motorsport — E46 Buyer's Guide", url: "https://www.turnermotorsport.com/t-BMW_E46_Buyers_Guide" },
+      { titulo: "PistonHeads — BMW M3 E46 used buying guide", url: "https://www.pistonheads.com/features/ph-buying-guides/bmw-m3-e46--ph-used-buying-guide/25931" },
+      { titulo: "Youngtimer Garage — Guide d'achat BMW E38 et E46 (2026)", url: "https://youngtimer-garage.fr/dossiers/guide-achat-bmw-e38-e46" },
+    ],
+    modelo: { marca: "BMW", modelos: ["Serie 3 E46"] },
+  },
+  {
+    slug: "mercedes-benz-w123",
+    titulo: "Mercedes-Benz W123",
+    kicker: "Guía de modelo · 1976–1986",
+    resumen:
+      "El Mercedes más exitoso de su época: casi 2,7 millones de unidades, taxis que pasaban el millón de kilómetros y un coupé 280 CE que hoy es uno de los clásicos alemanes más buscados.",
+    descripcionSeo:
+      "Mercedes-Benz W123 (1976–1986): sedán, coupé y rural, motores nafteros y diésel, y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1976–1986", etiqueta: "años de producción" },
+      { valor: "2.696.915", etiqueta: "unidades fabricadas" },
+      { valor: "99.884", etiqueta: "coupés C123" },
+      { valor: "455.000", etiqueta: "240 D, la versión más vendida" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/1984_Mercedes-Benz_280E_Sedan_(cropped).jpg/1280px-1984_Mercedes-Benz_280E_Sedan_(cropped).jpg",
+      alt: "Mercedes-Benz 280 E W123 de 1984",
+      pie: "Mercedes-Benz 280 E (W123) de 1984.",
+      autor: "Verdict09",
+      licencia: "CC0 (dominio público)",
+      licenciaUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1984_Mercedes-Benz_280E_Sedan_%28cropped%29.jpg",
+      ancho: 1280,
+      alto: 788,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado a fines de 1975, el W123 superó al W114 como el Mercedes más exitoso hasta entonces. La demanda era tal que en Alemania había esperas de nueve a doce meses y hasta un mercado negro de autos usados casi nuevos.",
+          "Además del sedán (2.375.410 unidades), hubo coupé C123 (99.884), rural S123 (199.517) y limusina larga. En 1977, dos 280 E ganaron el primer y el segundo puesto del maratón Londres–Sídney. La serie de 1982 trajo ópticas rectangulares y dirección asistida de serie.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "Nafteros: 200, 230, 230 E, 250, 280 y 280 E, con el coupé 280 CE como tope de gama.",
+          "Diésel: 200 D, 220 D, 240 D y 300 D. Son los motores de su leyenda: muchos taxis superaron los 500.000 km.",
+          "300 TD Turbodiesel (1979): presentado como el primer turbodiésel de un auto de pasajeros.",
+          "Las más fabricadas: 240 D (455.000), 230 E (442.000) y 200 D (378.000).",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos y pasarruedas, sobre todo la cara interna de los traseros y la unión entre zócalo y pasarrueda; también parantes A y B, largueros y la canaleta del techo. El estado del piso define el valor del auto.",
+          "Pintura: con un medidor de espesor se ve si el auto fue repintado.",
+          "Tren delantero: rótulas gastadas que golpean al doblar o en los pozos.",
+          "Nafteros 200 y 230: carburador con bomba de pique, membranas y chiclers gastados (tirones y arranque en frío difícil).",
+          "Diésel 240 D y 300 D: inyectores a limpiar o cambiar cerca de los 100.000 km, y una prueba de compresión antes de comprar.",
+          "Distribución por cadena: revisar estiramiento, tensor y patines.",
+          "Aire acondicionado y cierre centralizado por vacío: después de 40 años, suelen necesitar atención.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Wikipedia — Mercedes-Benz W123", url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Mercedes-Benz_W123" },
+      { titulo: "Kfz-Meisterbetrieb Dietrich — Mercedes W123: häufige Probleme", url: "https://kfz-dietrich.com/blog/oldtimer-mercedes-w123-haeufige-probleme/" },
+    ],
+    modelo: { marca: "Mercedes-Benz", modelos: ["230 W123", "W123"] },
+  },
+  {
+    slug: "mercedes-benz-w124",
+    titulo: "Mercedes-Benz W124",
+    kicker: "Guía de modelo · 1984–1997",
+    resumen:
+      "El último Mercedes «hecho como un tanque» para muchos, y el primero en llamarse Clase E. Sedán, rural, coupé y cabrio, con un 500 E desarrollado junto a Porsche.",
+    descripcionSeo:
+      "Mercedes-Benz W124 (1984–1997): carrocerías, el 500 E de Porsche, el cambio a Clase E y qué revisar antes de comprar uno.",
+    cifras: [
+      { valor: "1984–1997", etiqueta: "años de producción" },
+      { valor: "2,2 millones", etiqueta: "unidades, todas las carrocerías" },
+      { valor: "322 CV", etiqueta: "del 500 E, V8 de 5 litros" },
+      { valor: "1993", etiqueta: "pasa a llamarse Clase E" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/1988_Mercedes-Benz_300d_Diesel_Automatic_3.0_Front.jpg/1280px-1988_Mercedes-Benz_300d_Diesel_Automatic_3.0_Front.jpg",
+      alt: "Mercedes-Benz 300 D W124 de 1988",
+      pie: "Mercedes-Benz 300 D (W124) de 1988.",
+      autor: "Vauxford",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1988_Mercedes-Benz_300d_Diesel_Automatic_3.0_Front.jpg",
+      ancho: 1280,
+      alto: 556,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en noviembre de 1984 tras siete años de desarrollo, el W124 tuvo sedán, rural S124, coupé C124 y cabriolet A124, además de limusina y chasis para carrozar. En 1993 recibió un restyling de líneas más redondeadas y pasó a llamarse Clase E, con la letra delante del número.",
+          "Para el 500 E, Mercedes primero le pidió el desarrollo a AMG, que no tenía capacidad para fabricar miles de unidades. Lo hizo Porsche: adaptó carrocería y chasis para alojar el V8 M119 de 5 litros, 32 válvulas y 322 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "Nafteros de cuatro y seis cilindros en línea, de los 200 E a los 300 E y 320 E.",
+          "V8 en los 400 E y 500 E (E 420 y E 500 desde 1993).",
+          "Diésel de cuatro, cinco y seis cilindros, con y sin turbo: los 250 D y 300 D tienen la misma reputación de durabilidad que sus antecesores.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Puntos de levante: levantá las tapas plásticas de los zócalos; si la chapa se desarma, hay que soldar.",
+          "Anclajes delanteros del tren trasero: se pican con los años y para repararlos hay que bajar el eje.",
+          "Guardabarros delanteros: casi siempre tienen óxido. En la rural, revisar los marcos de las ventanillas traseras.",
+          "Los autos hasta 1992 suelen resistir mejor el óxido; la pintura al agua de los últimos años es más delicada.",
+          "Seis cilindros: pérdida de agua o agua en el aceite indican junta de tapa de cilindros (mirá la tapa de llenado de aceite).",
+          "Motores de cuatro válvulas: el arnés de cables del motor se desarma con el tiempo y provoca fallas de encendido.",
+          "Caja automática: cambios bruscos o a los tirones son mala señal.",
+          "Probar aire acondicionado, techo corredizo y levantavidrios: varias reparaciones juntas suman mucho.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — El Mercedes-Benz W124 cumple 40 años (2024)", url: "https://noticias.autocosmos.com.ar/2024/12/25/leyendas-de-la-industria-el-mercedes-benz-w124-cumple-40-anos" },
+      { titulo: "mobile.de — Mercedes E-Klasse W124: Kaufberatung", url: "https://www.mobile.de/magazin/artikel/mercedes-e-klasse-w124-1984-bis-1997-kaufberatung-40958" },
+    ],
+    modelo: { marca: "Mercedes-Benz", modelos: ["W124"] },
+  },
+  {
+    slug: "peugeot-404",
+    titulo: "Peugeot 404",
+    kicker: "Guía de modelo · 1962–1980",
+    resumen:
+      "El sedán de diseño Pininfarina que consolidó a Peugeot en la Argentina. Robusto, sobrio y con un 404 S que fue la primera versión deportiva de un auto hecho en el país.",
+    descripcionSeo:
+      "Peugeot 404 argentino (1962–1980): historia, versiones (Grand Prix, 404 S, 404 D, pick-up) y motores.",
+    cifras: [
+      { valor: "1962–1980", etiqueta: "años de producción en el país" },
+      { valor: "162.500", etiqueta: "unidades estimadas" },
+      { valor: "Berazategui", etiqueta: "planta de IAFA y luego Safrar" },
+      { valor: "185 km/h", etiqueta: "del 404 S, el deportivo" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/1969_Peugeot_404_sedan_(28295240103).jpg/1280px-1969_Peugeot_404_sedan_(28295240103).jpg",
+      alt: "Peugeot 404 sedán de 1969",
+      pie: "Peugeot 404 sedán de 1969.",
+      autor: "Jeremy from Sydney, Australia",
+      licencia: "CC BY 2.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by/2.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1969_Peugeot_404_sedan_%2828295240103%29.jpg",
+      ancho: 1280,
+      alto: 853,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en Francia en 1960 con diseño de Pininfarina, el 404 se empezó a fabricar en la Argentina en 1962, en la planta de IAFA en Berazategui. Cuando la comercializadora DAPASA cerró en 1964, Safrar retomó la producción en 1965.",
+          "El 404 argentino era casi idéntico al francés. Se fabricó hasta 1980, cuando Safrar pasó a formar parte de Sevel. Se estiman unas 162.500 unidades entre todas las variantes. El coupé y el cabriolet nunca se hicieron en el país.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "Sedán con motor 1.6 naftero: primero de 65 CV (tres bancadas) y después de 73 CV (cinco bancadas).",
+          "404 S: 1.6 con doble Weber y 115 CV, con 185 km/h de velocidad máxima.",
+          "Rural: desde 1963, con una vida corta en el país.",
+          "404 D (1972): diésel 1.9 de 68 CV, con versiones pick-up y furgón.",
+          "Grand Prix (años 70): palanca al piso, consola central, faros auxiliares en la parrilla y llantas nuevas.",
+          "Caja de cambios con palanca al volante, salvo en algunas versiones.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos, piso, pasarruedas y parte baja de las puertas. Es lo primero a revisar en un auto de esta edad.",
+          "Originalidad: confirmá la versión (404 S, Grand Prix, D) con los números de chasis y de motor, porque las más buscadas valen bastante más.",
+          "Motor: diferenciá el de tres bancadas del de cinco, y escuchalo en frío.",
+          "Diésel 404 D: humo, arranque en frío y pérdidas de aceite.",
+          "Pick-up y furgón: muchos trabajaron toda su vida; revisá el chasis y la caja de carga.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — Autos clásicos de Argentina: Peugeot 404 (2025)", url: "https://noticias.autocosmos.com.ar/2025/02/20/autos-clasicos-de-argentina-peugeot-404" },
+      { titulo: "Autoweb — Todos los Peugeot que se hicieron en la Argentina", url: "https://www.autoweb.com.ar/?p=12776" },
+    ],
+    modelo: { marca: "Peugeot", modelos: ["404"] },
+  },
+  {
+    slug: "peugeot-505",
+    titulo: "Peugeot 505",
+    kicker: "Guía de modelo · 1981–1995",
+    resumen:
+      "El sucesor de lujo del 504: tracción trasera, rural de siete plazas y, al final de su vida, un SRi con suspensión trasera independiente y frenos a disco en las cuatro ruedas.",
+    descripcionSeo:
+      "Peugeot 505 argentino (1981–1995): historia, restylings, motores nafteros y turbodiésel, y qué revisar antes de comprar.",
+    cifras: [
+      { valor: "1981–1995", etiqueta: "años de producción en el país" },
+      { valor: "91.500", etiqueta: "unidades argentinas" },
+      { valor: "El Palomar", etiqueta: "planta de Sevel" },
+      { valor: "130 CV", etiqueta: "del 2.2 de inyección multipunto" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Peugeot_505_SR_Automatique_(1979),_Dutch_licence_registration_71-ZL-PS_pic2.JPG/1280px-Peugeot_505_SR_Automatique_(1979),_Dutch_licence_registration_71-ZL-PS_pic2.JPG",
+      alt: "Peugeot 505 SR de 1979",
+      pie: "Peugeot 505 SR de 1979.",
+      autor: "AlfvanBeem",
+      licencia: "CC0 (dominio público)",
+      licenciaUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Peugeot_505_SR_Automatique_%281979%29%2C_Dutch_licence_registration_71-ZL-PS_pic2.JPG",
+      ancho: 1280,
+      alto: 959,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Lanzado en Europa en 1979, el 505 se fabricó en la Argentina desde 1981, en la planta de Sevel en El Palomar, y hasta 1995: catorce años y 91.500 unidades. En el mundo superó el 1,3 millón de unidades.",
+          "El restyling de 1986 cambió paragolpes, ópticas e interior, y trajo la rural Break de hasta siete plazas. Hubo un segundo restyling a comienzos de los 90, y el SRi de 1992 sumó suspensión trasera independiente y frenos a disco en las cuatro ruedas.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "Nafteros 2.0 de 96 y 100 CV.",
+          "SR Injection: 2.0 de inyección y 113 CV.",
+          "2.2 de inyección multipunto y 130 CV, el más potente.",
+          "Turbodiésel 2.3 de 80 CV y 2.5 de 95 CV.",
+          "Cajas manuales de cuatro o cinco marchas, o automática. Algunas rurales tuvieron tracción 4x4 hecha por Dangel.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos, piso, pasarruedas y la parte baja del portón de la rural.",
+          "Tren trasero, caja y diferencial: ruidos al acelerar o al soltar el acelerador indican desgaste.",
+          "Turbodiésel: humo, temperatura y estado del turbo.",
+          "Interior y equipamiento: las versiones tope de gama tenían mucha electricidad; probá levantavidrios, cierre centralizado y aire acondicionado.",
+          "Historial de GNC y de remís: un auto particular y original vale más.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — Autos clásicos de Argentina: Peugeot 505 (2024)", url: "https://noticias.autocosmos.com.ar/2024/10/17/autos-clasicos-de-argentina-peugeot-505" },
+      { titulo: "Autoweb — A 40 años de la aparición del Peugeot 505 argentino", url: "https://www.autoweb.com.ar/?p=23775" },
+    ],
+    modelo: { marca: "Peugeot", modelos: ["505"] },
+  },
+  {
+    slug: "renault-12",
+    titulo: "Renault 12",
+    kicker: "Guía de modelo · 1971–1994",
+    resumen:
+      "Más de 440.000 unidades y 23 años de producción en Córdoba: el Renault 12 fue el auto de miles de familias argentinas, y la Break, la rural de las vacaciones.",
+    descripcionSeo:
+      "Renault 12 argentino (1971–1994): historia, versiones (TL, TS, GTS, Break, Alpine), motores y qué revisar antes de comprar.",
+    cifras: [
+      { valor: "1971–1994", etiqueta: "años de producción en el país" },
+      { valor: "+440.000", etiqueta: "unidades fabricadas" },
+      { valor: "Santa Isabel", etiqueta: "planta de IKA-Renault en Córdoba" },
+      { valor: "493", etiqueta: "R12 Alpine fabricados" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/R12TL.JPG/1280px-R12TL.JPG",
+      alt: "Renault 12 TL",
+      pie: "Renault 12 TL.",
+      autor: "Snoopy1974",
+      licencia: "Dominio público",
+      licenciaUrl: "https://commons.wikimedia.org/wiki/File:R12TL.JPG",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:R12TL.JPG",
+      ancho: 1280,
+      alto: 853,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en Francia en 1969, el Renault 12 se lanzó en la Argentina en 1971, fabricado por IKA-Renault en Santa Isabel, Córdoba. La rural Break llegó en 1974.",
+          "Se fabricó hasta 1994, con más de 440.000 unidades. En 1978 apareció el R12 Alpine, el primer Alpine hecho fuera de Francia: solo 493 unidades, hoy las más buscadas.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "Primeros: motor 1.3 de 54 CV.",
+          "TL (1976): 1.4 de 60 CV. TS (1976): 1.4 de 74 CV, con aire acondicionado opcional.",
+          "GTS (1984): 1.4 de 77 CV.",
+          "GTL (1990): primera caja de cinco marchas.",
+          "Últimos años: motor 1.6 de 63 o 77 CV.",
+          "Tracción delantera y caja manual de cuatro marchas hasta la llegada del GTL.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos, piso, torretas de suspensión, pasarruedas y el borde del baúl o del portón de la Break.",
+          "Historial de GNC y de taxi: muy comunes en el R12. Uno particular y original vale más.",
+          "Caja y homocinéticas: ruidos al doblar con el volante a fondo indican desgaste.",
+          "Alpine: verificá los números y la originalidad con el club de la marca, porque hay muchas réplicas.",
+          "Repuestos: abundantes y baratos, gracias a los 23 años de producción.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — Autos clásicos de Argentina: Renault 12 (2025)", url: "https://noticias.autocosmos.com.ar/2025/02/27/autos-clasicos-de-argentina-renault-12" },
+      { titulo: "Autoweb — El Renault 12 argentino cumple 50 años (2021)", url: "https://www.autoweb.com.ar/?p=21835" },
+    ],
+    modelo: { marca: "Renault", modelos: ["12"] },
+  },
+  {
+    slug: "renault-fuego",
+    titulo: "Renault Fuego",
+    kicker: "Guía de modelo · 1982–1992",
+    resumen:
+      "La coupé de los 80: rival del Taunus GT y del Sierra XR4, campeona de TC2000 con Traverso y Oreste Berta, y con una GTA Max final de 123 CV que hoy es una de las youngtimers argentinas más buscadas.",
+    descripcionSeo:
+      "Renault Fuego argentina (1982–1992): historia, versiones GTX, GTA y GTA Max, TC2000 y qué revisar antes de comprar una.",
+    cifras: [
+      { valor: "1982–1992", etiqueta: "años de producción en el país" },
+      { valor: "19.952", etiqueta: "unidades fabricadas" },
+      { valor: "Santa Isabel", etiqueta: "planta de Renault en Córdoba" },
+      { valor: "123 CV", etiqueta: "de la GTA Max, la última versión" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Renault_Fuego_front_20080123.jpg/1280px-Renault_Fuego_front_20080123.jpg",
+      alt: "Renault Fuego, vista frontal",
+      pie: "Renault Fuego.",
+      autor: "Rudolf Stricker",
+      licencia: "CC BY-SA 3.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Renault_Fuego_front_20080123.jpg",
+      ancho: 1280,
+      alto: 675,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentada en Europa en 1980, la Fuego llegó a la Argentina importada en 1981 y empezó a fabricarse al año siguiente en Santa Isabel. La última salió de la planta en septiembre de 1992, con 19.952 unidades.",
+          "Debutó en el TC2000 en 1985 y ganó su primera carrera con Ernesto Bessone. Con Juan María Traverso y la preparación de Oreste Berta se convirtió en la coupé a vencer, y también fue campeona con Silvio Oltra y Miguel Ángel Guerra.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "GTX: motor 2.0 del Renault 18, llevado a 103 CV, con caja de cinco marchas; después se sumó una automática de tres.",
+          "1987: motor 2.2 de 116 CV, para pelear con el Sierra XR4.",
+          "GTA (fines de 1988): restyling estilo Alpine GTA, con paragolpes y molduras del color de la carrocería, llantas nuevas y apéndices aerodinámicos.",
+          "GTA Max: la última evolución, con el 2.2 llevado a 123 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido: zócalos, piso, pasarruedas y el marco de la gran luneta trasera, donde se junta agua.",
+          "Interior: los plásticos y tapizados de época son difíciles de conseguir; un interior completo y sano suma mucho valor.",
+          "Originalidad de la GTA Max: verificá números y detalles, porque es la versión que más se «copia».",
+          "Motor 2.2: temperatura, pérdidas de aceite y estado de la distribución.",
+          "Ex autos de competencia o muy modificados: revisá jaulas, soldaduras y el estado del tren delantero.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autoweb — La Renault Fuego festeja 40 años en la Argentina", url: "https://www.autoweb.com.ar/?p=30235" },
+      { titulo: "Autotest — La increíble historia de la Renault Fuego GTA Max", url: "https://autotest.com.ar/noticias/increible-historia-renault-fuego-gta-max/" },
+    ],
+    modelo: { marca: "Renault", modelos: ["Fuego"] },
+  },
+  {
+    slug: "citroen-3cv",
+    titulo: "Citroën 2CV y 3CV",
+    kicker: "Guía de modelo · 1960–1990",
+    resumen:
+      "El «Citroneta» y su versión argentina, el 3CV: un bicilíndrico refrigerado por aire, simple y querible, que se fabricó en el país durante tres décadas, primero por Citroën y después por IES.",
+    descripcionSeo:
+      "Citroën 2CV y 3CV argentinos (1960–1990): historia, versiones, motores de 425 y 602 cc, IES 3CV y qué revisar antes de comprar.",
+    cifras: [
+      { valor: "1960–1990", etiqueta: "años de producción en el país" },
+      { valor: "170.590", etiqueta: "2CV y 3CV hechos por Citroën" },
+      { valor: "602 cc", etiqueta: "motor del 3CV, de 28 a 32 CV" },
+      { valor: "300", etiqueta: "pick-ups 2CV, exclusivas del país" },
+    ],
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Citroen_2CV_1X7A7979.jpg/1280px-Citroen_2CV_1X7A7979.jpg",
+      alt: "Citroën 2CV",
+      pie: "Citroën 2CV.",
+      autor: "Alexander Migl",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Citroen_2CV_1X7A7979.jpg",
+      ancho: 1280,
+      alto: 905,
+    },
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Citroën empezó a fabricar el 2CV en la Argentina en 1960. En 1967 abrió su planta de Barracas, donde también se hicieron el Ami 8 y el Mehari. En 1969 llegó el 3CV, un nombre exclusivo del mercado argentino, con el motor más grande de 602 cc.",
+          "Citroën fabricó 170.590 unidades de 2CV y 3CV hasta 1980, cuando cerró la fábrica. En 1983, IES retomó la producción con el IES 3CV y sus versiones América y Súper América, hasta 1990. No hay cifras oficiales de las unidades hechas por IES.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Versiones y motores",
+        items: [
+          "2CV: bicilíndrico opuesto de 425 cc refrigerado por aire, de 12 CV y después 14 y 18 CV. Desde 1966, con embrague centrífugo.",
+          "3CV (1969): 602 cc, de 28 a 32 CV. En 1974 llegó el 3CV Prestige.",
+          "Pick-up 2CV: exclusiva de la Argentina, con solo 300 unidades.",
+          "IES 3CV, América y Súper América (1983–1990): mismo motor de 602 cc y 32 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Chasis: es la pieza clave. Revisá óxido en los largueros y el piso, y que no haya soldaduras improvisadas.",
+          "Carrocería: zócalos, parte baja de las puertas y anclajes del techo de lona.",
+          "Motor: muy simple, pero escuchá ruidos de bancada y revisá pérdidas de aceite.",
+          "Frenos y suspensión: la suspensión interconectada tiene que trabajar pareja; los bujes gastados se notan en el andar.",
+          "Pick-up y versiones IES: confirmá la originalidad, porque hay muchas transformaciones.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Autocosmos — Autos clásicos de Argentina: Citroën 2CV/3CV (2025)", url: "https://noticias.autocosmos.com.ar/2025/02/06/autos-clasicos-de-argentina-citroen-2cv3cv" },
+      { titulo: "Wikipedia — Citroën Argentina", url: "https://en.wikipedia.org/wiki/Citro%C3%ABn_Argentina" },
+    ],
+    modelo: { marca: "Citroën", modelos: ["2CV", "3CV"] },
   },
   {
     slug: "seguros-para-clasicos",
