@@ -12,11 +12,17 @@ interface Props {
   params: { slug: string };
 }
 
+// Años de producción tomados del kicker («Guía de modelo · 1966–1982»)
+function anios(kicker: string) {
+  const m = kicker.match(/\d{4}–\d{4}/);
+  return m ? ` (${m[0]})` : "";
+}
+
 export function generateMetadata({ params }: Props): Metadata {
   const guia = guiaPorSlug(params.slug);
   if (!guia) return { title: "Guía no encontrada", robots: { index: false } };
   return {
-    title: guia.modelo ? `${guia.titulo}: historia, versiones y qué revisar` : guia.titulo,
+    title: guia.tituloSeo ?? (guia.modelo ? `${guia.titulo}${anios(guia.kicker)}: historia y guía de compra` : guia.titulo),
     description: guia.descripcionSeo,
     alternates: { canonical: `/guias/${guia.slug}` },
     openGraph: { title: guia.titulo, description: guia.descripcionSeo, type: "article" },

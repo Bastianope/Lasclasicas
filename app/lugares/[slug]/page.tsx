@@ -18,7 +18,7 @@ export function generateMetadata({ params }: Props): Metadata {
   const lugar = lugarPorSlug(params.slug);
   if (!lugar) return { title: "Lugar no encontrado", robots: { index: false } };
   return {
-    title: lugar.titulo,
+    title: lugar.tituloSeo ?? lugar.titulo,
     description: lugar.descripcionSeo,
     alternates: { canonical: `/lugares/${lugar.slug}` },
     openGraph: { title: lugar.titulo, description: lugar.descripcionSeo, type: "article" },

@@ -37,6 +37,8 @@ export type Articulo = {
   kicker: string;
   resumen: string;
   descripcionSeo: string;
+  // Título para Google (si no, se usa el título)
+  tituloSeo?: string;
   cifras?: Cifra[];
   secciones: Seccion[];
   fuentes: Fuente[];
@@ -1469,8 +1471,9 @@ export const LUGARES: Articulo[] = [
     kicker: "Lugares míticos · San Luis",
     resumen:
       "Un circuito que daba la vuelta completa a un lago entre las sierras de San Luis. Recibió al mundial de GT y a las grandes categorías argentinas y, aunque hoy está desarmado, los clásicos siguen largando desde sus boxes.",
+    tituloSeo: "Circuito de Potrero de los Funes: historia, km y trazado",
     descripcionSeo:
-      "Historia del circuito de Potrero de los Funes (San Luis): FIA GT, TC2000, Turismo Carretera, su desarme en 2024 y el Rally de la Montaña para autos clásicos.",
+      "El circuito de Potrero de los Funes (San Luis) medía 6,27 km alrededor del lago. Su historia: FIA GT, TC2000, Turismo Carretera, el desarme de 2024 y el Rally de la Montaña.",
     cifras: [
       { valor: "6,27 km", etiqueta: "de trazado (2008–2018)" },
       { valor: "3", etiqueta: "visitas del campeonato FIA GT" },
@@ -1478,6 +1481,16 @@ export const LUGARES: Articulo[] = [
       { valor: "940 m", etiqueta: "de altura" },
     ],
     secciones: [
+      {
+        tipo: "lista",
+        titulo: "Datos clave",
+        items: [
+          "Longitud: 6,27 km en el trazado de 2008–2018. El primer circuito, de 1978, medía 6,2 km.",
+          "Ubicación: rodea el embalse de Potrero de los Funes, a unos 20 km de la ciudad de San Luis y a 940 m de altura.",
+          "Récord de vuelta: 2:14.173, de un Corvette C6.R en el FIA GT de 2011.",
+          "Estado actual: la última carrera fue en 2018 y el desarme empezó en febrero de 2024.",
+        ],
+      },
       {
         tipo: "texto",
         titulo: "Una pista alrededor del lago",
@@ -1647,6 +1660,7 @@ export const LUGARES: Articulo[] = [
     kicker: "Lugares míticos · Buenos Aires",
     resumen:
       "La ciudad natal de Juan Manuel Fangio reúne el museo de automovilismo más importante del país y un autódromo entre las sierras que, después de quince años, volvió a recibir carreras nacionales.",
+    tituloSeo: "Balcarce: Museo Fangio y Autódromo Juan Manuel Fangio",
     descripcionSeo:
       "Balcarce y Juan Manuel Fangio: el Museo Fangio, el Autódromo Juan Manuel Fangio y su reapertura en 2026, y la casa natal del quíntuple campeón.",
     cifras: [
@@ -1700,6 +1714,7 @@ export const LUGARES: Articulo[] = [
     kicker: "Lugares míticos · Todo el país",
     resumen:
       "De la Flecha de Plata de Fangio en Balcarce al primer auto patentado del país en Palermo, pasando por un museo dedicado al Fitito: seis museos para recorrer la historia del automóvil argentino.",
+    tituloSeo: "Museos del automóvil en Argentina: 6 para visitar",
     descripcionSeo:
       "Museos del automóvil en la Argentina: Museo Fangio, Museo del ACA, Termas de Río Hondo, Museo del Fitito, Maipú y Luján. Qué ver en cada uno y dónde están.",
     secciones: [
