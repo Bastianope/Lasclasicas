@@ -16,11 +16,17 @@ import {
 
 export const revalidate = 0;
 
-export const metadata: Metadata = {
-  title: "Autos clásicos en venta",
-  description:
-    "Ford Falcon, IKA Torino, Fiat 600, Peugeot 504 y más: clásicos y youngtimers en venta en toda Argentina, con contacto directo.",
-};
+// Las vistas filtradas u ordenadas no se indexan: Google se queda con /anuncios.
+export function generateMetadata({ searchParams }: { searchParams: Record<string, string | string[] | undefined> }): Metadata {
+  const filtrada = Object.values(searchParams ?? {}).some((v) => v !== undefined && v !== "");
+  return {
+    title: "Autos clásicos en venta",
+    description:
+      "Ford Falcon, IKA Torino, Fiat 600, Peugeot 504 y más: clásicos y youngtimers en venta en toda Argentina, con contacto directo.",
+    alternates: { canonical: "/anuncios" },
+    ...(filtrada ? { robots: { index: false, follow: true } } : {}),
+  };
+}
 
 type Filtros = {
   marca?: string;
