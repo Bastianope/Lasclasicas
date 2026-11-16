@@ -1417,6 +1417,260 @@ export const GUIAS: Articulo[] = [
     modelo: { marca: "BMW", modelos: ["Z3"] },
   },
   {
+    slug: "audi-tt-8n",
+    titulo: "Audi TT 8N",
+    kicker: "Guía de modelo · 1998–2006",
+    resumen:
+      "Un diseño Bauhaus que sigue sorprendiendo: el primer TT, coupé o roadster, con el 1.8 turbo y tracción quattro, y al final un VR6 con la primera caja DSG del mercado.",
+    descripcionSeo:
+      "Audi TT 8N (1998–2006): coupé y roadster, motores 1.8T y 3.2 VR6, quattro y DSG, y qué revisar antes de comprar uno.",
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2000_Audi_TT_Quattro_1.8_Front.jpg/1280px-2000_Audi_TT_Quattro_1.8_Front.jpg",
+      alt: "Audi TT quattro 1.8 de 2000",
+      pie: "Audi TT quattro 1.8 de 2000.",
+      autor: "Vauxford",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:2000_Audi_TT_Quattro_1.8_Front.jpg",
+      ancho: 1280,
+      alto: 637,
+    },
+    cifras: [
+      { valor: "1998–2006", etiqueta: "años de producción" },
+      { valor: "Győr", etiqueta: "armado en Hungría" },
+      { valor: "250 CV", etiqueta: "del 3.2 VR6" },
+      { valor: "1.165", etiqueta: "TT quattro Sport fabricados" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "El coupé llegó en 1998 y el roadster en 1999. Se armaba en Győr, Hungría, con las carrocerías hechas y pintadas en Ingolstadt. La producción europea terminó en 2005, con un último año modelo 2006.",
+          "Los primeros autos, hasta comienzos de 2000, fueron llamados a revisión por inestabilidad a alta velocidad: se les sumaron resortes traseros más firmes, un ESP actualizado y el pequeño alerón trasero. Al comprar uno de esos años, conviene confirmar que se hizo.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "1.8 turbo de 150, 163, 180, 190 y 225 CV. El 150 CV (desde 2003) es solo de tracción delantera; el 225 CV lleva quattro de serie.",
+          "3.2 VR6 de 250 CV, con quattro de serie y la caja DSG de seis marchas, que al principio solo se ofreció con este motor.",
+          "TT quattro Sport (2005): 240 CV, solo coupé, 1.165 unidades.",
+          "La tracción quattro del TT usa un acople Haldex.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "1.8 turbo: correa de distribución, tensor y bomba de agua (la original, de turbina plástica, es débil). Es un motor de interferencia: si se corta la correa, el daño es grande.",
+          "Bobinas, termostato, caudalímetro y pérdidas de presión del turbo.",
+          "Tablero: píxeles muertos y agujas que fallan, muy común en los anteriores a 2005.",
+          "DSG: unidad mecatrónica. Haldex: bomba y módulo de control.",
+          "Soporte de motor trasero («dog bone»). En el 3.2, desgaste del tensor de la cadena de distribución.",
+          "Óxido en zócalos y pasarruedas, hidráulica de la capota en el roadster, y la revisión de estabilidad hecha en los primeros autos.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Garage Dreams — Ultimate Audi TT Mk1 8N buyer's guide", url: "https://garagedreams.net/buyers-guide/ultimate-audi-tt-mk1-8n-buyers-guide-history" },
+      { titulo: "Audi — Der Audi TT: Ikone der Markengeschichte", url: "https://www.audi.com/de/medieninformationen/der-audi-tt-ikone-der-markengeschichte-16375" },
+    ],
+    modelo: { marca: "Audi", modelos: ["TT"] },
+  },
+  {
+    slug: "audi-quattro",
+    titulo: "Audi quattro",
+    kicker: "Guía de modelo · 1980–1991",
+    resumen:
+      "El auto que llevó la tracción integral a los rallies y a la calle. El «Ur-quattro» ganó títulos mundiales con Mikkola y Mouton, y solo se fabricaron 11.452 unidades.",
+    descripcionSeo:
+      "Audi quattro «Ur-quattro» (1980–1991): motores de cinco cilindros turbo, historia en rally, Sport quattro y qué revisar antes de comprar uno.",
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1985_Audi_Quattro.jpg/1280px-1985_Audi_Quattro.jpg",
+      alt: "Audi quattro de 1985",
+      pie: "Audi quattro de 1985.",
+      autor: "Calreyn88",
+      licencia: "CC0 (dominio público)",
+      licenciaUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1985_Audi_Quattro.jpg",
+      ancho: 1280,
+      alto: 757,
+    },
+    cifras: [
+      { valor: "1980–1991", etiqueta: "años de producción" },
+      { valor: "11.452", etiqueta: "unidades fabricadas" },
+      { valor: "5 cilindros", etiqueta: "turbo, de 2,1 y 2,2 litros" },
+      { valor: "224", etiqueta: "Sport quattro de calle" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Presentado en 1980, el quattro llevó la tracción integral permanente a un coupé deportivo de calle. Se fabricó hasta la primavera de 1991, con 11.452 unidades.",
+          "En los rallies cambió todo: debutó en Austria en 1980, Michèle Mouton ganó el Rally de San Remo de 1981 —la primera mujer en ganar una fecha del mundial— y Audi fue campeón de marcas en 1982 y 1984, con Hannu Mikkola campeón de pilotos en 1983. El Sport quattro de distancia entre ejes corta (1984) se hizo para homologar el auto de competición: 224 unidades de calle.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "WR (1980–1987): cinco cilindros turbo de 2.144 cm³ y 10 válvulas, unos 200 CV.",
+          "MB (1987–1989): 2.226 cm³, 10 válvulas.",
+          "RR (1989–1991): 2.226 cm³ y 20 válvulas, unos 220 CV. Es el más buscado.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Óxido en zócalos, parte baja de las puertas y pasarruedas, sobre todo en los anteriores a 1985. El galvanizado desde 1985 no lo descarta. Buscá choques mal reparados y largueros torcidos.",
+          "Turbo con humo (el MB es el más propenso), múltiple de escape fisurado y caños del radiador de aceite corroídos.",
+          "Correa de distribución cada 5 años o 70.000 km.",
+          "Acumulador de frenos y cálipers trabados. Los sensores del ABS ya no se fabrican.",
+          "Sincronizados débiles, bloqueo del diferencial y subchasis trasero fisurado.",
+          "Repuestos: guardabarros, molduras y motores de levantavidrios son escasos. Pérdidas por la costura del tanque de nafta.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Classics World — Audi quattro buyer's guide", url: "https://classicsworld.co.uk/guides/audi-quattro-buyers-guide/" },
+      { titulo: "Hagerty — The Audi Ur-Quattro is a rare and revolutionary '80s classic", url: "https://hagerty.com/media/?p=310742" },
+    ],
+    modelo: { marca: "Audi", modelos: ["Quattro"] },
+  },
+  {
+    slug: "audi-80-b3-b4",
+    titulo: "Audi 80 B3 y B4",
+    kicker: "Guía de modelo · 1986–1996",
+    resumen:
+      "La berlina que construyó la reputación de calidad de Audi: carrocería galvanizada, cinco cilindros y V6, y versiones coupé y cabriolet que hoy son youngtimers muy buscados.",
+    descripcionSeo:
+      "Audi 80 B3 y B4 (1986–1996), Audi Coupé y Cabriolet: motores, S2 y RS2, y qué revisar antes de comprar uno.",
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Audi80-1992.JPG/1280px-Audi80-1992.JPG",
+      alt: "Audi 80 de 1992",
+      pie: "Audi 80 de 1992.",
+      autor: "Mikael Wall",
+      licencia: "Dominio público",
+      licenciaUrl: "https://commons.wikimedia.org/wiki/File:Audi80-1992.JPG",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:Audi80-1992.JPG",
+      ancho: 1280,
+      alto: 806,
+    },
+    cifras: [
+      { valor: "1986–1996", etiqueta: "años del Audi 80 B3 y B4" },
+      { valor: "~71.350", etiqueta: "Audi Cabriolet fabricados" },
+      { valor: "315 CV", etiqueta: "del RS2 Avant, hecho con Porsche" },
+      { valor: "1991–2000", etiqueta: "años del Cabriolet" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "El Audi 80 B3 llegó a fines del verano europeo de 1986 y fue el primer 80 con carrocería galvanizada. El B4 (tipo 8C) lo siguió en septiembre de 1991, y el A4 lo reemplazó a mediados de los 90.",
+          "Sobre la base del B3 se hicieron el Audi Coupé (1988–1996), con el S2 de cinco cilindros turbo de 1991, y el Audi Cabriolet (1991–2000), con unas 71.350 unidades. En 1994 y 1995, Porsche armó en Zuffenhausen el RS2 Avant: cinco cilindros turbo de 2,2 litros y 315 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "2.0 de cuatro cilindros, de 113 a 140 CV, con versión 16 válvulas desde 1992.",
+          "2.3 de cinco cilindros y 10 válvulas, de 133 a 136 CV.",
+          "V6 de 2,6 litros (150 CV) y 2,8 litros (174 CV).",
+          "1.9 TDI de 90 CV. En el Cabriolet de 1995 fue presentado como el primer descapotable diésel de serie.",
+          "S2 Coupé: cinco cilindros turbo de 20 válvulas, el mismo motor del quattro.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Reparaciones de choque hechas con chapas no galvanizadas: revisá pasarruedas, pisos y subchasis delantero.",
+          "Cinco cilindros 2.3: el chavetero de la polea del cigüeñal puede romperse y dañar válvulas y pistones.",
+          "TDI: cambio de líquido refrigerante cada 2 años (riesgo de junta) e inyectores.",
+          "V6: desgaste del tren delantero y amortiguadores, bujes y soportes vencidos.",
+          "B3: caja automática, electricidad del tablero y cerradura del portón.",
+          "Cabriolet: estado de la capota y de su mecanismo. RS2: correa específica, bobinas, sincronizados y repuestos escasos.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Secret Classics — 30 years of Audi Cabriolet", url: "https://www.secret-classics.com/en/30-years-of-audi-cabriolet/" },
+      { titulo: "PistonHeads — Audi RS2 used buying guide", url: "https://www.pistonheads.com/news/ph-buying-guides/audi-rs2-ph-used-buying-guide/45512" },
+      { titulo: "Exchange and Mart — Audi Coupé review", url: "https://www.exchangeandmart.co.uk/reviews/audi/coupe/1989/207531" },
+    ],
+    modelo: { marca: "Audi", modelos: ["80", "80 Cabriolet", "90"] },
+  },
+  {
+    slug: "audi-a4-b5",
+    titulo: "Audi A4 B5",
+    kicker: "Guía de modelo · 1994–2001",
+    resumen:
+      "El primer A4: berlina y Avant, motores de cuatro cilindros, V6 y TDI, el S4 biturbo y un RS4 Avant desarrollado con Cosworth. Uno de los youngtimers alemanes más accesibles.",
+    descripcionSeo:
+      "Audi A4 B5 (1994–2001): sedán y Avant, motores 1.8T, V6 y TDI, S4 y RS4, y qué revisar antes de comprar uno.",
+    portada: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/1996_Audi_A4_SE_2.6_Front.jpg/1280px-1996_Audi_A4_SE_2.6_Front.jpg",
+      alt: "Audi A4 2.6 de 1996",
+      pie: "Audi A4 2.6 de 1996.",
+      autor: "Vauxford",
+      licencia: "CC BY-SA 4.0",
+      licenciaUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.es",
+      fuenteUrl: "https://commons.wikimedia.org/wiki/File:1996_Audi_A4_SE_2.6_Front.jpg",
+      ancho: 1280,
+      alto: 832,
+    },
+    cifras: [
+      { valor: "1994–2001", etiqueta: "años de producción" },
+      { valor: "2", etiqueta: "carrocerías: sedán y Avant" },
+      { valor: "6.030", etiqueta: "RS4 Avant fabricados" },
+      { valor: "~375 CV", etiqueta: "del RS4, V6 biturbo" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Historia",
+        parrafos: [
+          "Lanzado en noviembre de 1994 como sucesor del Audi 80, el A4 B5 tuvo sedán y, desde 1995–1996, la rural Avant. Recibió un restyling y se fabricó hasta 2001.",
+          "El S4 biturbo llegó en 1997 con un V6 de 2,7 litros y unos 265 CV. El RS4, solo Avant, se hizo de mayo de 2000 a septiembre de 2001: 6.030 unidades, con culatas e internos de Cosworth, turbos más grandes y unos 375 CV.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Motores",
+        items: [
+          "Nafteros: 1.6 (101 CV), 1.8 de 20 válvulas (125 CV) y 1.8 turbo (150 CV).",
+          "V6: 2.4 (165 CV), 2.6 (150 CV) y 2.8 de 30 válvulas (193 CV).",
+          "Diésel: 1.9 TDI de 90 y 110 CV, 1.9 TDI de 115 CV desde fines de 1999, y 2.5 V6 TDI de 150 CV.",
+          "S4 y RS4: V6 biturbo de 2,7 litros, con tracción quattro.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Qué revisar antes de comprar",
+        items: [
+          "Brazos y bujes del tren delantero, y rótulas inferiores: un crujido adelante es la señal.",
+          "1.8 y 1.8T: correa de distribución con tensor y la primera bomba de agua plástica.",
+          "V6: consumo de aceite, y catalizadores que golpetean en el 2.6.",
+          "TDI: inyectores y aceite con la norma correcta.",
+          "Desagües tapados debajo del parabrisas que mojan las alfombras, y uniones de los caños de freno traseros.",
+          "S4 y RS4: correa y bomba de agua más seguido, turbos, mangueras del intercooler y desgaste de árboles de levas.",
+        ],
+      },
+    ],
+    fuentes: [
+      { titulo: "Honest John Classics — Audi A4", url: "https://classics.honestjohn.co.uk/reviews/audi/audi-a4/" },
+      { titulo: "Supercar Nostalgia — Audi B5 RS4", url: "https://supercarnostalgia.com/blog/audi-b5-rs4" },
+      { titulo: "Classic Trader — Audi RS4 buying guide", url: "https://www.classic-trader.com/en/magazine/audi-rs4-buying-guide" },
+    ],
+    modelo: { marca: "Audi", modelos: ["A4"] },
+  },
+  {
     slug: "seguros-para-clasicos",
     titulo: "Cómo asegurar un auto clásico",
     kicker: "Guía práctica",
