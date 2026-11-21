@@ -1671,6 +1671,124 @@ export const GUIAS: Articulo[] = [
     modelo: { marca: "Audi", modelos: ["A4"] },
   },
   {
+    slug: "importar-auto-clasico",
+    titulo: "Cómo importar un auto clásico a la Argentina",
+    kicker: "Guía práctica",
+    tituloSeo: "Importar un auto clásico a la Argentina: requisitos y trámite",
+    resumen:
+      "Importar un auto usado está prohibido en la Argentina, salvo una excepción: los autos de colección de más de 30 años y al menos USD 12.000. En 2025 el trámite se simplificó y se digitalizó. Así funciona hoy.",
+    descripcionSeo:
+      "Requisitos para importar un auto clásico a la Argentina (más de 30 años, FOB de USD 12.000), pasos del trámite por TAD y VUCEA, prohibición de venta por 2 años y errores a evitar.",
+    cifras: [
+      { valor: "30 años", etiqueta: "de antigüedad mínima" },
+      { valor: "USD 12.000", etiqueta: "de valor FOB mínimo" },
+      { valor: "2 años", etiqueta: "sin poder venderlo" },
+      { valor: "1 año", etiqueta: "de validez de la autorización" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "La excepción para los autos de colección",
+        parrafos: [
+          "El Decreto 110/99 prohíbe importar autos usados, con algunas excepciones. Una de ellas son los «modelos de colección» o de interés histórico, considerados parte del patrimonio cultural: tienen que tener al menos 30 años de antigüedad y un valor FOB (el precio en el puerto de origen) de al menos USD 12.000.",
+          "Durante años el trámite fue lento y exigía una tasación oficial. La Resolución 24/2025 lo simplificó, la Resolución 300/2025 lo reorganizó y, desde diciembre de 2025, la autorización viaja a la Aduana en forma digital por la Ventanilla Única de Comercio Exterior (VUCEA).",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Los pasos",
+        items: [
+          "1. Confirmá que el auto cumple: 30 años o más y un valor FOB de al menos USD 12.000, con la factura o el contrato de compra.",
+          "2. Pedí la autorización de importación por la plataforma TAD, con el formulario de declaración jurada. La revisa la Dirección de Evaluación y Promoción Industrial, que tiene 10 días corridos para responder.",
+          "3. Si falta algo, tenés 10 días hábiles para completarlo; si no, el trámite se da por desistido.",
+          "4. La autorización se envía a la Aduana por VUCEA y vale 1 año desde que te la notifican: el auto tiene que llegar y despacharse en ese plazo.",
+          "5. Un despachante de aduana hace la declaración y cita la autorización. El sistema controla que el número de chasis (VIN), la marca y el modelo coincidan: un dato distinto bloquea el despacho.",
+          "6. Pagá los tributos de importación y, una vez liberado el auto, hacé la inscripción en el registro automotor.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Lo que hay que saber",
+        items: [
+          "Prohibido vender: durante 2 años desde que el auto sale de la Aduana no se puede vender ni regalar.",
+          "Ya no se exige la tasación oficial que pedía el régimen anterior.",
+          "Impuestos: se pagan derechos de importación, tasa estadística, IVA y, según el valor, impuestos internos. Las alícuotas dependen de la clasificación del auto y del origen (dentro o fuera del Mercosur): pedile a tu despachante una estimación antes de comprar.",
+          "Una sola autorización por ítem de la declaración de importación.",
+          "Flete, seguro, despachante y gastos de puerto pesan mucho en un solo auto: sumalos al precio antes de decidir.",
+          "Registro: desde agosto de 2026, la DNRPA exige una verificación física en todos los casos para inscribir un auto en el registro de clásicos.",
+        ],
+      },
+    ],
+    aviso:
+      "Esta guía resume la normativa vigente a noviembre de 2026 y no reemplaza el asesoramiento de un despachante de aduana. Las normas cambian: confirmá siempre los requisitos antes de comprar un auto en el exterior.",
+    fuentes: [
+      { titulo: "Boletín Oficial — Resolución 24/2025 (Secretaría de Industria y Comercio)", url: "https://www.boletinoficial.gob.ar/detalleAviso/primera/321822/20250225" },
+      { titulo: "Boletín Oficial — Resolución 300/2025", url: "https://www.boletinoficial.gob.ar/detalleAviso/primera/329033/20250730" },
+      { titulo: "Boletín Oficial — Resolución General ARCA 5796/2025", url: "https://www.boletinoficial.gob.ar/detalleAviso/primera/335540/20251204" },
+      { titulo: "Boletín Oficial — Disposición DNRPA 161/2026", url: "https://www.boletinoficial.gob.ar/detalleAviso/primera/345438/20260805" },
+      { titulo: "iProfesional — ARCA cambia los pasos para importar autos clásicos (2025)", url: "https://www.iprofesional.com/autos/443354-arca-cambia-los-pasos-para-importar-autos-clasicos-al-pais-que-exige-el-nuevo-sistema" },
+      { titulo: "El Economista — El Gobierno simplificó la importación de autos clásicos (2025)", url: "https://eleconomista.com.ar/autos/el-gobierno-simplifico-importacion-autos-clasicos-n82428" },
+    ],
+  },
+  {
+    slug: "bioetanol-autos-clasicos",
+    titulo: "Nafta con bioetanol y autos clásicos",
+    kicker: "Guía práctica",
+    tituloSeo: "Nafta con 12-15% de bioetanol en autos clásicos: qué cuidar",
+    resumen:
+      "Desde marzo de 2026, la nafta argentina puede llevar hasta 15% de bioetanol. Para un auto moderno casi no cambia nada, pero en un clásico a carburador conviene revisar mangueras, juntas y filtros, y guardarlo bien.",
+    descripcionSeo:
+      "Cómo afecta la nafta con 12 a 15% de bioetanol a los autos clásicos y a carburador: mangueras, juntas, corrosión, humedad y guardado. Qué revisar y cómo protegerlo.",
+    cifras: [
+      { valor: "12%", etiqueta: "de bioetanol en la práctica hasta 2026" },
+      { valor: "Hasta 15%", etiqueta: "permitido desde marzo de 2026" },
+      { valor: "~2,6%", etiqueta: "más pobre la mezcla con 10% de etanol" },
+      { valor: "Antes de 2001", etiqueta: "los autos más expuestos" },
+    ],
+    secciones: [
+      {
+        tipo: "texto",
+        titulo: "Qué cambió",
+        parrafos: [
+          "La nafta argentina se mezcla con bioetanol por la Ley 27.640, y en la práctica el corte fue del 12%. La Resolución 79/2026 de la Secretaría de Energía, de marzo de 2026, subió el límite de oxígeno permitido para que las petroleras puedan llegar al 15% si lo deciden: no es obligatorio. Un proyecto de ley que lo haría obligatorio y habilitaría los autos «flex fuel» fue aprobado por el Senado y espera el tratamiento en Diputados.",
+          "Según el INTA, para un motor moderno el cambio casi no se nota, salvo un consumo un poco mayor. Los autos con carburador, los más viejos y los que pasan mucho tiempo guardados son los que pueden tener problemas.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Cómo afecta a un clásico",
+        items: [
+          "Mangueras, juntas y membranas de la bomba de nafta: el etanol las hincha y las ablanda, y después se secan y se agrietan.",
+          "Corrosión: sobre todo entre metales distintos (zinc, bronce, acero) en el carburador y el tanque. Al evaporarse, la nafta puede dejar una mezcla de agua y etanol corrosiva.",
+          "Humedad: el etanol absorbe agua. Con el tiempo, la mezcla puede separarse en el fondo del tanque.",
+          "Mezcla más pobre: con 10% de etanol, la mezcla se empobrece cerca de un 2,6%. En un auto a carburador puede haber tironeos, huecos al acelerar o que se pare; a veces hay que enriquecer los chiclers. La inyección con sonda lambda lo corrige sola.",
+          "Efecto limpiador: el etanol despega la suciedad vieja del tanque, que puede tapar filtros, chiclers y el carburador.",
+          "Flotantes plásticos del carburador y tanques de fibra de vidrio: pueden dañarse. Conviene cambiarlos por piezas compatibles.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Cómo protegerlo",
+        items: [
+          "Cambiá las mangueras de nafta por mangueras aptas para etanol, de norma SAE J30 (la J30R14T1 es la de baja permeabilidad).",
+          "Revisá el filtro de nafta más seguido, sobre todo en los primeros tanques con la mezcla nueva.",
+          "Si el auto queda guardado mucho tiempo: no dejes el circuito a medio vaciar, vaciá las cubas del carburador y, si lo guardás con nafta, usá un estabilizador.",
+          "Los aditivos anticorrosión ayudan, pero ninguno está probado para proteger todo el sistema: no reemplazan el cambio de mangueras y juntas.",
+          "Arrancalo cada dos semanas o, mejor, salí a dar una vuelta.",
+          "Si notás tironeos, pérdidas u olor a nafta, consultá a un mecánico que conozca autos a carburador.",
+        ],
+      },
+    ],
+    aviso: "Información general: el estado de cada auto es distinto. Ante cualquier duda, consultá a un mecánico especializado en clásicos.",
+    fuentes: [
+      { titulo: "Chequeado — El Gobierno autorizó un mayor uso de bioetanol: qué impacto tiene en los autos (2026)", url: "https://chequeado.com/el-explicador/ante-el-aumento-de-la-nafta-el-gobierno-autorizo-un-mayor-uso-de-bioetanol-que-impacto-tiene-la-medida-en-los-precios-y-en-los-autos/" },
+      { titulo: "Parabrisas — Los cambios que autorizó el Gobierno en los combustibles (2026)", url: "https://parabrisas.perfil.com/noticias/novedades/a31-los-cambios-autorizo-gobierno-contener-subas-en-los-combustibles-nafta-autos.phtml" },
+      { titulo: "Industrial Info — El Senado aprueba el proyecto de biocombustibles (2026)", url: "https://www.industrialinfo.com/news/article/el-senado-argentino-aprueba-un-proyecto-de-ley-para-aumentar-el-contenido-de-biocombustibles-en-la-g--362944" },
+      { titulo: "FBHVC — Essential guide to fuels (2023)", url: "https://fbhvc.co.uk/storage/downloads/page/34/Essential%20Guide%20to%20Fuels%20v3%202023.pdf" },
+      { titulo: "Hagerty UK — Don't suffer fuels (2025)", url: "https://www.hagerty.co.uk/articles/dont-suffer-fuels/" },
+    ],
+  },
+  {
     slug: "seguros-para-clasicos",
     titulo: "Cómo asegurar un auto clásico",
     kicker: "Guía práctica",
