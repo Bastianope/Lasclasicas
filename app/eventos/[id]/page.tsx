@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { nombreVisible, primeraMayuscula } from "@/lib/sitio";
+import { nombreProvincia, provinciaCanonica, slugProvincia } from "@/lib/ubicacion";
 
 export const revalidate = 0;
 
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     : null;
   const lugar = [data.ciudad, data.provincia].filter(Boolean).join(", ");
   const descripcion = [fecha, lugar].filter(Boolean).join(" · ") + (data.descripcion ? ` — ${data.descripcion.slice(0, 140)}` : "");
+  const titulo = [data.titulo, fecha, data.ciudad].filter(Boolean).join(" · ");
   return {
-    title: data.titulo,
+    title: titulo,
     description: descripcion,
     openGraph: { title: data.titulo, description: descripcion, images: [data.foto_url || "/og.jpg"] },
   };
@@ -50,8 +52,37 @@ export default async function EventoDetallePage({ params }: Props) {
     : null;
   const publicadoPor = nombreVisible((evento.profiles as any)?.nombre);
 
+  // Datos estructurados schema.org/Event, para que Google pueda mostrar el evento en sus resultados.
+  const jsonLd = evento.fecha_evento
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        name: evento.titulo,
+        startDate: evento.fecha_evento,
+        eventStatus: "https://schema.org/EventScheduled",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        location: {
+          "@type": "Place",
+          name: evento.lugar || evento.ciudad || evento.provincia,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: evento.lugar || undefined,
+            addressLocality: evento.ciudad || undefined,
+            addressRegion: evento.provincia || undefined,
+            addressCountry: "AR",
+          },
+        },
+        description: evento.descripcion || undefined,
+        image: evento.foto_url ? [evento.foto_url] : undefined,
+        organizer: (evento.clubes as any)?.nombre ? { "@type": "Organization", name: (evento.clubes as any).nombre } : undefined,
+      }
+    : null;
+
   return (
     <main className="min-h-screen bg-[#0F1117] text-white">
+      {jsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      )}
       <div className="max-w-4xl mx-auto px-4 py-8">
         <Link href="/eventos" className="inline-block mb-6 text-sm text-white/50 hover:text-[#D4A847] transition-colors">
           ← Volver a eventos
@@ -93,6 +124,15 @@ export default async function EventoDetallePage({ params }: Props) {
             <Link href={`/clubes/${(evento.clubes as any).id}`}
               className="inline-block text-[#D4A847] text-sm hover:underline">
               Organiza: {(evento.clubes as any).nombre} →
+            </Link>
+          )}
+
+          {evento.provincia && provinciaCanonica(evento.provincia) && (
+            <Link
+              href={`/autos-clasicos/${slugProvincia(provinciaCanonica(evento.provincia)!)}`}
+              className="block text-[#D4A847] text-sm hover:underline"
+            >
+              Más encuentros y autos clásicos en {nombreProvincia(provinciaCanonica(evento.provincia)!)} →
             </Link>
           )}
 

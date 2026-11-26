@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { slugProvincia } from "@/lib/ubicacion";
 import { notFound } from "next/navigation";
 import Articulo from "@/components/Articulo";
 import { LUGARES, lugarPorSlug } from "@/lib/contenido";
@@ -41,8 +42,8 @@ export default function LugarPage({ params }: Props) {
           <Link href="/eventos" className="px-4 py-2 rounded-xl border border-white/20 text-sm text-white/80 hover:border-[#D4A847] hover:text-[#D4A847] transition-colors">
             Eventos
           </Link>
-          <Link href={`/anuncios?provincia=${encodeURIComponent(lugar.provincia!)}`} className="px-4 py-2 rounded-xl bg-[#D4A847] text-black text-sm font-bold hover:bg-[#C49B35] transition-colors">
-            Autos en {lugar.provincia}
+          <Link href={`/autos-clasicos/${slugProvincia(lugar.provincia!)}`} className="px-4 py-2 rounded-xl bg-[#D4A847] text-black text-sm font-bold hover:bg-[#C49B35] transition-colors">
+            Clásicos en {lugar.provincia}
           </Link>
         </div>
       </section>

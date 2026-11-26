@@ -89,3 +89,17 @@ export function filtroUbicacion(texto: string): string | null {
     .flatMap((patron) => [`provincia.ilike.${patron}`, `ciudad.ilike.${patron}`])
     .join(",");
 }
+
+// Páginas por provincia (/autos-clasicos/mendoza): slug sin acentos ni espacios.
+export function slugProvincia(provincia: string): string {
+  return quitarAcentos(provincia).toLowerCase().replace(/\s+/g, "-");
+}
+
+export function provinciaPorSlug(slug: string): string | null {
+  return PROVINCIAS.find((p) => slugProvincia(p) === slug) ?? null;
+}
+
+// Nombre para mostrar en títulos: "la Ciudad de Buenos Aires" en lugar de "CABA".
+export function nombreProvincia(provincia: string): string {
+  return provincia === "CABA" ? "la Ciudad de Buenos Aires" : provincia;
+}

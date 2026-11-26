@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { primeraMayuscula } from "@/lib/sitio";
+import { provinciaCanonica, slugProvincia } from "@/lib/ubicacion";
 
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Eventos de autos clásicos",
-  description: "Exposiciones, encuentros y rallies de autos clásicos y youngtimers en toda Argentina.",
+  title: "Agenda de autos clásicos 2026–2027: encuentros y exposiciones en Argentina",
+  description:
+    "Encuentros, exposiciones y rallies de autos clásicos y antiguos en toda Argentina: fechas, lugares y detalles, provincia por provincia. Publicá tu evento gratis.",
+  alternates: { canonical: "/eventos" },
 };
 
 const ZONA = "America/Argentina/Buenos_Aires";
@@ -66,6 +69,9 @@ export default async function EventosPage() {
   const hoy = new Date();
   hoy.setHours(0, 0, 0, 0);
   const proximos = (eventos ?? []).filter((e: any) => !e.fecha_evento || new Date(e.fecha_evento) >= hoy);
+  const provinciasConEventos = Array.from(
+    new Set(proximos.map((e: any) => (e.provincia ? provinciaCanonica(e.provincia) : null)).filter(Boolean) as string[])
+  ).sort((a, b) => a.localeCompare(b, "es"));
   const pasados = (eventos ?? []).filter((e: any) => e.fecha_evento && new Date(e.fecha_evento) < hoy).reverse();
 
   return (
@@ -73,8 +79,8 @@ export default async function EventosPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-white">Eventos</h1>
-            <p className="text-white/40 text-sm mt-1">Exposiciones, encuentros y rallies de clásicos en todo el país.</p>
+            <h1 className="text-2xl font-bold text-white">Agenda de autos clásicos</h1>
+            <p className="text-white/40 text-sm mt-1">Encuentros, exposiciones y rallies de clásicos y antiguos en todo el país.</p>
           </div>
           <Link
             href="/eventos/nuevo"
@@ -83,6 +89,21 @@ export default async function EventosPage() {
             Publicar evento
           </Link>
         </div>
+
+        {provinciasConEventos.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2 mb-8">
+            <span className="text-white/40 text-sm mr-1">Por provincia:</span>
+            {provinciasConEventos.map((p) => (
+              <Link
+                key={p}
+                href={`/autos-clasicos/${slugProvincia(p)}#eventos`}
+                className="px-3 py-1.5 rounded-full border border-white/15 text-white/70 text-xs hover:border-[#D4A847] hover:text-[#D4A847] transition-colors"
+              >
+                {p}
+              </Link>
+            ))}
+          </div>
+        )}
 
         {proximos.length === 0 && (
           <div className="bg-white/5 rounded-2xl border border-white/10 p-8 text-center mb-10">
