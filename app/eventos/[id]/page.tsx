@@ -38,7 +38,7 @@ export default async function EventoDetallePage({ params }: Props) {
   const { data: evento } = await supabase
     .from("eventos")
     .select(`
-      id, titulo, descripcion, fecha_evento, lugar, ciudad, provincia, foto_url, organizador_id,
+      id, titulo, descripcion, fecha_evento, lugar, ciudad, provincia, foto_url, organizador_id, tipo,
       clubes ( id, nombre ),
       profiles ( nombre )
     `)
@@ -94,6 +94,9 @@ export default async function EventoDetallePage({ params }: Props) {
         )}
 
         <div className="bg-white/5 rounded-2xl border border-white/10 p-6 space-y-4">
+          {evento.tipo === "subasta" && (
+            <span className="inline-block px-2 py-0.5 rounded bg-[#D4A847] text-black text-xs font-bold uppercase tracking-wide">Subasta</span>
+          )}
           <h1 className="text-2xl font-bold text-white">{evento.titulo}</h1>
 
           <div className="flex flex-wrap gap-2">

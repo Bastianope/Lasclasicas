@@ -33,7 +33,7 @@ async function cargarDatos(provincia: string) {
       .limit(12),
     supabase
       .from("eventos")
-      .select("id, titulo, fecha_evento, lugar, ciudad, provincia")
+      .select("id, titulo, fecha_evento, lugar, ciudad, provincia, tipo")
       .or(filtro)
       .gte("fecha_evento", hoy.toISOString())
       .order("fecha_evento", { ascending: true }),
@@ -118,7 +118,10 @@ export default async function ProvinciaPage({ params }: { params: { provincia: s
                 <li key={e.id}>
                   <Link href={`/eventos/${e.id}`} className="block bg-white/5 rounded-xl border border-white/10 hover:border-[#D4A847] p-4 transition-colors">
                     <p className="text-[#D4A847] text-xs font-semibold">{primeraMayuscula(fecha)}</p>
-                    <p className="font-semibold text-white">{e.titulo}</p>
+                    <p className="font-semibold text-white">
+                      {e.tipo === "subasta" && <span className="mr-2 px-1.5 py-0.5 rounded bg-[#D4A847] text-black text-[10px] font-bold uppercase align-middle">Subasta</span>}
+                      {e.titulo}
+                    </p>
                     <p className="text-white/40 text-xs">{[e.lugar, e.ciudad].filter(Boolean).join(" · ")}</p>
                   </Link>
                 </li>

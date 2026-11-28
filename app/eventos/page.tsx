@@ -7,9 +7,9 @@ import { provinciaCanonica, slugProvincia } from "@/lib/ubicacion";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Agenda de autos clásicos 2026–2027: encuentros y exposiciones en Argentina",
+  title: "Agenda de autos clásicos 2026–2027: encuentros, exposiciones y subastas en Argentina",
   description:
-    "Encuentros, exposiciones y rallies de autos clásicos y antiguos en toda Argentina: fechas, lugares y detalles, provincia por provincia. Publicá tu evento gratis.",
+    "Encuentros, exposiciones, rallies y subastas de autos clásicos y antiguos en toda Argentina: fechas, lugares y detalles, provincia por provincia. Publicá tu evento gratis.",
   alternates: { canonical: "/eventos" },
 };
 
@@ -45,6 +45,9 @@ function TarjetaEvento({ evento, pasado }: { evento: any; pasado?: boolean }) {
         )}
       </div>
       <div className="p-4">
+        {evento.tipo === "subasta" && (
+          <span className="inline-block mb-1 mr-2 px-2 py-0.5 rounded bg-[#D4A847] text-black text-[10px] font-bold uppercase tracking-wide">Subasta</span>
+        )}
         {fecha && <p className="text-[#D4A847] text-xs font-semibold mb-1">{primeraMayuscula(fecha)}</p>}
         <h3 className="font-semibold text-white text-sm mb-2 line-clamp-2">{evento.titulo}</h3>
         {lugar && <p className="text-white/40 text-xs">{lugar}</p>}
@@ -60,7 +63,7 @@ export default async function EventosPage() {
   const { data: eventos } = await supabase
     .from("eventos")
     .select(`
-      id, titulo, descripcion, fecha_evento, lugar, ciudad, provincia, foto_url,
+      id, titulo, descripcion, fecha_evento, lugar, ciudad, provincia, foto_url, tipo,
       clubes ( nombre )
     `)
     .order("fecha_evento", { ascending: true });
@@ -80,7 +83,7 @@ export default async function EventosPage() {
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="text-2xl font-bold text-white">Agenda de autos clásicos</h1>
-            <p className="text-white/40 text-sm mt-1">Encuentros, exposiciones y rallies de clásicos y antiguos en todo el país.</p>
+            <p className="text-white/40 text-sm mt-1">Encuentros, exposiciones, rallies y subastas de clásicos y antiguos en todo el país.</p>
           </div>
           <Link
             href="/eventos/nuevo"

@@ -17,6 +17,7 @@ export default function CrearEventoForm() {
   const [provincia, setProvincia] = useState("");
   const [fotoUrl, setFotoUrl] = useState("");
   const [clubId, setClubId] = useState("");
+  const [tipo, setTipo] = useState<"encuentro" | "subasta">("encuentro");
   const [error, setError] = useState<string | null>(null);
   const [enviando, setEnviando] = useState(false);
 
@@ -49,6 +50,7 @@ export default function CrearEventoForm() {
       provincia,
       foto_url: fotoUrl || null,
       club_id: clubId || null,
+      tipo,
       organizador_id: user.id,
     }).select("id").single();
 
@@ -64,6 +66,18 @@ export default function CrearEventoForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label className="block text-white/50 text-xs mb-1">Tipo de evento</label>
+        <div className="flex gap-2">
+          {([["encuentro", "Encuentro o exposición"], ["subasta", "Subasta"]] as const).map(([valor, texto]) => (
+            <button key={valor} type="button" onClick={() => setTipo(valor)}
+              className={`px-4 py-2 rounded-xl text-sm border transition-colors ${tipo === valor ? "bg-[#D4A847] text-black border-[#D4A847] font-semibold" : "border-white/15 text-white/70 hover:border-[#D4A847]"}`}>
+              {texto}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div>
         <label className="block text-white/50 text-xs mb-1">Título</label>
         <input type="text" required value={titulo} onChange={(e) => setTitulo(e.target.value)}
