@@ -3,6 +3,7 @@ import { EMAIL_CONTACTO, FACEBOOK_URL } from "@/lib/sitio";
 
 const LINKS = [
   { href: "/anuncios", label: "Anuncios" },
+  { href: "/autos-clasicos", label: "Por provincia" },
   { href: "/guias", label: "Guías" },
   { href: "/lugares", label: "Lugares míticos" },
   { href: "/eventos", label: "Eventos" },
